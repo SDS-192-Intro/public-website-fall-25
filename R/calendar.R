@@ -6,7 +6,7 @@ print_calendar <- function(major_due_dates, annotation_due_dates, m) {
   annotation_due_dates_m <- annotation_due_dates %>% filter(month == m)
   
   
-  print(calendR(year = 2024, 
+  print(calendR(year = 2025, 
           month = m,       # Year and month
           start = "M",     # Start the week on Sunday
           text = major_due_dates_m$assignment, 

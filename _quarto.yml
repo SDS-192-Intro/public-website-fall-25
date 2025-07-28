@@ -5,16 +5,14 @@ project:
 website:
   navbar:
     background: primary
-    title: "SDS 237: Data Ethnography"
+    title: "SDS 192: Introduction to Data Science"
     right:
       - text: "Syllabus"
         href: index.html
-      - text: "Grading Contract"
-        href: grading_contract.html
       - text: "Assignments"
         href: assignments.html
-      - text: "Learning Dimensions"
-        href: learning_dimensions.html        
+      - text: "Labs"
+        href: labs.html
       - text: "Schedule"
         href: schedule.html
 

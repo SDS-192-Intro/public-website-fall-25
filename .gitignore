@@ -40,3 +40,9 @@ vignettes/*.pdf
 .DS_Store
 
 /.quarto/
+/labs
+/_solutions
+
+/labs
+/solutions
+2011.csv

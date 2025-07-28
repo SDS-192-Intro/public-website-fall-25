@@ -1,5 +1,5 @@
 ---
-title: "SDS 237: Data Ethnography"
+title: "SDS 192: Introduction to Data Science"
 author: "Lindsay Poirier"
 date: "Last updated on `r Sys.Date()`"
 ---
@@ -13,21 +13,13 @@ library(bsplus)
 library(htmltools)
 ```
 
-::: float_image_right
-```{r, out.width = "200px", fig.cap='Course logo designed by Zoe Scheffler, Fall \'21'}
-knitr::include_graphics("img/sds237logo.png")
-```
 
-:::
+Data science involves applying a set of strategies to transform a recorded set of values into something from which we can glean knowledge and insight. This course will introduce you to concepts and methods from the field of data science, along with how to apply them in `R`. You will learn how to acquire, clean, wrangle, and visualize data. You will also learn best practices in data science workflows, such as code documentation and version control. Issues in data ethics will be addressed throughout the course.
 
-Without rich documentation, quantitative data can strip away critical context needed to interpret values responsibly. This course introduces students to the theory and practice of data ethnography, demonstrating how qualitative data collection and analysis can be brought to bear on the study of data settings and artifacts. Through experiential exercises, students will learn techniques in field-note writing, participant observation, in-depth interviewing, documentary analysis, and archival research and how they may be used to contextualize the cultural underpinnings of datasets. Students will learn how to visualize datasets in ways that foreground their socio-political provenance in R. Students will also learn how ethnographic methods can be leveraged to improve data documentation and communication. The course will introduce debates regarding the politics of techno-scientific fieldwork. Upon completion of this course, you should be able to:
+Classes will be held on Mondays from 1:40 PM to 2:55 PM and on Wednesday and Thursdays from 1:20 PM to 2:35 PM.
 
-1. Recognize, interpret, and communicate the cultural underpinnings of data resources, infrastructures, and practices
-2. Define and engage principal methods of ethnography and communicate when and how they may be used in the study of data
-3. Strategically apply relevant ethnographic methods to the study of a data setting or artifact
-4. Produce data documentation and visualizations that account for the cultural contexts of data production, categorization, measurement, and use
+SDS 100: Reproducible Scientific Computing with Data is a co-requisite for this course and designed to help support you in coding in `R`. Please note that I walk into this course with the assumption that most students have never coded before. Coding for the first time can be intimidating, but I intend do everything in my power to support you through the learning curve and to make things both fun and relevant in the process. I personally picked up most of my data science skills through a lot of trial-and-error, practice, and curiosity. My hope is that, in this course, you will learn through experimentation, along with independent and collaborative problem-solving. Honing these competencies will serve you as you move on to other courses in the SDS program and/or at Smith.
 
-Classes will be held on Tuesdays and Thursdays from 2:45 PM to 4:00 PM. 
 
 ## Course Instructor
 
@@ -40,7 +32,7 @@ knitr::include_graphics("https://lindsaypoirier.github.io/images/profile.png")
 ```
 :::
 
-I am a cultural anthropologist that studies how civic data gets produced, how communities think about and interface with data, and how data infrastructure can be designed more equitably. My Ph.D. is in an interdisciplinary discipline called Science and Technology Studies - a field that studies the intricate ways science, technology, culture, and politics all co-constitute each other. I work on a number of collaborative research projects that leverage public data to deepen understanding of social and environmental inequities in the US, while also qualitatively studying the politics behind data gaps and inconsistencies. As an instructor, I prioritize active learning and often structure courses as flipped classrooms. You can expect in-class time to predominantly involve group activities and live problem-solving exercises.
+I am a cultural anthropologist that studies how civic data gets produced, how communities think about and interface with data, and how data infrastructure can be designed more equitably. My Ph.D. is in an interdisciplinary discipline called Science and Technology Studies - a field that studies the intricate ways science, technology, culture, and politics all co-constitute each other. I work on a number of collaborative research projects that leverage public data to deepen understanding of social and environmental inequities in the US, while also qualitatively studying the politics behind data gaps and inconsistencies. As an instructor, I prioritize active learning and often structure courses as flipped classrooms. You can expect in-class time to involve lectures, activities, and labs.
 
 ### Getting in Touch
 
@@ -48,7 +40,7 @@ I am a cultural anthropologist that studies how civic data gets produced, how co
 
 #### Slack
 
-I can best support students in this course when I can readily keep tabs on our course-related communication. Because of this, I ask that you please don't email me regarding course-related questions or issues. The best way to get in touch with me is via our course Slack. If you have course-related questions, I encourage you to ask them in the `#sds-237-questions` channel. When discretion is needed, feel free to DM. Please reserve more formal concerns like grades or accommodation requests for an in-person (or in-person virtual) conversation.
+I can best support students in this course when I can readily keep tabs on our course-related communication. Because of this, I ask that you please don't email me regarding course-related questions or issues. The best way to get in touch with me is via our course Slack. If you have course-related questions, I encourage you to ask them in the `#sds-192-questions` channel. When discretion is needed, feel free to DM. Please reserve more formal concerns like grades or accommodation requests for an in-person (or in-person virtual) conversation.
 
 *During the week, I will try my best to answer all Slack messages within 24 hours of receiving them. Please note that to maintain my own work-life balance, I don't answer Slack messages late in the evenings or on the weekends. It's important that you plan when you start your assignments accordingly.*
 
@@ -58,8 +50,8 @@ Meeting with me outside of class is a great opportunity for us to chat about wha
 
 There are two ways to meet with me. If you would like to have a one-on-one private conversation, I ask that you schedule an appointment with me via the [booking form on Moodle](https://moodle.smith.edu/mod/url/view.php?id=1187527). For support on class topics, you may drop-in during my regularly scheduled office hours.
 
--   Tuesday, 1:30PM-2:30PM, McConnell 214
--   Thursday, 4:15-5:15PM, McConnell 214
+-   Wednesday, 2:45 PM - 3:45 PM, McConnell 214
+-   Friday, 11:00 AM - 12:00 PM, McConnell 214
 
 :::
 
@@ -69,7 +61,15 @@ I will make all course readings available on Perusall, which can be accessed thr
 
 ## Assessment
 
-This course will be graded via a [grading contract](grading_contract.html).
+- Course Syllabus Quiz: 3%
+- Reading Quizzes: 5%
+- Problem Solving Lab: 2%
+- Labs (10): 30%
+- Projects (3): 30%
+- Mid-term Exam: 15%
+- Final Exam: 15%
+
+Also note that your grade may be impacted if you have more than 3 unexcused absences. See the course Attendance Policy below.
 
 ::: callout-tip
 ## Jacobson Center
@@ -82,13 +82,12 @@ Smith's [Jacobson Center](https://www.smith.edu/academics/jacobson-center) asser
 ::: panel-tabset
 ### Preparation
 
-This is a 4-credit course with 3 hours per week of in-classroom instructions. Smith expects students to devote 9 out-of-class hours per week to 4-credit classes. I have designed the course assignments and selected the course readings with this target in mind.
+This is a 4-credit course with 4.5 hours per week of in-classroom instructions. Smith expects students to devote 7.5 out-of-class hours per week to 4-credit classes. I have designed the course assignments and selected the course readings with this target in mind.
+
 
 ### Attendance
 
-Because this course aims to hone certain critical thinking skills, much of the learning happens in class, in collaboration with peers. Attendance in class is both important for your own learning, and for your peers' learning, as we will spend a good chunk of time in class engaging in group activities and discussions. 
-
-Attendance will be taken each class period. That said, we all have reasons we can't be available from time-to-time. You may miss **three classes with no penalty**. You do not need to inform me that you will be absent in these cases, but you should let your group members know. After the third unexcused absence, your grade may drop by a modifier for each class missed. I understand that you may need to be absent beyond these three sessions. Additional absences may be excused due to family/personal difficulties, sickness, or school or career-related activities; however, I will require some form of documentation for these absences. Please speak with your class dean or the Accessibility Resource Center so that we can get documentation of your need.
+Attending class is not only important for your learning but also an act of community. Attendance will be taken each class period. That said, we all have reasons we can't be available from time-to-time. You may miss **three classes with no penalty**. You do not need to inform me that you will be absent in these cases. After the third unexcused absence, your grade may drop by a modifier for each class missed. I understand that you may need to be absent beyond these three sessions. Additional absences may be excused due to family/personal difficulties, sickness, or school or career-related activities; however, I will require some form of documentation for these absences. Please speak with your class dean or the Accessibility Resource Center so that we can get documentation of your need.
 
 I also ask that you make every effort to arrive to class on time. This is a large course, and when students arrive late, it can be distracting for me as the instructor, and it can be distracting to other students in the course. It also makes it difficult for me to plan group activities. Students arriving more than 10 minutes late for class without having informed me ahead of time will be marked as absent.
 
@@ -98,9 +97,7 @@ If you must miss a class entirely, you should contact a peer to discuss what was
 
 ### Extensions
 
-This course aims to support you in learning to become more perceptive to data environments surrounding you. Because of this I've deliberately spread course assignments out over the semester in order to help you gain practice in consistently paying attention to these environments. This critical mode of thinking can't be cultivated effectively if the work is being crammed into later parts of the semester. Further, because this course emphasizes student growth over achievement, I also want to ensure that I can provide feedback on your writing in time for you to incorporate it into future assignments. 
-
-There is a 24-hour grace period on all written assignments. There will be no penalties for submitting the written assignment within this 24-hour period, and you do not need to inform me that you intend to take the extra time. You can also request up to a 72-hour extension on any written assignment, as long *as you make that request at least 48 hours before the original assignment due date*. You can request an extension by filling out the [Extension Request form](https://moodle.smith.edu/mod/questionnaire/view.php?id=1187526) on Moodle, and I will confirm your extension on Slack. Beyond this, late assignments will not be accepted. 
+There is an automatic 24-hour **grace period** on all *lab and project assignments*. There will be no penalties for submitting the project within this 24-hour period, and you do not need to inform me that you intend to take the extra time. You can also request up to a 72-hour **extension** on any project or lab assignment, as long *as you make that request at least 48 hours before the original assignment due date*. You can request an extension by filling out the Extension Request form on Moodle, and I will confirm your extension on Slack. Beyond this, late assignments will not be accepted without an accommodation from a class dean or from the ARC.
   
 Note that this policy does not apply to reading assignments/Perusall annotations. *Reading assignments/Perusall annotations need to be completed by the due date for credit.*
 
@@ -119,13 +116,9 @@ Any cases of dishonesty or plagiarism will be reported to the Academic Honor Boa
 
 ### Generative AI
 
-The use of generative artificial intelligence tools is becoming increasingly ubiquitous in a number of domains of work. Despite the urge to push forward with this innovative technology, there are both pedagogical and social reasons that I do not allow students to use generative AI in the context of this course. 
+In this course, you are learning, not only how to produce code, but also how to think like a data scientist - i.e. how to develop logical solutions to problems, how to discern a good plot from a bad one, and how to spot errors in reasoning that can lead to misleading results. If you are using generative AI to write your code, then you are not developing these foundational skills. Further, it's important to keep in mind that, as generative AI is increasingly replacing entry level data science labor, some of the most important jobs in data science will involve being able to explain how an AI came to its results and to audit AI for errors and bias. If you don't develop the skills to understand how the underlying code is composed/works, then you will not be prepared for this kind of work. 
 
-This course aims to facilitate the development of your ability to think critically and express your ideas with care. The depth of your learning in this course cannot be assessed if Generative AI is aiding or doing this work for you. This course also encourages reflexivity - i.e. I will ask you often throughout the semester to reflect on and communicate your personal standpoint and how it impacts the way you write about cultural phenomenon. Since many generative AI algorithms act as "black boxes" (i.e. we don't fully know what data they were trained on and how they operate internally) it's not possible to be fully account for the standpoint from which generative AI text was generated.
-
-Further, there are countless unresolved social concerns that stem from the use of generative AI - from the [loss of cultural heritage](https://issues.org/generative-ai-cultural-narratives-rettberg/), to the [limiting of human aspirations and viewpoints](https://issues.org/ai-limits-human-aspiration-dick-chun-canute/), to the [lack of formal mechanisms for regulating its potential social harms](https://issues.org/ai-ethics-human-experimentation-taylor/). Generative AI models often undermine scholarly values of credit by training on data harvested from across the internet that content creators have not provided express permission to use for these purposes. As an example, several academic journal articles that I have written were [recently sold to Microsoft AI](https://www.thebookseller.com/news/academic-authors-shocked-after-taylor--francis-sells-access-to-their-research-to-microsoft-ai); I did not have an opportunity to opt out of this, and I will not receive any compensation for my contributions. [Copyright laws](https://issues.org/generative-ai-copyright-law-crawford-schultz/) have not been able to keep pace with the technology. This course will teach you how to interrogate how these kinds of social harms can emerge from data-based systems and imagine opportunities for mitigating them; the course itself suggests taking a precautionary approach in the absence of regulation and other safeguards. 
-
-**Accordingly, any use of generative artificial intelligence in this course will be considered a case of academic dishonesty/plagiarism and will be reported to the Academic Honor Board.**
+**With this in mind, any use of generative AI to complete assignments or produce content for this course is prohibited. Prohibited forms of usage include but are not limited to: summarizing course readings, drafting responses to written prompts, drafting comments for Slack, composing code, formatting code, answering lab, quiz, or exam questions, or proofreading text. Any use of generative artificial intelligence in this course will be considered a case of academic dishonesty/plagiarism and will be reported to the Academic Honor Board.**
 
 :::
 
@@ -150,7 +143,7 @@ I hope that we can foster a collaborative and caring environment in this classro
 -   Consider when to step up and when to step back in class discussions, creating space for others to contribute. Listening is just as important to community-building as speaking.
 -   Acknowledge that there is much we don't know about how our colleagues experience the world. ...but don't ask colleagues to speak on behalf of a social group you perceive them to be a part of.
 -   Cheer on colleagues as they give presentations or try something out for the first time.
--   Ask questions often in our `#sds-237-questions` channel. Help each other out by answering questions when you can.
+-   Ask questions often in our `#sds-192-questions` channel. Help each other out by answering questions when you can.
 -   Mistakes happen. I will certainly make mistakes in class. Admit mistakes, and then move on.
 
 ### Pronouns
@@ -186,18 +179,22 @@ Grades, forms, and handouts will be available on the course Moodle.
 
 All course readings and recorded lectures will be available on Perusall. You can access Perusall via our course Moodle page.
 
-### Google Drive
+### GitHub
 
-This semester, you will submit all of your assignments in a Google Drive folder that you will create on the first day of class. You can write your assignments in Google Docs, or you can work on your own computer and upload files to Google Drive. I just need to be able to open the files on my computer.
+I will be using GitHub Classroom to distribute several course assignments, and you will submit assignments by pushing changes to template documents to a private GitHub repository. I will provide guidance on how to do this early in the semester.
+
+## RStudio/RStudio Server
+
+This class will use the `R` statistical software package. If you haven't already, you will install and configure `R` and RStudio in SDS 100. You should let me know in the first week of the course if you are using a Chromebook or tablet.
+
 
 ### Slack
 
 Outside of class almost all of our communication will happen via Slack. You can use the following channels 
 
 -   `#general`: Course announcements (only I can post)
--   `#sds-237-discussions`: Share news articles and relevant opportunities
--   `#sds-237-questions`: Ask and answer questions about our course
--   `#sds-237-class-notes`: Find notes that a designated student took for our class on a given day
+-   `#sds-192-discussions`: Share news articles and relevant opportunities
+-   `#sds-192-questions`: Ask and answer questions about our course
 -   You can also create private Slack channels with your project group members.
 
 :::
