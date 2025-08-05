@@ -16,9 +16,9 @@ After reading the syllabus, you should complete the 20 question syllabus quiz in
 
 I've selected 10 readings that correspond to 10 different units we will engage in class. Reading ahead of class will help introduce you to the language you will see in class. Lectures and class activities will reinforce the concepts that you learn in the reading. All readings will be posted in Perusall with a very short reading quiz. Reading quizzes are graded based on **completion**, not on **correctness**. They are designed to let me know ahead of time which concepts students understand from the reading and which concepts they are struggling with. They also help you understand which concepts you may want to study/practice further. 
 
-## Problem Solving Lab (2%)
+## Course Infrastructure Set-up (2%)
 
-This course's problem solving lab introduces you to how to solve problems with code - from understanding error messages to getting help on Slack to referencing online resources. The lab will be completed in RStudio and submitted via GitHub classroom. The problem solving lab is graded on **completion**. You may lose points for incomplete sections.
+In this course, you will submit most assignments via GitHub. The course infrastructure set-up will help you configure RStudio to easily push assignments to GitHub. This assignment is graded on **completion**. 
 
 ## Labs (30%)
 
@@ -35,7 +35,3 @@ The mid-term exam will be graded on **correctness**. Note that after you receive
 ## Final Exam (15%)
 
 The final exam will be a cumulative exam that assesses your understanding of concepts covered throughout the course. The final exam will be graded on **correctness**.
-
-
-
-## Final Exam (15%)
