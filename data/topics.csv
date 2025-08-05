@@ -1,7 +1,7 @@
 topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional_reading,opt_chapter,writing_assignment,project_assignment,slides,link,code,future
 1,data_science,What is Data Science?,9/5/25,,,,,,,,,[Spinelli Center](https://www.smith.edu/qlc/tutoring.html);[Getting Started with Slack](https://slack.com/help/articles/218080037-Getting-started-for-new-Slack-users),,
 2,datasets_variables,Data Fundamentals,9/8/25,,,,,,Fill out [First Day of Class Questionnaire](https://moodle.smith.edu/mod/questionnaire/view.php?id=1334053) in Moodle;Contact me if you will be using a Chromebook;Create a [GitHub account](https://github.com/) if you don't have one; Accept SDS 192 Labs Assignment(https://moodle.smith.edu/mod/url/view.php?id=1334060),,,,,
-3,intro_r,Introduction to R,9/10/25,,irizarryIntroductionDataScience2022,2. R Basics,,,Complete Syllabus Quiz in Perusall,,,,,
+3,intro_r,Introduction to R,9/10/25,,ismayModernDiveStatistical2021,Getting Started,,,Complete Syllabus Quiz in Perusall,,,,,
 4,datasets_lab,Lab: Understanding Datasets,9/12/25,,,,,,Complete [Course Infrastructure Set-Up](infrastructure-setup.html),,,[Lab 1 Instructions](labs/lab1.html),[Lab 1 Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab1.qmd),
 5,grammar_graphics,Grammar of Graphics,9/15/25,,baumerModernDataScience2021,2. Data Visualization,,,,,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf,,
 6,viz_conventions,Visualization Conventions,9/17/25,,,,,,[Lab 1](labs/lab1.html) Due,,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf,,
@@ -9,7 +9,7 @@ topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional
 8,frequency_Plots,Frequency Plots,9/22/25,,ismayModernDiveStatistical2021,2. Data Visualization,,,,Project 1 Assigned,,,,
 9,boxplots,Boxplots,9/24/25,,,,,,[Lab 2](labs/lab2.html) Due,,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf,[Lab 2 Templates](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab2.qmd),
 10,visualization_lab,Lab: Visualizing Data,9/26/25,,,,,,,Group Contract Due,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf,,
-11,open_source,Introduction to Open Source,9/29/25,,,,,,,,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf;[Lab 3 Instructions],,
+11,open_source,Introduction to Open Source,9/29/25,,bryanExcuseMeYou2018,,,,,,,[ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf;[Lab 3 Instructions],,
 12,github,Introduction to git and GitHub,10/1/25,,,,,,[Lab 3] Due,,,,[Lab 3 Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab3.qmd),
 13,github_lab,Lab: Collaborating via GitHub,10/3/25,,,,,,,,,[Lab 4 Instructions](labs/lab4.html),,
 14,subsetting,Subsetting Data,10/6/25,,ismayModernDiveStatistical2021,3. Data Wrangling,,,,,,[dplyr Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf),,
