@@ -78,6 +78,14 @@ Write code below to perform four kinds of joins - a left join, a right join, and
 
 #joined_full <- echo_water_ca_agg |> 
 ```
+```{r unnamed-chunk-9}
+#| document: show
+joined_full |> head()
+```
+```{r unnamed-chunk-10}
+#| document: show
+nrow(joined_inner)
+```
 ###### Question 4
 
 The three statements below are incorrect. Correct my statements below about the remaining joins. 

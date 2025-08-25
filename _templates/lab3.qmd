@@ -92,7 +92,7 @@ hmda_ms_2024 <- read.csv("https://ffiec.cfpb.gov/v2/data-browser-api/view/csv?st
 
 ```
 ###### Question 1
-In the code below, determine the variable that should appear on the x-axis, along with the geom function that can be used to create a bar plot. Fill in the blanks to ensure your plot has the appropriate context.
+In the code below, create a bar plot that visualizes how many home loans were for home purchases vs. the number for home improvements. Determine the variable that should appear on the x-axis, along with the geom function that can be used to create a bar plot. Fill in the blanks to ensure your plot has the appropriate context.
 
 ```{r unnamed-chunk-2}
 #| eval: false
@@ -113,7 +113,7 @@ Create a plot below that counts the number of applicants of each race. Be sure t
 # Create plot here
 ```
 ###### Question 3
-In the code below, determine the variable that should appear on the x-axis, along with the geom function that can be used to create a histogram. Set the binwidth to create numeric intervals of 100000. Fill in the blanks to ensure your plot has the appropriate context.
+In the code below, create a histogram that visualizes the distribution of loan amounts. Determine the variable that should appear on the x-axis, along with the geom function that can be used to create a histogram. Set the binwidth to create numeric intervals of 100000. Fill in the blanks to ensure your plot has the appropriate context.
 
 ```{r unnamed-chunk-6}
 #| eval: false
@@ -179,6 +179,25 @@ hmda_ms_2024 |>
        caption = _________) +
   theme_minimal() 
   
+```
+```{r unnamed-chunk-16}
+#| document: show
+hmda_denial_by_race <-
+  hmda_ms_2024 |>
+  group_by(derived_race) |>
+  summarize(total_denied = sum(action_taken == "Application denied"),
+            percent_denied = sum(action_taken == "Application denied")/n())
+
+hmda_denial_by_race_sex <-
+  hmda_ms_2024 |>
+  filter(derived_race != "Free Form Text Only") |> #There were only 3 denials with free form text for race in MS in 2024, and they have been removed here for plot legibility
+  group_by(derived_race, derived_sex) |>
+  summarize(total_denied = sum(action_taken == "Application denied"),
+            percent_denied = sum(action_taken == "Application denied")/n())
+
+hmda_denial_by_race
+hmda_denial_by_race_sex
+
 ```
 ###### Question 8
 In the code below, fill in the blanks to set the height of each bar to the percent of individuals in a particular race whose mortgage was denied. Select a geom function to create a column chart. Be sure to fill in the correct labels.

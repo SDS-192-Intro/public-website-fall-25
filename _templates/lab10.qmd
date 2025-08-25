@@ -1,5 +1,5 @@
 ---
-title: 'Lab 10: APIs'
+title: 'Lab 10: Polygon Mapping in Leaflet'
 format:
   html:
     embed-resources: true
@@ -12,179 +12,195 @@ knitr:
 
 ```{r unnamed-chunk-1}
 #| document: show
-library(httr)
 library(tidyverse)
 library(leaflet)
 library(sf)
+library(tigris)
+library(tidycensus)
+library(RColorBrewer)
 ```
 ###### Question 1
-Write an API query to access data at the endpoint <https://data.cityofnewyork.us/resource/erm2-nwe9> in a CSV format. Let's not worry about adding parameters yet. The resulting data frame should look something like my data frame below.
 
-```{r unnamed-chunk-4}
-# Code below!
+Read the help pages for `get_decennial()`. Load census data at the county level for `variable` 'P1_004N' (Total Population: Population of one race: Black or African American alone). You should set the `state` to 'LA', the `geometry` to `TRUE`, and the `summary_var` to 'P1_001N' (Total Population). We will eventually use these two tables to calculate the percentage of the population that identifies as Black on the census. 
 
-#nyc_311 <- read_csv(<URL HERE!>)
-#head(nyc_311)
+Repeat and edit the code to get the same data at the tract level.
+
+
+```{r unnamed-chunk-2}
+#| eval: false
+census_counties <- get_decennial(geography = ______,
+                                 variables = ______,
+                                 state = _____,
+                                 summary_var = _____,
+                                 geometry = _____)
+
+
+census_tracts <- get_decennial(_____)
+
 ```
 ###### Question 2
-Let's say I wanted to access data at the endpoint <https://data.cityofnewyork.us/resource/erm2-nwe9> in a CSV format. Let's not worry about adding parameters yet. Adjust your call above to limit the results to 20 rows of 311 data. The resulting data frame should look something like my data frame below.
 
-```{r unnamed-chunk-6}
-# Code below!
+In the code block below, transform the CRS of both `census_counties` and `census_tracts` to 4326 using `st_transform()`. 
 
-#nyc_311 <- read_csv(<URL HERE!>)
-#head(nyc_311)
+
+```{r unnamed-chunk-5}
+#| eval: false
+
+census_counties <- #Fill code here
+
+census_tracts <- #Fill code here
 ```
 ###### Question 3
-Create an API call to return the unique keys and complaint types for the latest 30 entries in NYC's 311 open dataset. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-nyc_311 %>% 
-  select(unique_key, complaint_type) %>% 
-  head(30)
-```
+I've initialized a map of Louisiana for you below with our basic base tiles. Set the group for these tiles to "Minimal". Note that we will call `addProviderTiles()` to add a second set of base tiles. Set these base tiles to `providers$Esri.WorldImagery` and the group to "Satellite". Add the `addLayersControl()` function and set the base groups to the names of the two groups you just established. 
 
-Plot the counts of complaint types as a barplot. It should look something like my plot below. 
+Your map should match mine below.
 
 
-```{r unnamed-chunk-8}
-# Code below!
-# nyc_311_unique_keys <- read_csv(<URL HERE!>)
-# Plot here!
+```{r unnamed-chunk-10}
+#| eval: false
+
+la_map <- leaflet(width = "100%") %>%
+  setView(lat = 30.5191, lng = -91.5209, zoom = 6) %>%
+  addProviderTiles(providers$CartoDB.Positron, group = ______) %>%
+  addProviderTiles(______, group = ______) %>%
+  _____(
+    baseGroups = c("_____","_____"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+
+la_map
 ```
 ###### Question 4
-Create an API call to return the unique keys, created dates, incident addresses, and BBLs (this is a unique ID for the tax lot of a building in NYC) for rows with complaint type "Food Poisoning" in Manhattan's community district 5 (which hosts Times Square and other major NYC tourist attractions). Limit the results to 3000 entries in NYC's 311 open dataset. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-    nyc_311 %>% 
-      select(unique_key, created_date, incident_address, bbl) %>% 
-      filter(complaint_type == "Food Poisoning" & 
-              community_board == "05 MANHATTAN") %>% 
-      head(3000)
-      
-```
-
-Wrangle the resulting data frame to determine the 5 addresses with the most food poisoning complaints in this community district. It will look something like my data frame below.
+Using a data wrangling verb, add a column to each census data frame that calculates the percentage of the population in each census county/tract that identifies as Black. To do so, you will need to divide the Black population stored in `value` by the total population `summary_value` and multiply by 100. 
 
 
-```{r unnamed-chunk-12}
-# Code below!
-# nyc_311_food_poisoning <- read_csv(<URL HERE!>)
+```{r unnamed-chunk-13}
+#| eval: false
+
+census_counties <- #Fill code here
+
+census_tracts <- #Fill code here
+  
 ```
 ###### Question 5
-Order the previous result in descending order by created date, and the subset to the 500 most recent complaints. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-    nyc_311 %>% 
-      select(unique_key, created_date, incident_address, bbl) %>% 
-      filter(complaint_type == "Food Poisoning" & 
-              community_board == "05 MANHATTAN") %>% 
-      arrange(desc(created_date)) %>%
-      head(500)
-```
-
-Wrangle the resulting data frame to determine the count of complaints at each BBL, and order the results by the count. Store the data frame in `nyc_311_food_poisoning_ordered_counts`. 
-
-I've written an API query to return most recent restaurant grades for restaurants in Manhattan's community district 5. Join the two data frames by the `bbl`. 
-
-> Note that there can be more than one restaurant on a particular tax lot. This means that, if there were x number of Food Poisoning complaints at a particular lot, those complaints may have been associated with any number of restaurants at that lot. BBL is the most specific field we have available for identifying the location associated with a complaint in 311. This means that we are most likely going to have a one-to-many join, and we need to be careful when making assumptions about associations across the datasets.
-
-Your resulting data frame should look something like mine below. 
+Copy the palette and map that I created above, which colored counties by the total Black population. Adjust the code to color the counties by the variable you created to record the percent Black population. 
 
 
-```{r unnamed-chunk-14}
-# Code below!
-# nyc_311_food_poisoning_ordered <- read_csv(<URL HERE!>)
-# nyc_311_food_poisoning_ordered_counts <- <WRANGLE HERE!>
+```{r unnamed-chunk-15}
+#| eval: false
 
-restaurant_inspections <- read_csv("https://data.cityofnewyork.us/resource/43nn-pn8j.csv?$where=community_board=%27105%27%20AND%20grade%20IS%20NOT%20NULL&$select=camis,dba,bbl,grade,max(grade_date)&$group=camis,dba,bbl,grade&$limit=3000")
+pal_bin_census_county_perc <- #Create county palette here
 
-# Join datasets here!
+#Create county map here 
+  
 ```
 ###### Question 6
-Create an API call to return the unique keys, incident addresses, and created dates for rows with complaint type "Construction Lead Dust" that were created in October 2022. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-    nyc_311 %>% 
-      select(unique_key, created_date, incident_address)
-      filter(complaint_type == 'Construction Lead Dust' & 
-              created_date > '2022-10-01' &     
-              created_date < '2022-10-30')
-```
+Copy the palette and map that you created above. Create a second palette to color polygons by the percent Black population in census tracts. 
 
-Once you get this working, write a function called `get_construction_lead_dust_complaints`. This function will take a `borough` as an argument, and should construct a string URL that will further filter the data to a given borough (hint: you will need the function `paste0` to construct this string). In your function, read the data frame using `read_csv` and return the data frame. 
+Pipe a second `addPolygons()` function call and a second `addLegend()` function call onto your map. Copy arguments from the previous function calls and adjust them to color the polygons in this second call by the percent Black population in **census tracts**. 
 
-I've created a vector of three NYC boroughs for you. Iterate your function over this vector, returning the results as a data frame with rows bound. Your resulting data frame should look something like mine below. 
+Finally, in change the `weight` of the **county** polygons to 2 so that we can differentiate the borders of our census counties from our census tracts. 
 
-              
 
-```{r unnamed-chunk-16}
-# Code below!
-# nyc_311_construction_lead_dust <- read_csv(<URL HERE!>) 
-# get_construction_lead_dust_complaints <- <FUNCTION HERE!>
 
-boroughs <- c("MANHATTAN", "BROOKLYN", "BRONX")
 
-# Write code to iterate function here!
+```{r unnamed-chunk-17}
+
+# Copy the palette you created above for census counties here
+
+# Create palette for census tracts here
+
+# Copy the map you created above here and adjust according to the prompt
+
 ```
 ###### Question 7
-Create an API call to return the counts per descriptor and borough for the complaint type "Consumer Complaint." In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-    nyc_311 %>% 
-      filter(complaint_type == "Consumer Complaint") %>% 
-      group_by(descriptor,borough) %>% 
-      summarize(count = n())
+Copy the map that you created above into the code chunk below. Add a `group =` argument to each `addPolygons()` and `addLegend()` call; set the group for your county layers as "County" and the group for your tract layers as "Tract".
 
-```
-Pivot the data so that there are separate columns indicating counts for each borough in the dataset. Your data frame will look something like mine below.
-      
+Then pipe the `addLayersControl()` function onto your map. Within this function, set the `baseGroup = ` argument as we did above to `c("Minimal","Satellite")` so that we can toggle between basemaps. Then set the `overlayGroups =` argument to `c("County", "Tract")` so that we can toggle between overlay layers. Add `options = layersControlOptions(collapsed = FALSE)` so that the layer controls appear when we load the map. Add `position = "bottomleft"` so that the layer controls don't overlap with the legends. 
+
+Finally, pipe the function `hideGroup("Tract")` onto the end of your map. This will hide the "Tract" group when we load the map. 
+
 
 ```{r unnamed-chunk-19}
-# Code below!
-# nyc_311_consumer_complaint <- read_csv(<URL HERE!>)
-# Pivot here!
+# Copy map here and adjust according to the prompt
 ```
 ###### Question 8
-Create an API call to return the counts of complaints with the descriptor "Gender Pricing" in each borough, along with the count of distinct incident addresses for these complaints in each borough. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
-```
-    nyc_311 %>% 
-      filter(complaint_type == "Gender Pricing") %>% 
-      group_by(borough) %>% 
-      summarize(count = n(),
-                count_distinct_incident_address = length(unique(incident_address)) )
+Zoom in to the region along the Mississippi River between Baton Rouge and New Orleans. Then toggle the Tract layer on. Notice how there is a higher representation of Black residents residing along the Mississippi River compared to the rest of the counties. Below, explain how this is an example of the ecological fallacy.  
 
-```
-
-Pivot and plot the data to match my plot below.
-      
 
 ```{r unnamed-chunk-21}
-# Code below!
-# nyc_311_gender_pricing <- read_csv(<URL HERE!>)
-# Plot here!
+#| document: show
+
+tri_la_2023 <- read_csv("https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/2023_la.csv", name_repair = make.names) |>
+  filter(X50..UNIT.OF.MEASURE == "Pounds") |>
+  arrange(desc(X107..TOTAL.RELEASES)) |>
+  mutate(chemical_total_text = paste(X37..CHEMICAL, X107..TOTAL.RELEASES, sep = ": ")) |>
+  group_by(X2..TRIFD) |>
+  summarize(X4..FACILITY.NAME = first(X4..FACILITY.NAME),
+            X12..LATITUDE = first(X12..LATITUDE),
+            X13..LONGITUDE = first(X13..LONGITUDE),
+            X23..INDUSTRY.SECTOR = first(X23..INDUSTRY.SECTOR),
+            X107..TOTAL.RELEASES = sum(X107..TOTAL.RELEASES),
+            X..CHEMICAL.TEXT = paste(chemical_total_text, collapse = " <br> "))
+
+tri_la_2023 <- tri_la_2023 %>%
+  st_as_sf(coords = c("X13..LONGITUDE", "X12..LATITUDE"), crs = 4269) %>%
+  st_transform(4326)
+
+pal_bin <- colorBin(palette="YlOrRd", 
+                    domain = tri_la_2023$X107..TOTAL.RELEASES,
+                    bins = 6)
+
+la_map %>%
+  addCircleMarkers(data = tri_la_2023, 
+                   weight = 0.5,
+                   radius = 3,
+                   color = "black",
+                   fillColor = ~pal_bin(X107..TOTAL.RELEASES), 
+                   fillOpacity = 0.8,
+                   popup = ~paste("<b>",
+                                  X4..FACILITY.NAME,
+                                  "</b><br><i>",
+                                  X23..INDUSTRY.SECTOR,
+                                  "</i><br><br>",
+                                  X..CHEMICAL.TEXT),
+                   popupOptions = popupOptions(maxHeight = 200, 
+                                               closeOnClick = TRUE)) %>%
+  addLegend(data = tri_la_2023,
+            title = "TRI Releases in Pounds", 
+            pal = pal_bin, 
+            values = ~X107..TOTAL.RELEASES)
+  
 ```
 ###### Question 9
-Create an API call to return the latitude, longitude, and counts per BBL for the complaint type "HEAT/HOT WATER." Filter out rows where the BBL is '0000000000', and sort the counts in descending order. Filter the results to the rows where the count of heat and hot water complaints is greater than 1000. In other words, translate the following `dplyr` call into a `SoSQL` query:
 
+Copy the last map that you created above visualizing the percent Black population in LA counties and tracts. Then copy my code above to `addCircleMarkers()` for TRI facilities and `addLegend()` for TRI facilities. Pipe these functions onto your map after your `addPolygons()` function calls but before the `addLayersControl()` function call. 
+
+Set the `group = ` argument for the TRI circle markers and the TRI legend to "TRI". Then add "TRI" as an additional group in the `overlayGroups = ` argument in your `addLayersControl()` function. 
+
+
+```{r unnamed-chunk-22}
+# Copy map functions and adjust here
 ```
-    nyc_311 %>%
-      filter(complaint_type == "HEAT/HOT WATER" & 
-              bbl != "0000000000") %>% 
-      group_by(bbl, latitude, longitude) %>% 
-      summarize(count = n()) %>% 
-      arrange(desc(count)) %>%
-      ungroup() %>%
-      filter(count > 1000)
+###### Question 10
+
+Copy the last map that you created above. At the beginning of your code right after calling `la_map`, pipe a `addMapPane()` function twice. In the first function call, set `name = ` argument to "circles" and the `zIndex = ` argument to 420. In the second function call, set `name = ` argument to "polygons" and the `zIndex = ` argument to 410. 
+
+Add the argument `options = pathOptions(pane = "polygons")` to both of your `addPolygons()` function calls, and add the argument `options = pathOptions(pane = "circles")` to your `addCircleMarkers()` function call. 
+
+Adjust your code to hide the "County" map by default.
+
+```{r unnamed-chunk-24}
+# Copy map here and adjust according to the prompt
 ```
+###### Question 11
 
-Convert the result into a geom object, create a palette using the `counts` variable, and map the points via leaflet to match my map below. 
+Zoom in to the region along the Mississippi River between Baton Rouge and New Orleans. Notice how there are at least a few census tracts along the Mississippi River where high-polluting industrial facilities are located, but there is a lower percentage Black population. Explain how the modifiable aerial unit problem may be at play here and why we should consider it in relation to pollution data. 
 
 
-```{r unnamed-chunk-23}
-# Code below!
-# nyc_311_heat_counts <- read_csv(<URL HERE!>) |> st_as_sf()
-# Palette here!
-# Map here!
-```

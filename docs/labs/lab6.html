@@ -355,6 +355,9 @@ Tip
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>echo_water_ca_agg <span class="ot">&lt;-</span> <span class="co">#Copy and adjust code above to create echo_water_ca_agg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="section-1" class="level7">
+<p class="heading"></p>
+</section>
 </section>
 </section>
 <section id="joins" class="level3">
@@ -375,10 +378,10 @@ Tip
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#joined_full &lt;- echo_water_ca_agg |&gt; </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="section-1" class="level7">
+<section id="section-2" class="level7">
 <p class="heading"></p>
 <p>Check out the first six rows of <code>joined_full</code> below and note what happens when a <code>RegistryID</code> is present in one data frame but not in the other. We see data values in the columns associated with the data frame where the <code>RegistryID</code> was present, and <code>NA</code> values in the columns associated with the data frame where the <code>RegistryID</code> was not present. This is how we come to have so many extra rows in <code>joined_full</code>.</p>
-<div class="cell">
+<div class="cell" data-document="show">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>joined_full <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -389,7 +392,7 @@ Tip
 </div>
 </div>
 <p>With <code>joined_inner</code>, any rows associated with a <code>RegistryID</code> that doesn’t appear in <strong>both</strong> data frames get dropped. Check out the number of rows in <code>joined_inner</code>.</p>
-<div class="cell">
+<div class="cell" data-document="show">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(joined_inner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 766</code></pre>
@@ -410,7 +413,7 @@ Tip
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">nrow</span>(joined_right), <span class="st">"represents the number of Registry IDs present in echo_water_ca_agg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="section-2" class="level7">
+<section id="section-3" class="level7">
 <p class="heading"></p>
 <p>From here on out, since we are only interested in the facilities with violations to both Acts, we are going to focus on <code>joined_inner</code>. Let’s remove the rest of the joined data frames from our environment.</p>
 <div class="cell" data-document="show">
@@ -433,6 +436,9 @@ Tip
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Rename remaining columns here. Be sure to separate by comma. There are six more to go!</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="section-4" class="level7">
+<p class="heading"></p>
+</section>
 </section>
 <section id="question-5" class="level6">
 <h6 class="anchored" data-anchor-id="question-5">Question</h6>
@@ -445,6 +451,9 @@ Tip
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Write wrangling code here for significant violations. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="section-5" class="level7">
+<p class="heading"></p>
+</section>
 </section>
 </section>
 <section id="many-to-many-joins" class="level3">
@@ -499,6 +508,9 @@ Tip
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Write comment here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="section-6" class="level7">
+<p class="heading"></p>
+</section>
 </section>
 </section>
 <section id="filtering-joins" class="level3">
@@ -514,7 +526,7 @@ Tip
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#not_clean_air &lt;- Write code here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="section-3" class="level7">
+<section id="section-7" class="level7">
 <p class="heading"></p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">

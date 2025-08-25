@@ -144,7 +144,7 @@ Join `pit_by_gender` on the left to `gender_final` on the right and store the re
 ```
 ###### Question 8
 
-Use a data wrangling verb to create a new column in both `pit_gender` and `pit_race` that calculates the rate of homelessness per 10,000 population. Set that column name to `homeless_rate`. Hint: When creating that column, you'll need to divide the homeless count by the population estimate and then multiply by 10000. Store the resulting data frames in 
+Use a data wrangling verb to create a new column in both `pit_gender` and `pit_race` that calculates the rate of homelessness per 10,000 population. Set that column name to `homeless_rate`. Hint: When creating that column, you'll need to divide the homeless count by the population estimate and then multiply by 10000. Store the resulting data frames in `pit_gender_rates` and `pit_race_rates`.
 
 
 ```{r unnamed-chunk-30}

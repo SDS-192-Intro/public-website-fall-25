@@ -104,15 +104,17 @@ One of your partners should try to pull changes by clicking the blue downward ar
 
 To fix this one your partners should open the file with the conflict. In this case it will be github-practice.Rmd. Scroll to the section of the file with the conflict. It will now look something like this:
 
-        <<<<<<< HEAD
+```         
+    <<<<<<< HEAD
 
-        ncol(pioneer_valley_2013)
+    ncol(pioneer_valley_2013)
 
-        =======
+    =======
 
-        colnames(pioneer_valley_2013)
+    colnames(pioneer_valley_2013)
 
-        >>>>>>> ee175895783b64e0e1f696d9456be4c4c7c3f3bf
+    >>>>>>> ee175895783b64e0e1f696d9456be4c4c7c3f3bf
+```
 
 The code following HEAD represents the recent changes you made on your local machine, and the code right before the long string of characters represents the changes that were made in an earlier commit (the long string of characters is the commit hash). Decide what that line should look like and delete all other content. This means you *must* delete "\<\<\<\<\<\<\< HEAD", "=======", and "\>\>\>\>\>\>\> \<long-hash\>", and you likely should delete at least one other line. Save the file, stage the file by clicking the checkbox next to the file in the Git page, and then commit your changes, and push them to GitHub.com.
 

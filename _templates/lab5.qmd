@@ -128,8 +128,6 @@ sqf_2011 |>
   summarize(total_14_24 = n(), 
             percent_14_24 = n() / total_stops_age_recorded * 100)
 ```
-This still doesn't match the values we see on the website, but it does match the values we see in the NYCLU's 2011 report on Stop, Question, and Frisk data. This is typically when I would reach out to a representative at the NYCLU to inquire about the discrepancy.
-
 ###### Question 7
 
 How many stops were there per race in 2011? What percentage of stops per race in 2011? Arrange by number of stops in descending order.
