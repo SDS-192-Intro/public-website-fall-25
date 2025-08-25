@@ -128,10 +128,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../grading.html"> 
-<span class="menu-text">Grading</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
@@ -274,10 +270,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setting-up-your-environment" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-your-environment">Setting Up Your Environment</h2>
 <ol type="1">
+<li><p>Open the sds-192-labs project in RStudio. <strong>Double check the upper right hand corner of RStudio to ensure that you are in the correct project!!</strong></p></li>
+<li><p>Download the template file for this lab from GitHub and move it to the computer folder associated with the sds-192-labs project. Open the template file in RStudio.</p></li>
 <li><p>Install the RScorecard package by entering the following into your Console: <code>install.packages("rscorecard")</code></p></li>
 <li><p>Create a Scorecard API Key at <a href="https://api.data.gov/signup/">this link</a>. Shortly after you fill out the form, you will be emailed a key. Copy that key into code chunk below, replacing all of the following text in <code>sc_key()</code>: Sys.getenv(“SCORECARD_KEY”). Be sure to wrap the key in quotation marks.</p></li>
-<li><p>Download the Scorecard Data Dictionary and Technical Documentation for Institution-Level Data Files <a href="https://collegescorecard.ed.gov/data/documentation/">here</a>.</p></li>
-<li><p>Run the code below to the import 2018 Scorecard data for Massachusetts into <code>R</code>. Call me or one of the data assistants over if you get an error.</p></li>
+<li><p>Download the Scorecard Data Dictionary and Technical Documentation for Institution-Level Data Files <a href="https://collegescorecard.ed.gov/data/data-documentation">here</a>.</p></li>
+<li><p>Run the code below to the import 2022 Scorecard data for Massachusetts into <code>R</code>. Call me or one of the data assistants over if you get an error.</p></li>
 </ol>
 <div class="cell" data-document="show">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -285,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sc_key</span>(<span class="fu">Sys.getenv</span>(<span class="st">"SCORECARD_KEY"</span>)) <span class="co"># Replace Sys.getenv("SCORECARD_KEY") here with your API Key in quotation marks</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>scorecard <span class="ot">&lt;-</span> <span class="fu">sc_init</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sc_year</span>(<span class="dv">2024</span>) <span class="sc">|&gt;</span>                 <span class="co">#Note how we are looking at only 2024 data here!</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sc_year</span>(<span class="dv">2022</span>) <span class="sc">|&gt;</span>                 <span class="co">#Note how we are looking at only 2022 data here!</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sc_filter</span>(stabbr <span class="sc">==</span> <span class="st">"MA"</span>) <span class="sc">|&gt;</span>     <span class="co">#Note how we are looking at only Massachusetts data here!</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sc_select</span>(unitid, instnm, city, highdeg, control, ugds, adm_rate, costt4_a, costt4_p, pcip27, pctfloan, admcon7, wdraw_orig_yr2_rt, cdr3) <span class="sc">|&gt;</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sc_get</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -298,16 +296,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 15
-  unitid instnm    city  highdeg control ugds  adm_rate costt4_a costt4_p pcip27
-   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt;   &lt;int&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt;    &lt;lgl&gt; 
-1 164368 Hult Int… Camb…       4       2 NA    NA       NA       NA       NA    
-2 164447 American… Spri…       4       2 NA    NA       NA       NA       NA    
-3 164465 Amherst … Amhe…       3       2 NA    NA       NA       NA       NA    
-4 164492 Anna Mar… Paxt…       4       2 NA    NA       NA       NA       NA    
-5 164535 Assabet … Marl…       1       1 NA    NA       NA       NA       NA    
-6 164562 Assumpti… Worc…       4       2 NA    NA       NA       NA       NA    
-# ℹ 5 more variables: pctfloan &lt;lgl&gt;, admcon7 &lt;lgl&gt;, wdraw_orig_yr2_rt &lt;lgl&gt;,
-#   cdr3 &lt;lgl&gt;, year &lt;dbl&gt;</code></pre>
+  unitid instnm    city  highdeg control  ugds adm_rate costt4_a costt4_p pcip27
+   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt;   &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;
+1 164368 Hult Int… Camb…       4       2   682   0.477     74000       NA  0    
+2 164447 American… Spri…       4       2  1142   0.894     53236       NA  0    
+3 164465 Amherst … Amhe…       3       2  1898   0.0726    80060       NA  0.095
+4 164492 Anna Mar… Paxt…       4       2   991   0.947     55594       NA  0    
+5 164535 Assabet … Marl…       1       1    54   0.474        NA    42983  0    
+6 164562 Assumpti… Worc…       4       2  1676   0.823     60262       NA  0.015
+# ℹ 5 more variables: pctfloan &lt;dbl&gt;, admcon7 &lt;int&gt;, wdraw_orig_yr2_rt &lt;lgl&gt;,
+#   cdr3 &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p><code>str()</code> provides a great deal of information about the observations in the data frame, including the number of variables, the number of observations, the column names, their data types, and a list of observations.</p>
@@ -320,16 +318,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ city             : chr [1:147] "Cambridge" "Springfield" "Amherst" "Paxton" ...
  $ highdeg          : int [1:147] 4 4 3 4 1 4 4 1 3 4 ...
  $ control          : int [1:147] 2 2 2 2 1 2 2 3 2 2 ...
- $ ugds             : logi [1:147] NA NA NA NA NA NA ...
- $ adm_rate         : logi [1:147] NA NA NA NA NA NA ...
- $ costt4_a         : logi [1:147] NA NA NA NA NA NA ...
- $ costt4_p         : logi [1:147] NA NA NA NA NA NA ...
- $ pcip27           : logi [1:147] NA NA NA NA NA NA ...
- $ pctfloan         : logi [1:147] NA NA NA NA NA NA ...
- $ admcon7          : logi [1:147] NA NA NA NA NA NA ...
+ $ ugds             : int [1:147] 682 1142 1898 991 54 1676 2709 26 39 1263 ...
+ $ adm_rate         : num [1:147] 0.4774 0.8936 0.0726 0.9466 0.4737 ...
+ $ costt4_a         : int [1:147] 74000 53236 80060 55594 NA 60262 76360 NA 26691 46775 ...
+ $ costt4_p         : int [1:147] NA NA NA NA 42983 NA NA NA NA NA ...
+ $ pcip27           : num [1:147] 0 0 0.095 0 0 0.015 0 0 0 0 ...
+ $ pctfloan         : num [1:147] 0.0956 0.8012 0.1123 0.6997 0.54 ...
+ $ admcon7          : int [1:147] 3 5 5 3 3 5 5 NA 5 5 ...
  $ wdraw_orig_yr2_rt: logi [1:147] NA NA NA NA NA NA ...
- $ cdr3             : logi [1:147] NA NA NA NA NA NA ...
- $ year             : num [1:147] 2024 2024 2024 2024 2024 ...</code></pre>
+ $ cdr3             : num [1:147] 0 0 0 0 0 0 0 0.029 0.017 0 ...
+ $ year             : num [1:147] 2022 2022 2022 2022 2022 ...</code></pre>
 </div>
 </div>
 <p>You can also click on the name of your data frame in your Environment panel in RStudio, and it will open a new tab in RStudio that displays the data in a tabular format. Try clicking on <code>scorecard</code> in your Environment panel.</p>
@@ -391,7 +389,7 @@ Why not use name as a unique key?
 </section>
 <section id="variables-columns" class="level3">
 <h3 class="anchored" data-anchor-id="variables-columns">Variables (Columns)</h3>
-<p>Note the column names for this dataframe, and the kinds of values that appear in those columns. Some of them (like <code>city</code> and <code>year</code>) might make sense to you immediately. Others (like <code>pcip27</code> and <code>highdeg</code>) might be much more confusing. To figure out what we are looking out, we are going to need to refer to the dataset’s data dictionary.</p>
+<p>Note the column names for this dataframe, and the kinds of values that appear in those columns. Some of them (like <code>city</code> and <code>year</code>) might make sense to you immediately. Others (like <code>pcip27</code> and <code>highdeg</code>) might be much more confusing. To figure out what we are looking at, we are going to need to refer to the dataset’s data dictionary.</p>
 <p>Open the data dictionary you downloaded in an earlier step. It will open as an Excel file. Click on the tab labeled “Institution_Data_Dictionary”. There are thousands of variables in this dataset, falling into the broader categories of school, completion, admissions, cost, etc. Note how the file is organized, and specifically draw your attention to:</p>
 <ul>
 <li><p>Column 1 (NAME OF DATA ELEMENT): This is a long description of the variable and gives you clues as to what is represented in it.</p></li>
@@ -403,8 +401,8 @@ Why not use name as a unique key?
 <section id="question-2" class="level6">
 <h6 class="anchored" data-anchor-id="question-2">Question</h6>
 <div class="question">
-<p>For each of the variable names in the <code>scorecard</code> data frame, look up the associated name in the data dictionary. You will need to search for the variable name in the sixth column of the data dictionary (I recommend using Ctrl-F to quickly locate the variable name in the spreadsheet.) Once you’ve found the variable name, reference column 1 to determine what this variable means, and reference columns 7 and 8 to see what possible values will appear in that column.</p>
-<p>Identify one nominal variable, one ordinal variable, one discrete variable, and one continuous variable in <code>scorecard</code> and list their variable names below. Then uncomment the lines below and use the <code>typeof()</code> function to see how <code>R</code> determined their data types. Did any surprise you?</p>
+<p>For each of the variable names in the <code>scorecard</code> data frame, look up the associated name in the data dictionary. You will need to search for the variable name in the sixth column of the data dictionary (I recommend using Ctrl-F/Cmd-F to quickly locate the variable name in the spreadsheet.) Once you’ve found the variable name, reference column 1 to determine what this variable means, and reference columns 7 and 8 to see what possible values will appear in that column.</p>
+<p>Identify one nominal variable, one ordinal variable, one discrete variable, and one continuous variable in the <code>scorecard</code> data frame and list their variable names below. Then uncomment the lines below and use the <code>typeof()</code> function to see how <code>R</code> determined their data types. Did any surprise you?</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#typeof(scorecard$_____)</span></span>
@@ -542,7 +540,7 @@ Ethical Considerations
 <h2 class="anchored" data-anchor-id="submission">Submission</h2>
 <ol type="1">
 <li>When you are done, save your .qmd file in RStudio.</li>
-<li>Stage, commit, and push your file in the Git pane. Refer to step 12 in our <a href="https://sds-192-intro-fall22.github.io/sds-192-public-website-quarto/getting-started.html">Course Infrastructure setup</a> for a reminder of how to do this.</li>
+<li>Stage, commit, and push your file in the Git pane. Refer to step 12 in our <a href="https://sds-192-intro.github.io/public-website-fall-25/infrastructure-setup.html">Course Infrastructure setup</a> for a reminder of how to do this.</li>
 <li>Navigate back to GitHub.com and click on the .qmd files to make sure you see your changes to the files there. If you don’t see the changes there, I won’t see them either!</li>
 </ol>
 

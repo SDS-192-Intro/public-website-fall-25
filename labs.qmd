@@ -69,16 +69,24 @@ In this lab, we will program some custom `R` functions that allow us to analyze 
 -   [Lab 8 Instructions](labs/lab8.html)
 -   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab8.qmd)
 
-### Lab 9: Mapping with Leaflet
+### Lab 9: Point Mapping with Leaflet
 
-In this lab, we will build a map that visualizes unaddressed housing violations in NYC in order to identify some of the city's worst landlords. In doing so, we will gain practice in producing point maps in Leaflet. This analysis is based off of a similar analysis conducted by the [NYC Public Advocate's Office](https://advocate.nyc.gov/press/nyc-public-advocate-unveils-2021-worst-landlord-watchlist/). 
+In this lab, we will build a map that visualizes the extent of toxic emissions in Louisiana's Cancer Alley, using Toxic Release Inventory data. In doing so, we will gain practice in producing point maps in Leaflet. 
 
 -   [Lab 9 Instructions](labs/lab9.html)
 -   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab9.qmd)
 
-### Lab 10: Working with APIs
+### Lab 10: Polygon Mapping with Leaflet
+
+In this lab, we will extend the analysis we did in lab 9 to consider the environmental injustices along Louisiana's Cancer Alley. We will map census data of race demographics along cancer alley to understand the disparate impact of pollution in this region. 
+
+-   [Lab 10 Instructions](labs/lab10.html)
+-   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab10.qmd)
+
+
+### Review + Working with APIs
 
 In this lab, we will write queries to access subsets of a very large dataset on the NYC Open Data Portal. We will practice all of the standards we have learned in the course so far in visualizing and wrangling the resulting data.
 
--   [Lab 10 Instructions](labs/lab10.html)
--   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab10.qmd
+-   [Review Lab Instructions](labs/review.html)
+-   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/review.qmd)

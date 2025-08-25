@@ -150,10 +150,6 @@ div.csl-indent {
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../grading.html"> 
-<span class="menu-text">Grading</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
@@ -321,8 +317,8 @@ Tip
 </div>
 <section id="section" class="level7">
 <p class="heading"></p>
-<p>If you’ve done this correctly, you’ll learn that there are 2710 unique values <code>echo_air_ca</code>’s key variable. You’ll also learn that there are 28993 unique values in <code>echo_water_ca</code>’s key variable.</p>
-<p>…but if you look in your environment, there are 2907 rows in <code>echo_air_ca</code>, and there are 31678 rows in <code>echo_water_ca</code>. This means that the key variable must repeat, and that certain facilities are represented more than once in each of these data frames.</p>
+<p>If you’ve done this correctly, you’ll learn that there are about 2700 unique values <code>echo_air_ca</code>’s key variable. You’ll also learn that there are about 29000 unique values in <code>echo_water_ca</code>’s key variable.</p>
+<p>…but if you look in your environment, you will notice that the number of unique values does not match the number of rows in <code>echo_air_ca</code>, and the number of rows in <code>echo_water_ca</code>. This means that the key variable must repeat, and that certain facilities are represented more than once in each of these data frames.</p>
 <p>This happens because even the EPA defines a facility in different ways depending on what laws it is regulated by. What counts as one facility in the Clean Air Act may count as two or three facilities in the Clean Water Act, but there is only one ID to document the relationships between them. This means that the same ID may show up a few times for different parts of the same facility. Check out some of the duplicating rows via my code below. Notice how multiple facilities - sometimes with entirely different names can be associated with the same RegistryID?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>echo_air_ca <span class="sc">|&gt;</span></span>
@@ -470,7 +466,7 @@ Tip
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["CWPName"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CWPCity"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CWPState"],"name":[3],"type":["chr"],"align":["left"]},{"label":["RegistryID"],"name":[4],"type":["chr"],"align":["left"]},{"label":["CurrSvFlag"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ViolFlag"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["CurrVioFlag"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Insp5yrFlag"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"PLATFORM A","2":"PACIFIC OCEAN","3":"CA","4":"110001181186","5":"0","6":"1","7":"0","8":"0"},{"1":"PLATFORM B","2":"PACIFIC OCEAN","3":"CA","4":"110001181186","5":"0","6":"0","7":"0","8":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["CWPName"],"name":[1],"type":["chr"],"align":["left"]},{"label":["CWPCity"],"name":[2],"type":["chr"],"align":["left"]},{"label":["CWPState"],"name":[3],"type":["chr"],"align":["left"]},{"label":["RegistryID"],"name":[4],"type":["chr"],"align":["left"]},{"label":["CurrSvFlag"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ViolFlag"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["CurrVioFlag"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Insp5yrFlag"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"PLATFORM A","2":"PACIFIC OCEAN","3":"CA","4":"110001181186","5":"0","6":"1","7":"1","8":"0"},{"1":"PLATFORM B","2":"PACIFIC OCEAN","3":"CA","4":"110001181186","5":"0","6":"0","7":"0","8":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
