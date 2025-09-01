@@ -28,6 +28,10 @@ There are ten units in this course, and ten labs associated with each unit. Labs
 
 There will be three group projects assigned over the course of the semester. 
 
+- [Project 1](https://github.com/SDS-192-Intro/MP1)
+- [Project 2](https://github.com/SDS-192-Intro/MP2)
+- [Project 3](https://github.com/SDS-192-Intro/MP3)
+
 ## Mid-Term Exam (15%)
 
 The mid-term exam will be graded on **correctness**. Note that after you receive your grade, you may choose up to two questions on the mid-term exam to have re-assessed in an in-person technical interview with me. In an in-person technical interview, I will ask you questions related to the exam questions you would like re-assessed, and you will have an opportunity to demonstrate your understanding of the concepts. Please note that an in-person technical interview must be scheduled *before Thanksgiving Break*.
