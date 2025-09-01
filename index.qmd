@@ -180,7 +180,7 @@ Using the proper pronouns for our students is foundational to a safe, respectful
 ::: panel-tabset
 ### Accommodations
 
-It is my goal for everyone to succeed in this course. If you have personal circumstances that may impact your experience of our classroom, I encourage you to contact Accessibility Resource Center in College Hall 104 or at [arc\@smith.edu](mailto:arc@smith.edu). The Center will generate a letter that indicates to me what kind of support you need and how I can make your classroom experience more accommodating. Once you have this letter, you are welcome to visit my office hours or email me to discuss ideas about how we can tailor the course accordingly. While you can request accommodations at any time, the sooner we start this conversation, the better. If you have concerns about the course that are not addressed through ARC, please contact me. At no point will I ask you to divulge details about your personal circumstances to me.
+It is my goal for everyone to succeed in this course. If you have personal circumstances that may impact your experience of our classroom, I encourage you to contact Accessibility Resource Center in College Hall 104 or at [arc\@smith.edu](mailto:arc@smith.edu). The Center will generate a letter that indicates to me what kind of support you need and how I can make your classroom experience more accommodating. This letter will be made available to me in Workday. *Once you have this letter, you should to visit my office hours or email me to discuss ideas about how we can tailor the course accordingly.* While you can request accommodations at any time, the sooner we start this conversation, the better. If you have concerns about the course that are not addressed through ARC, please contact me. At no point will I ask you to divulge details about your personal circumstances to me.
 
 ### Student Well-being
 
@@ -217,7 +217,7 @@ This class will use the `R` statistical software package. If you haven't already
 Outside of class almost all of our communication will happen via Slack. You can use the following channels 
 
 -   `#general`: Course announcements (only I can post)
--   `#sds-192-discussions`: Share news articles and relevant opportunities
+-   `#sds-192-discussions`: Share news articles and relevant events/opportunities
 -   `#sds-192-questions`: Ask and answer questions about our course
 -   You can also create private Slack channels with your project group members.
 
