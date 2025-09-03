@@ -34,8 +34,10 @@ There will be three group projects assigned over the course of the semester.
 
 ## Mid-Term Exam (15%)
 
-The mid-term exam will be graded on **correctness**. Note that after you receive your grade, you may choose up to two questions on the mid-term exam to have re-assessed in an in-person technical interview with me. In an in-person technical interview, I will ask you questions related to the exam questions you would like re-assessed, and you will have an opportunity to demonstrate your understanding of the concepts. Please note that an in-person technical interview must be scheduled *before Thanksgiving Break*.
+There will be one closed book mid-term exam. You will be permitted to bring any of the course-approved `R` cheatsheets with you to the exam, but use of laptops and cell phones are not permitted. The mid-term exam will be graded on **correctness**. 
+
+Note that after you receive your grade, you may choose up to two questions on the mid-term exam to have re-assessed in an in-person technical interview with me. In an in-person technical interview, I will ask you questions related to the exam questions you would like re-assessed, and you will have an opportunity to demonstrate your understanding of the concepts. Please note that an in-person technical interview must be scheduled *before Thanksgiving Break*.
 
 ## Final Exam (15%)
 
-The final exam will be a cumulative exam that assesses your understanding of concepts covered throughout the course. The final exam will be graded on **correctness**.
+The final exam will be a cumulative exam that assesses your understanding of concepts covered throughout the course. It will be closed book and self-scheduled. You will be permitted to bring any of the course-approved `R` cheatsheets with you to the exam, but use of laptops and cell phones are not permitted. The final exam will be graded on **correctness**.
