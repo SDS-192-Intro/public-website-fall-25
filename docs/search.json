@@ -3287,7 +3287,7 @@
     "href": "schedule.html#september-05-2025",
     "title": "Schedule",
     "section": "September 05, 2025",
-    "text": "September 05, 2025\n\nWhat is Data Science?\n\nDue TodayFurther Resources\n\n\n\n\n\n Spinelli Center\n Getting Started with Slack"
+    "text": "September 05, 2025\n\nWhat is Data Science?\n\nDue TodayFurther Resources\n\n\n\n\n\n Course slides here\n Spinelli Center\n Getting Started with Slack"
   },
   {
     "objectID": "schedule.html#september-08-2025",
@@ -3406,7 +3406,7 @@
     "href": "schedule.html#october-15-2025",
     "title": "Schedule",
     "section": "October 15, 2025",
-    "text": "October 15, 2025\n\nReview\n\nDue TodayFurther Resources\n\n\n Lab 5 Due\n Self-Scheduled Mid-Term Exams\n\n\n Lab 5 Template"
+    "text": "October 15, 2025\n\nReview\n\nDue TodayFurther Resources\n\n\n Lab 5 Due\n\n\n Lab 5 Template"
   },
   {
     "objectID": "schedule.html#october-17-2025",
@@ -3427,7 +3427,7 @@
     "href": "schedule.html#october-22-2025",
     "title": "Schedule",
     "section": "October 22, 2025",
-    "text": "October 22, 2025\n\nEthics of Data Joining\n\nDue TodayFurther Resources"
+    "text": "October 22, 2025\n\nEthics of Data Joining\n\nDue TodayFurther Resources\n\n\n Self-Scheduled Mid-Term Exam"
   },
   {
     "objectID": "schedule.html#october-24-2025",
@@ -4254,5 +4254,103 @@
     "title": "Lab 10: Polygon Mapping in Leaflet",
     "section": "Layering Toxics Data",
     "text": "Layering Toxics Data\nAs a last step, we are going to add a third layer to our map, displaying the toxic facilities data that we mapped last week. Run the code below to load that data, transform the CRS, create a palette to color the points by total releases, and map the data.\n\ntri_la_2023 &lt;- read_csv(\"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/2023_la.csv\", name_repair = make.names) |&gt;\n  filter(X50..UNIT.OF.MEASURE == \"Pounds\") |&gt;\n  arrange(desc(X107..TOTAL.RELEASES)) |&gt;\n  mutate(chemical_total_text = paste(X37..CHEMICAL, X107..TOTAL.RELEASES, sep = \": \")) |&gt;\n  group_by(X2..TRIFD) |&gt;\n  summarize(X4..FACILITY.NAME = first(X4..FACILITY.NAME),\n            X12..LATITUDE = first(X12..LATITUDE),\n            X13..LONGITUDE = first(X13..LONGITUDE),\n            X23..INDUSTRY.SECTOR = first(X23..INDUSTRY.SECTOR),\n            X107..TOTAL.RELEASES = sum(X107..TOTAL.RELEASES),\n            X..CHEMICAL.TEXT = paste(chemical_total_text, collapse = \" &lt;br&gt; \"))\n\ntri_la_2023 &lt;- tri_la_2023 %&gt;%\n  st_as_sf(coords = c(\"X13..LONGITUDE\", \"X12..LATITUDE\"), crs = 4269) %&gt;%\n  st_transform(4326)\n\npal_bin &lt;- colorBin(palette=\"YlOrRd\", \n                    domain = tri_la_2023$X107..TOTAL.RELEASES,\n                    bins = 6)\n\nla_map %&gt;%\n  addCircleMarkers(data = tri_la_2023, \n                   weight = 0.5,\n                   radius = 3,\n                   color = \"black\",\n                   fillColor = ~pal_bin(X107..TOTAL.RELEASES), \n                   fillOpacity = 0.8,\n                   popup = ~paste(\"&lt;b&gt;\",\n                                  X4..FACILITY.NAME,\n                                  \"&lt;/b&gt;&lt;br&gt;&lt;i&gt;\",\n                                  X23..INDUSTRY.SECTOR,\n                                  \"&lt;/i&gt;&lt;br&gt;&lt;br&gt;\",\n                                  X..CHEMICAL.TEXT),\n                   popupOptions = popupOptions(maxHeight = 200, \n                                               closeOnClick = TRUE)) %&gt;%\n  addLegend(data = tri_la_2023,\n            title = \"TRI Releases in Pounds\", \n            pal = pal_bin, \n            values = ~X107..TOTAL.RELEASES)\n\n\n\n\n\n\nCopy the last map that you created above visualizing the percent Black population in LA counties and tracts. Then copy my code above to addCircleMarkers() for TRI facilities and addLegend() for TRI facilities. Pipe these functions onto your map after your addPolygons() function calls but before the addLayersControl() function call.\nSet the group = argument for the TRI circle markers and the TRI legend to “TRI”. Then add “TRI” as an additional group in the overlayGroups = argument in your addLayersControl() function.\n\n\n# Copy map functions and adjust here\n\n\n\n\n\n\n\n\n\nAs you play with this map, you might notice one problem. As soon as you turn the tract layer on, it covers the TRI layer, and you can no longer click on points to learn more about each facility. We need to communicate to leaflet how we want our layers ordered. To do that we, are going to set a zIndex, which indicates the order by which layers should be stacked on top of each other. A higher zIndex indicates that the layer will be stacked higher. In leaflet zIndex values range from 400 to 500.\nTo set the zIndex for each layer, we need to add separate “panes” to our map - one for “circles” and one for “polygons”. We want the facility markers to appear above the polygons (so they remain clickable), so we will want our circle pane to be stacked higher than our polygons pane.\n\nCopy the last map that you created above. At the beginning of your code right after calling la_map, pipe a addMapPane() function twice. In the first function call, set name = argument to “circles” and the zIndex = argument to 420. In the second function call, set name = argument to “polygons” and the zIndex = argument to 410.\nAdd the argument options = pathOptions(pane = \"polygons\") to both of your addPolygons() function calls, and add the argument options = pathOptions(pane = \"circles\") to your addCircleMarkers() function call.\nAdjust your code to hide the “County” map by default.\n\n\n# Copy map here and adjust according to the prompt\n\n\n\n\n\n\n\n\n\n\n\nZoom in to the region along the Mississippi River between Baton Rouge and New Orleans. Notice how there are at least a few census tracts along the Mississippi River where high-polluting industrial facilities are located, but there is a lower percentage Black population. Explain how the modifiable aerial unit problem may be at play here and why we should consider it in relation to pollution data.\n\n\n\n\n\n\n\nEthical Considerations\n\n\n\nFor several years, the U.S. Environmental Protection Agency published a map called EJScreen. The map included layers for socioeconomic indicators like race, income, and age, along with layers for environmental indicators such as TRI releases, proximity to superfund sites, proximity to major traffic sources, and more. Users could also map layers for health disparities, such as cancer rates and asthma rates. It helped document how certain communities faced disproportionate environmental burdens across the country. On February 5, 2025, EJScreen was removed from the EPA’s website, at the same time that the EPA was overhauling several diversity, equity, and inclusion (DEI) initiatives under the Trump administration. Luckily, the advocacy organization Public Environmental Data Partners (PEDP) archived a reconstructed version of the map and made it available here. This one example of several government data sources that have been suppressed for political reasons. Why do you think these data removals are happening? What are some of the consequences of removing or defunding public government data like this? What role should non-governmental organizations play in securing access to this data? Are there ever good political reasons to suppress public data, and who should be involved those decisions? Share your ideas on our sds-192-discussions Slack channel."
+  },
+  {
+    "objectID": "slides/intro.html#what-is-data-science-common-view",
+    "href": "slides/intro.html#what-is-data-science-common-view",
+    "title": "Introductions",
+    "section": "What is data science?: Common view",
+    "text": "What is data science?: Common view\n\n\n\ninterdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points\n\n\n Hckum, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
+  },
+  {
+    "objectID": "slides/intro.html#what-is-data-science-my-view",
+    "href": "slides/intro.html#what-is-data-science-my-view",
+    "title": "Introductions",
+    "section": "What is data science?: My view",
+    "text": "What is data science?: My view\n\n\n\ninterdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points\nalso involves art, design, hermeneutics, communication, and ability to grapple with ethical dilemmas\n\n\n Hckum, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
+  },
+  {
+    "objectID": "slides/intro.html#case-study-2-epa-tracks-environmental-injustice",
+    "href": "slides/intro.html#case-study-2-epa-tracks-environmental-injustice",
+    "title": "Introductions",
+    "section": "Case Study 2: EPA Tracks Environmental Injustice",
+    "text": "Case Study 2: EPA Tracks Environmental Injustice\n\n\n\nThe California Environmental Protection Agency hires data scientists to produce insights regarding environmental health risks\nFindings implicate environmental policies, funding allocations, and legal actions against states and industries\nThis tool, visualizes environmental and demographic indicators to highlight communities experiencing environmental injustices in California."
+  },
+  {
+    "objectID": "slides/intro.html#case-study-3-geena-davis-institute-studies-gender-biases-in-films",
+    "href": "slides/intro.html#case-study-3-geena-davis-institute-studies-gender-biases-in-films",
+    "title": "Introductions",
+    "section": "Case Study 3: Geena Davis Institute Studies Gender Biases in Films",
+    "text": "Case Study 3: Geena Davis Institute Studies Gender Biases in Films\n\n\n\nGeena Davis Institute collaborated with University of Southern California’s Signal Analysis and Interpretation Laboratory (SAIL)\nDeveloped a machine learning tool to measure representation of diverse groups in films by studying screen time and speaking\n\n\n &gt; Link to Rewriting the Script: A New Era for API Voices in Hollywood"
+  },
+  {
+    "objectID": "slides/intro.html#topics-covered-in-this-course",
+    "href": "slides/intro.html#topics-covered-in-this-course",
+    "title": "Introductions",
+    "section": "Topics covered in this course",
+    "text": "Topics covered in this course\n\ndata visualization\ndata wrangling\nprogramming with data\nmapping\ndata retrieval\ndata science infrastructures and workflows\ndata science ethics"
+  },
+  {
+    "objectID": "slides/intro.html#who-is-the-professor-why-is-an-anthropologist-teaching-data-science",
+    "href": "slides/intro.html#who-is-the-professor-why-is-an-anthropologist-teaching-data-science",
+    "title": "Introductions",
+    "section": "Who is the professor? Why is an anthropologist teaching data science?",
+    "text": "Who is the professor? Why is an anthropologist teaching data science?\n\nPlease call me Lindsay (preferred), Professor Poirier, or Dr. Poirier\nAssistant Professor of SDS and cultural anthropologist\nPreviously Assistant Professor of Science and Technology Studies at UC Davis\nLab Manager at BetaNYC\nM.S./Ph.D. in Science and Technology Studies from Rensselaer Polytechnic Institute\nB.S. in Information Technology and Web Science from Rensselaer Polytechnic Institute\nDancing, crafting, cooking, reading, learning French\nI have a very spunky dog Madison."
+  },
+  {
+    "objectID": "slides/intro.html#exercise",
+    "href": "slides/intro.html#exercise",
+    "title": "Introductions",
+    "section": "Exercise",
+    "text": "Exercise\nDemonstration: Find the class year for which students on average drink the most cups of coffee per day. Repeat for the remaining class years. Arrange class years by order of most average cups of coffee per day. Plot the results. How could we perform the same task for every class on campus?"
+  },
+  {
+    "objectID": "slides/intro.html#coding-can-be-intimidating",
+    "href": "slides/intro.html#coding-can-be-intimidating",
+    "title": "Introductions",
+    "section": "Coding can be intimidating!",
+    "text": "Coding can be intimidating!\n\nCoding is like learning a new language. When you are first learning it, it all feels completely unfamiliar. I will work to support you in building the vocabulary and syntax to code in R.\nCoding can be frustrating. I regularly lose hours of my day in trying to find bugs in my code. I will work to give you resources and skills to navigate coding frustrations.\nCoding social environments have historically been exclusionary. I will work to reduce barriers to coding in whatever ways I can."
+  },
+  {
+    "objectID": "slides/intro.html#prepping-for-this-class",
+    "href": "slides/intro.html#prepping-for-this-class",
+    "title": "Introductions",
+    "section": "Prepping for this Class",
+    "text": "Prepping for this Class\n\nNavigating Course Website\nGrading\nPerusall\nSlack"
+  },
+  {
+    "objectID": "slides/intro.html#for-friday",
+    "href": "slides/intro.html#for-friday",
+    "title": "Introductions",
+    "section": "For Friday",
+    "text": "For Friday\n\nInstall Slack Desktop and set notifications\nComplete Syllabus Quiz\nFill out first day of class questionnaire\nLet me know if you will be using a Chromebook, asap\nBring charged tech to class on Friday"
+  },
+  {
+    "objectID": "slides/intro.html#for-monday",
+    "href": "slides/intro.html#for-monday",
+    "title": "Introductions",
+    "section": "For Monday",
+    "text": "For Monday\n\nInstall Slack Desktop and set notifications\nFill out first day of class questionnaire\nCreate a GitHub account if you don’t have one\nAccept SDS 192 Labs Assignment in Moodle\nLet me know if you will be using a Chromebook, asap"
+  },
+  {
+    "objectID": "slides/intro.html#ethics-framework",
+    "href": "slides/intro.html#ethics-framework",
+    "title": "Introductions",
+    "section": "Ethics Framework",
+    "text": "Ethics Framework\n\nWhat assumptions and commitments informed the design of this dataset?\nWho has had a say in data collection and analysis regarding this dataset? Who has been excluded?\nWhat are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups?"
+  },
+  {
+    "objectID": "slides/intro.html#case-study-2-cal-epa-tracks-environmental-injustice",
+    "href": "slides/intro.html#case-study-2-cal-epa-tracks-environmental-injustice",
+    "title": "Introductions",
+    "section": "Case Study 2: Cal EPA Tracks Environmental Injustice",
+    "text": "Case Study 2: Cal EPA Tracks Environmental Injustice\n\n\n\nThe California Environmental Protection Agency hires data scientists to produce insights regarding environmental health risks\nFindings implicate environmental policies, funding allocations, and legal actions against states and industries\nThis tool, visualizes environmental and demographic indicators to highlight communities experiencing environmental injustices in California."
+  },
+  {
+    "objectID": "slides/intro.html#syllabus-highlights",
+    "href": "slides/intro.html#syllabus-highlights",
+    "title": "Introductions",
+    "section": "Syllabus Highlights",
+    "text": "Syllabus Highlights\n\nAttendance/Extensions\nAcademic Integrity and Generative AI\nAccommodations\nMental Health and Wellness"
   }
 ]
