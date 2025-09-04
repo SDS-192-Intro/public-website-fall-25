@@ -16,7 +16,7 @@ library(htmltools)
 
 Data science involves applying a set of strategies to transform a recorded set of values into something from which we can glean knowledge and insight. This course will introduce you to concepts and methods from the field of data science, along with how to apply them in `R`. You will learn how to acquire, clean, wrangle, and visualize data. You will also learn best practices in data science workflows, such as code documentation and version control. Issues in data ethics will be addressed throughout the course.
 
-Classes will be held on Mondays from 1:40 PM to 2:55 PM and on Wednesday and Thursdays from 1:20 PM to 2:35 PM.
+Classes will be held on Mondays from 1:40 PM to 2:55 PM and on Wednesday and Fridays from 1:20 PM to 2:35 PM.
 
 SDS 100: Reproducible Scientific Computing with Data is a co-requisite for this course and designed to help support you in coding in `R`. Please note that I walk into this course with the assumption that most students have never coded before. Coding for the first time can be intimidating, but I intend do everything in my power to support you through the learning curve and to make things both fun and relevant in the process. I personally picked up most of my data science skills through a lot of trial-and-error, practice, and curiosity. My hope is that, in this course, you will learn through experimentation, along with independent and collaborative problem-solving. Honing these competencies will serve you as you move on to other courses in the SDS program and/or at Smith.
 
