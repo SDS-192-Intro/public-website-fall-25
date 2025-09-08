@@ -3294,7 +3294,7 @@
     "href": "schedule.html#september-08-2025",
     "title": "Schedule",
     "section": "September 08, 2025",
-    "text": "September 08, 2025\n\nData Fundamentals\n\nDue TodayFurther Resources\n\n\n Fill out First Day of Class Questionnaire in Moodle\n Contact me if you will be using a Chromebook\n Create a GitHub account if you don’t have one\n Accept SDS 192 Labs Assignment"
+    "text": "September 08, 2025\n\nData Fundamentals\n\nDue TodayFurther Resources\n\n\n Fill out First Day of Class Questionnaire in Moodle\n Contact me if you will be using a Chromebook\n Create a GitHub account if you don’t have one\n Accept SDS 192 Labs Assignment\n\n\n Course slides here"
   },
   {
     "objectID": "schedule.html#september-10-2025",
@@ -4352,5 +4352,75 @@
     "title": "Introductions",
     "section": "Syllabus Highlights",
     "text": "Syllabus Highlights\n\nAttendance/Extensions\nAcademic Integrity and Generative AI\nAccommodations\nMental Health and Wellness"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#observations-vs.-variables-vs.-values",
+    "href": "slides/data_fundamentals.html#observations-vs.-variables-vs.-values",
+    "title": "Data Fundamentals",
+    "section": "Observations vs. Variables vs. Values",
+    "text": "Observations vs. Variables vs. Values\n\n\n\nObservationsVariablesValues\n\n\n\n\nObservations refer to individual units or cases of the data being collected.\n\nIf I was collecting data about each student in this course, one student would be an observation.\nIf I was collecting census data and aggregating it at the county level, one county would be an observation.\n\n\n\n\n\n\n\nVariables describe something about an observation.\n\nIf I was collecting data about each student in this course, ‘major’ might be one variable.\nIf I was collecting county-level census data, ‘population’ might be one variable.\n\n\n\n\n\n\n\nValues refer to the actual value associated with a variable for a given observation.\n\nIf I was collecting data about each student’s major in this course, one value might be SDS.\n\n\n\n\n\n\n\n\nGrolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/."
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#how-can-we-refer-to-certain-rows-columns-or-values-in-a-dataset",
+    "href": "slides/data_fundamentals.html#how-can-we-refer-to-certain-rows-columns-or-values-in-a-dataset",
+    "title": "Data Fundamentals",
+    "section": "How can we refer to certain rows, columns, or values in a dataset?",
+    "text": "How can we refer to certain rows, columns, or values in a dataset?\n\nAn index is a formal way of identifying the data at certain positions in a dataset.\nIndexes are usually formatted as two numbers in brackets (e.g. [3,4]).\nThe first number refers to the row’s position in the dataset. The second number refers to the column’s position in the dataset.\n\n[3,4] will refer to the value three rows down and four rows over.\n\nWe can refer to an entire row of data by leaving the value in the second position of the index blank (e.g. [3,] will refer to the third row.)\nWe can refer to an entire column of data by leaving the value in the first position of the index blank (e.g. [,4] will refer to the fourth column)\n\nAlternatively, we can refer to a column by its column name."
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#key-considerations-for-rectangular-datasets",
+    "href": "slides/data_fundamentals.html#key-considerations-for-rectangular-datasets",
+    "title": "Data Fundamentals",
+    "section": "Key Considerations for Rectangular Datasets",
+    "text": "Key Considerations for Rectangular Datasets\n\n\n\nAll rows in a rectangular dataset are of equal length.\nAll columns in a rectangular dataset are of equal length.\n\n\n\n\n\n\n\nUnderstanding Check\n\n\nLet’s say I have a rectangular dataset documenting student names and majors, and I was missing major information for one student. What would this look like in a rectangular dataset?\n\n\n\n\n\nGrolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/."
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#is-this-dataset-rectangular",
+    "href": "slides/data_fundamentals.html#is-this-dataset-rectangular",
+    "title": "Data Fundamentals",
+    "section": "Is this dataset rectangular?",
+    "text": "Is this dataset rectangular?"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#is-this-a-rectangular-dataset",
+    "href": "slides/data_fundamentals.html#is-this-a-rectangular-dataset",
+    "title": "Data Fundamentals",
+    "section": "Is this a rectangular dataset?",
+    "text": "Is this a rectangular dataset?"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#how-do-i-find-out-more-information-about-a-dataset",
+    "href": "slides/data_fundamentals.html#how-do-i-find-out-more-information-about-a-dataset",
+    "title": "Data Fundamentals",
+    "section": "How do I find out more information about a dataset?",
+    "text": "How do I find out more information about a dataset?\n\n\nMetadata can be referred to as “data about data”\nMetadata provides important contextual information to help us interpret a dataset.\nThere are two types of metadata associated with datasets:\n\n\n\nAdministrativeDescriptive\n\n\n\n\nAdministrative metadata tells us how a dataset is managed and its provenance, or the history of how it came to be in its current form:\n\nWho created it?\nWhen was it created?\nWhen was it last updated?\nWho is permitted to use it?\n\n\n\n\n\n\n\nDescriptive metadata tells us information about the contents of a dataset:\n\nWhat does each row refer to?\nWhat does each column refer to?\nWhat values might appear in each cell?"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#where-do-i-find-metadata-for-a-dataset",
+    "href": "slides/data_fundamentals.html#where-do-i-find-metadata-for-a-dataset",
+    "title": "Data Fundamentals",
+    "section": "Where do I find metadata for a dataset?",
+    "text": "Where do I find metadata for a dataset?\n\nOftentimes metadata is recorded in a dataset codebook or data dictionary.\nThese documents provide definitions for the observations and variables in a dataset and tell you the accepted values for each variable.\nLet’s say that I have a dataset of student names, majors, and class years. A codebook or data dictionary might tell me that:\n\nEach row in the dataset refers to one student.\nThe ‘Class Year’ variable refers to “the year the student is expected to graduate.”\nPossible values for the ‘Major’ variable are Political Science, SDS, and Sociology."
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#types-of-variables",
+    "href": "slides/data_fundamentals.html#types-of-variables",
+    "title": "Data Fundamentals",
+    "section": "Types of Variables",
+    "text": "Types of Variables\n\n\n\n\n\n\n\nCategorical Variables\nNumeric Variables\n\n\n\n\nNominal Variables: Named or classified labels (e.g. names, zip codes, hair color)\nDiscrete Variables: Countable variables (e.g. number of students in this class)\n\n\nOrdinal Variables: Ordered labels (e.g. letter grades, pollution levels)\nContinuous Variables: Measured variables (e.g. temperature, height)"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#exercise",
+    "href": "slides/data_fundamentals.html#exercise",
+    "title": "Data Fundamentals",
+    "section": "Exercise",
+    "text": "Exercise\nComing Soon!"
+  },
+  {
+    "objectID": "slides/data_fundamentals.html#for-wednesday",
+    "href": "slides/data_fundamentals.html#for-wednesday",
+    "title": "Data Fundamentals",
+    "section": "For Wednesday",
+    "text": "For Wednesday\n\nComplete Reading Quiz and Syllabus Quiz in Perusall"
   }
 ]
