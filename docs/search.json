@@ -3301,7 +3301,7 @@
     "href": "schedule.html#september-10-2025",
     "title": "Schedule",
     "section": "September 10, 2025",
-    "text": "September 10, 2025\n\nIntroduction to R\n\nDue TodayFurther Resources\n\n\n Getting Started , Ismay, Chester and Albert Y. Kim (2021). Modern Dive: Statistical Inference via Data Science. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n Complete Syllabus Quiz in Perusall"
+    "text": "September 10, 2025\n\nIntroduction to R\n\nDue TodayFurther Resources\n\n\n Getting Started , Ismay, Chester and Albert Y. Kim (2021). Modern Dive: Statistical Inference via Data Science. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n Complete Syllabus Quiz in Perusall\n\n\n Course slideshere\n Exercise Instructions here\n Exercise Templatehere"
   },
   {
     "objectID": "schedule.html#september-12-2025",
@@ -4441,8 +4441,8 @@
     "objectID": "slides/R_fundamentals.html#for-today",
     "href": "slides/R_fundamentals.html#for-today",
     "title": "R Fundamentals",
-    "section": "",
-    "text": "Nouns: Data objects in R\nVerbs: R Functions\nConjunctions: R Operators\nMissing Values and R Functions\nExercise"
+    "section": "For Today",
+    "text": "For Today\n\nNouns: Data objects in R\nVerbs: R Functions\nConjunctions: R Operators\nMissing Values and R Functions\nExercise"
   },
   {
     "objectID": "slides/R_fundamentals.html#things-to-know-right-up-front",
