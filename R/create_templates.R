@@ -11,6 +11,7 @@ write_lab_template("labs/lab9.qmd", "_templates")
 write_lab_template("labs/lab10.qmd", "_templates")
 write_lab_template("labs/review.qmd", "_templates")
 write_lab_template("labs/problem-solving.qmd", "_templates")
+write_lab_template("exercises/R_fundamentals.qmd", "_templates")
 
 write_lab_solutions("labs/lab1.qmd", "_solutions")
 write_lab_solutions("labs/lab2.qmd", "_solutions")

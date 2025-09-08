@@ -4436,5 +4436,166 @@
     "title": "Data Fundamentals",
     "section": "",
     "text": "Today, we are going to work with a dataset that documents cases where NYC Urban Park Rangers respond to requests for animal assistance, relocation, and/or rescue. If you are unfamiliar with what an Urban Park Ranger does, you may want to check out this video!\n\n\n\nNavigate to the NYC Urban Park Ranger Animal Condition Response dataset.\nNote the information listed in the “About this Dataset” section. This is administrative metadata.\nNote the attachment in this section with the file name: UrbanParkRangerAnimalConditionResponse_DataDictionary_20181107.xlsx. This contains descriptive metadata for this dataset.\nClick the Data tab at the top of the page. This previews this data as a rectangular dataset.\nAnswer the following questions by discussing in your groups:\n\n\nWhat is the unit of observation in this dataset? In other words, what does each row signify? How do you know?\nHow frequently is this dataset updated? How do you know?\nWhat are the possible values for the Species Status variable in this dataset? How do you know?\nWhat is the value at index [4,4] in this dataset? How do you know?\nIdentify the index of one missing value in this dataset.\nIdentify one nominal variable, one ordinal variable, one discrete variable, and one continuous variable.\n\n\nAs a preview of what you will be able to do in a few weeks, here is a visualization of the most commons species for which services are requested in NYC!\n\n\nlibrary(tidyverse)\nnyc_urban_ranger &lt;- \n  read_csv(\"https://data.cityofnewyork.us/api/views/fuhs-xmg2/rows.csv\",\n           name_repair = make.names)\n\nnyc_urban_ranger %&gt;%\n  group_by(Species.Description) %&gt;%\n  summarize(Count = sum(X..of.Animals)) %&gt;%\n  top_n(10, Count) %&gt;%\n  ggplot(aes(x = reorder(Species.Description, Count), y = Count)) +\n  geom_col() +\n  coord_flip() +\n  labs(title=\"Top 10 Most Common Species for which NYC Urban Park Rangers Assistance is Requested, 2018-2024\", x = \"Species\", y = \"Count\") +\n  theme_minimal() +\n  theme(plot.title = element_text(size=8))"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#for-today",
+    "href": "slides/R_fundamentals.html#for-today",
+    "title": "R Fundamentals",
+    "section": "",
+    "text": "Nouns: Data objects in R\nVerbs: R Functions\nConjunctions: R Operators\nMissing Values and R Functions\nExercise"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#things-to-know-right-up-front",
+    "href": "slides/R_fundamentals.html#things-to-know-right-up-front",
+    "title": "R Fundamentals",
+    "section": "Things to Know Right Up Front",
+    "text": "Things to Know Right Up Front\n\nR is case-sensitive. df is different than DF"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#values-vs.-vectors-vs.-data-frames",
+    "href": "slides/R_fundamentals.html#values-vs.-vectors-vs.-data-frames",
+    "title": "R Fundamentals",
+    "section": "Values vs. Vectors vs. Data Frames",
+    "text": "Values vs. Vectors vs. Data Frames\n\nValuesVectorsData Frame\n\n\n\n\na single data point\nR understands values to be of a certain type:\n\nnumeric: 3.29\ninteger: 3\ncharacter: “SDS 192”\nlogical: TRUE/FALSE\ndate-time: 3/12/92 01:23:01\n\n\n\n\n\n\n\na 1-dimensional data object, listing a series of values\nall objects in a vector share the same type\nvector defined by listing entries (separated by commas) in the function c() (shorthand for combine)\ncan access single values at position in a vector via an index “[2]”\n\n\nvector_example &lt;- c(1, 5, 6, 7)\nvector_example\n\n[1] 1 5 6 7\n\nvector_example[2]\n\n[1] 5\n\n\n\n\n\n\n\na two-dimensional (rectangular) data object\nEvery column in a data frame is a vector\nColumn names act as a variable name for that vector (access via the $ accessor)\nI (Lindsay) use df to denote a data frame.\n\n\ndf\n\n  col1  col2 col3\n1    1  TRUE    a\n2    5 FALSE    b\n3    6  TRUE    c\n4    7  TRUE    d\n\ndf$col1\n\n[1] 1 5 6 7"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#assigning-objects-to-variable-names",
+    "href": "slides/R_fundamentals.html#assigning-objects-to-variable-names",
+    "title": "R Fundamentals",
+    "section": "Assigning Objects to Variable Names",
+    "text": "Assigning Objects to Variable Names\n\n&lt;- symbol assigns a value to a variable\nVariable names should be descriptive! Poor or confusing variables names include:\n\na anddata1: Be descriptive!\nstudent.test.scores: Avoid periods!\nstudent test scores: Use separator characters!\n3rd_test: Variables can’t start with numbers!\n\nThis course: snake case (lower case with words separated by underscores)"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#learning-check",
+    "href": "slides/R_fundamentals.html#learning-check",
+    "title": "R Fundamentals",
+    "section": "Learning check",
+    "text": "Learning check\nWhat kind of object is this in R? What is its type?\n\ntemps &lt;- c(47.3, 55.6, 48.3)"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#learning-check-1",
+    "href": "slides/R_fundamentals.html#learning-check-1",
+    "title": "R Fundamentals",
+    "section": "Learning check",
+    "text": "Learning check\nWhat would happen if I were to do the following in R?\n\nval &lt;- 34\nval &lt;- val + 1\n\n\nThis is called overwriting a variable."
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#where-can-i-find-these-data-objects-in-r",
+    "href": "slides/R_fundamentals.html#where-can-i-find-these-data-objects-in-r",
+    "title": "R Fundamentals",
+    "section": "Where can I find these data objects in R?",
+    "text": "Where can I find these data objects in R?\n\n\n\nObjects in R will be listed in the Environment tab in the upper right hand corner of RStudio.\nRemoving unnecessary objects from the environment can free up space!\n\n\nrm(vector_example)"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#what-is-a-function",
+    "href": "slides/R_fundamentals.html#what-is-a-function",
+    "title": "R Fundamentals",
+    "section": "What is a function?",
+    "text": "What is a function?\n\nThink of functions like imperative sentences (e.g. “go”, “stay”, or “sleep”)\nIndicate that you want it to take an action\nTypically immediately followed by open and closed parentheses\nWhat were some functions referenced this week’s reading?"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#arguments",
+    "href": "slides/R_fundamentals.html#arguments",
+    "title": "R Fundamentals",
+    "section": "Arguments",
+    "text": "Arguments\n\nImagine I requested someone to “close” or “bring”\n\nThey’re next questions might be “close what” or “bring what”, and I might say back “close the door” or “bring dessert”\n\nSpecify the subject of the function, along with additional information needed to run the function\nListed inside of the parentheses\nSome arguments are required. Others are optional."
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#finding-help",
+    "href": "slides/R_fundamentals.html#finding-help",
+    "title": "R Fundamentals",
+    "section": "Finding Help",
+    "text": "Finding Help\n\nTyping ?FUNCTION_NAME in to the Console loads info about that function\n\n?round()\n\nWhat functions are required?\nWhat functions are optional?"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#learning-check-2",
+    "href": "slides/R_fundamentals.html#learning-check-2",
+    "title": "R Fundamentals",
+    "section": "Learning check",
+    "text": "Learning check\nConvert the following variable name into something descriptive in snake case\na &lt;- round(pi, digits = 2)\nRun the code in your Console. How can we find this variable in RStudio once we run this code?"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#helpful-value-operations",
+    "href": "slides/R_fundamentals.html#helpful-value-operations",
+    "title": "R Fundamentals",
+    "section": "Helpful Value Operations",
+    "text": "Helpful Value Operations\n\nNumeric ValuesCharacter Values\n\n\n\nR can work just like a calculator!\n\na &lt;- 2\nb &lt;- 3\n\nsum(a,b)\n\n[1] 5\n\n\nWhy does this produce an error?\n\nc &lt;- \"3\"\nsum(c, c)\n\nError in sum(c, c): invalid 'type' (character) of argument\n\n\n\n\n\n\nR can concatenate strings!\n\nword1 &lt;- \"Harry\"\nword2 &lt;- \"Sally\"\npaste(\"When\", word1, \"Met\", word2, sep = \" \")\n\n[1] \"When Harry Met Sally\""
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#helpful-vector-functions",
+    "href": "slides/R_fundamentals.html#helpful-vector-functions",
+    "title": "R Fundamentals",
+    "section": "Helpful Vector Functions",
+    "text": "Helpful Vector Functions\n\nAll VectorsNumeric VectorsCategorical Vectors\n\n\n\n\nclass() returns the class of the values in a vector\nlength() returns the number of values in a vector\nis.na() for each value, returns whether the value is an NA value\n\n\n\n\n\n\nsum() returns the sum of the values in a vector\nmax() returns the maximum value in a vector\nrank() returns the ranking of a value in a vector\n\n\n\n\n\n\nunique() returns the unique values of a vector"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#learning-check-3",
+    "href": "slides/R_fundamentals.html#learning-check-3",
+    "title": "R Fundamentals",
+    "section": "Learning Check",
+    "text": "Learning Check\nHow would I find the sum of the third column in this data frame, which I have named df?\n\n\n  col1 col2 col3\n1    1    2    3\n2    5    4    6\n3    7    6    9"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#helpful-data-frame-functions",
+    "href": "slides/R_fundamentals.html#helpful-data-frame-functions",
+    "title": "R Fundamentals",
+    "section": "Helpful Data Frame Functions",
+    "text": "Helpful Data Frame Functions\n\nView(): Opens a tab to view the data frame as a table\nhead(): returns first six rows of dataset\nnames(): returns the dataset’s column names\nnrow(): returns the number of rows in the dataset\nncol(): returns the number of columns in the dataset"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#do-i-really-have-to-memorize-all-of-these-functions",
+    "href": "slides/R_fundamentals.html#do-i-really-have-to-memorize-all-of-these-functions",
+    "title": "R Fundamentals",
+    "section": "Do I really have to memorize all of these functions?!",
+    "text": "Do I really have to memorize all of these functions?!\n\nNo. There are cheatsheets! See this cheatsheet for Base R."
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#operators-in-r-1",
+    "href": "slides/R_fundamentals.html#operators-in-r-1",
+    "title": "R Fundamentals",
+    "section": "Operators in R",
+    "text": "Operators in R\n\nSymbols that communicate what operations to perform in R\nIncludes calculator symbols: +, -, *, /, ^\nIncludes relational symbols: &lt;, &lt;=, &lt;, &lt;=, ==, !=\nIncludes logical symbols: & (AND), | (OR), ! (NOT)"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#pipe-operator-in-r",
+    "href": "slides/R_fundamentals.html#pipe-operator-in-r",
+    "title": "R Fundamentals",
+    "section": "Pipe Operator in R",
+    "text": "Pipe Operator in R\n\nSymbol is |&gt; (old version is %&gt;%)\n\n\nWithout Pipe\n\nFunctions are nested as arguments in R\nlength(unique(df$col1))\nPerform the innermost function to the outermost\n\n\nWith Pipe\n\nFunctions are sequenced in R\ndf$col1 |&gt; unique() |&gt; length()\nTake this data object, and then perform this function, and then perform this function"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#missing-values",
+    "href": "slides/R_fundamentals.html#missing-values",
+    "title": "R Fundamentals",
+    "section": "Missing Values",
+    "text": "Missing Values\n\nRemember that missing values still have a position in rectangular datasets\nMissing values get recorded as NA in R\n…but sometimes analysts put words or numbers in their datasets to indicate missingness:\n\n“NONE”\n-999\n“” &lt;- this is the most challenging to uncover!\n\n…but what happens when we try to perform functions on vectors that contain missing values?"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#missing-values-in-math-functions",
+    "href": "slides/R_fundamentals.html#missing-values-in-math-functions",
+    "title": "R Fundamentals",
+    "section": "Missing Values in Math Functions",
+    "text": "Missing Values in Math Functions\nWe can use na.rm = TRUE to ignore NA values in math functions.\n\nvals &lt;- c(1, 2, NA, 4, NA, 6)\nsum(vals)\n\n[1] NA\n\nsum(vals, na.rm = TRUE)\n\n[1] 13"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html#for-friday",
+    "href": "slides/R_fundamentals.html#for-friday",
+    "title": "R Fundamentals",
+    "section": "For Friday",
+    "text": "For Friday\n\nComplete Course Infrastructure Set-up\n\n\nYou won’t be able to complete Friday’s lab if this is not complete, so be sure to give yourself enough time if issues come up. I have office hours on Friday before class."
+  },
+  {
+    "objectID": "exercises/R_fundamentals.html",
+    "href": "exercises/R_fundamentals.html",
+    "title": "R Fundamentals",
+    "section": "",
+    "text": "Today, we are going to practice some of the basic R skills we learned in lecture. To get started, run the code below to load the nyc_urban_ranger data frame into your environment. This is the same dataset we learned about in Monday’s activity. Don’t worry about how this code works for now, but note that I’ve included code to convert all of the missing values to NA values.\n\nlibrary(tidyverse)\nnyc_urban_ranger &lt;- \n  read_csv(\"https://data.cityofnewyork.us/api/views/fuhs-xmg2/rows.csv\",\n           name_repair = make.names) |&gt;\n  mutate_if(is.character, na_if, c(\"\")) |&gt;\n  mutate_if(is.character, na_if, c(\"N/A\"))\n\n\nQuestion\n\n\nApply a function below to determine the number of rows in the data frame.\n\n\n\n# Write code here\n\n\n\nQuestion\n\n\nApply a function below to determine the data frame’s column names.\n\n\n\n# Write code here\n\n\n\nQuestion\n\n\nApply a function below to determine the unique values in the Species.Status column.\n\n\n\n# Write code here\n\n\n\nQuestion\n\n\nApply a function below to determine the sum of the X..of.Animals column. Be sure to account for NA values. What does this represent?\n\n\n\n# Write code here\n\n\n\nQuestion\n\n\nApply a function below to determine the number of missing values in the Animal Condition column.\n\n\n\n# Write code here"
+  },
+  {
+    "objectID": "slides/R_fundamentals.html",
+    "href": "slides/R_fundamentals.html",
+    "title": "R Fundamentals",
+    "section": "",
+    "text": "Nouns: Data objects in R\nVerbs: R Functions\nConjunctions: R Operators\nMissing Values and R Functions\nExercise"
   }
 ]
