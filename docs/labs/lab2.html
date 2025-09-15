@@ -214,9 +214,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="learning-goals">Learning Goals</h3>
 <ul>
 <li>Read the <code>ggplot</code> cheatsheets</li>
-<li>Map variables onto plot aeshetics</li>
+<li>Map variables onto plot aesthetics</li>
 <li>Adjust the attributes of a plot</li>
-<li>Adjust the scales of aeshetics on plots</li>
+<li>Adjust the scales of aesthetics on plots</li>
 <li>Deal with overplotting</li>
 <li>Facet plots into small multiples</li>
 </ul>
@@ -449,7 +449,7 @@ Tip
 <section id="question" class="level6">
 <h6 class="anchored" data-anchor-id="question">Question</h6>
 <div class="question">
-<p>In the code below, change <code>geom_point()</code> to <code>geom_jitter()</code>. Adjust the size to <code>2</code>, the alpha to <code>0.5</code>, and set the height of the jitter to <code>0.2</code>. Note how this changes the plot.</p>
+<p>In the code below, change <code>geom_point()</code> to <code>geom_jitter()</code>. Adjust the size to <code>2</code>, the alpha to <code>0.5</code>, and set the height of the jitter to <code>0.2</code>. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nbi_hampshire <span class="sc">|&gt;</span></span>
@@ -513,7 +513,7 @@ Tip
 <section id="question-1" class="level6">
 <h6 class="anchored" data-anchor-id="question-1">Question</h6>
 <div class="question">
-<p>In the plot below, color the points on the plot with a qualitative palette by setting <code>col=</code> to the categorical variable <code>ROUTE_PREFIX_005B_L</code>. Remember that, in this case, color is an aesthetic, so this must be added inside of the <code>aes()</code> function. Add a label for the legend by setting <code>col=</code> in the <code>labs()</code> function to a phrase that describes the color variable.</p>
+<p>In the plot below, color the points on the plot with a qualitative palette by setting <code>col=</code> to the categorical variable <code>ROUTE_PREFIX_005B_L</code>. Remember that, in this case, color is an aesthetic, so this must be added inside of the <code>aes()</code> function. Add a label for the legend by setting <code>col=</code> in the <code>labs()</code> function to a phrase that describes the color variable. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nbi_hampshire <span class="sc">|&gt;</span></span>
@@ -558,13 +558,6 @@ Tip
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Structural Evaluation"</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"Average Daily Traffic"</span>) <span class="sc">+</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
 </div>
 <section id="section-2" class="level7">
 <p class="heading"></p>
@@ -577,7 +570,7 @@ Tip
 <section id="question-3" class="level6">
 <h6 class="anchored" data-anchor-id="question-3">Question</h6>
 <div class="question">
-<p>In the plot below, assign the shape of the data on the plot by setting <code>shape=</code> to the categorical variable <code>STRUCTURE_KIND_043A_L</code>. Remember that, in this case, shape is an aesthetic, so this must be added inside of the <code>aes()</code> function. Add a label for the legend by setting <code>shape=</code> in the <code>labs()</code> function to a phrase that describes the shape variable.</p>
+<p>In the plot below, assign the shape of the data on the plot by setting <code>shape=</code> to the categorical variable <code>STRUCTURE_KIND_043A_L</code>. Remember that, in this case, shape is an aesthetic, so this must be added inside of the <code>aes()</code> function. Add a label for the legend by setting <code>shape=</code> in the <code>labs()</code> function to a phrase that describes the shape variable. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nbi_hampshire <span class="sc">|&gt;</span></span>
@@ -644,7 +637,7 @@ Tip
 <section id="question-4" class="level6">
 <h6 class="anchored" data-anchor-id="question-4">Question</h6>
 <div class="question">
-<p>Copy one of your plots from above, and inside the <code>aes()</code> function, set <code>size=</code> to a numeric variable not already represented on the plot. Keep in mind that you’ll need to remove the <code>size=</code> <em>attribute</em> from <code>geom_jitter()</code> for the points to size correctly. Be sure to also adjust the legend labels. What new information do you gain about Hampshire County bridges from the plot?</p>
+<p>Copy one of your plots from above, and inside the <code>aes()</code> function, set <code>size=</code> to a numeric variable not already represented on the plot. Keep in mind that you’ll need to remove the <code>size=</code> <em>attribute</em> from <code>geom_jitter()</code> for the points to size correctly. Be sure to also adjust the legend labels.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy and adjust plot here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -660,13 +653,6 @@ Tip
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Structural Evaluation"</span>,</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Bridge Improvement Costs"</span>) <span class="sc">+</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
 </div>
 <section id="section-4" class="level7">
 <p class="heading"></p>
@@ -748,7 +734,7 @@ Tip
 <section id="question-5" class="level6">
 <h6 class="anchored" data-anchor-id="question-5">Question</h6>
 <div class="question">
-<p>In the plot below, change the y-axis scale from <code>continuous</code> to <code>log10</code>. You might reference the formula specified above or reference the ggplot cheatsheet for help. Note that your y-axis will appear in scientific notation. Convert it to comma notation by adding: <code>labels = scales::comma</code> as an argument in the scale function call.</p>
+<p>In the plot below, change the y-axis scale from <code>continuous</code> to <code>log10</code>. You might reference the formula specified above or reference the ggplot cheatsheet for help. Note that your y-axis will appear in scientific notation. Convert it to comma notation by adding: <code>labels = scales::comma</code> as an argument in the scale function call. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nbi_ma <span class="sc">|&gt;</span></span>
@@ -804,7 +790,7 @@ introduced infinite values.</code></pre>
 <section id="question-6" class="level6">
 <h6 class="anchored" data-anchor-id="question-6">Question</h6>
 <div class="question">
-<p>The Interstate Highway Act of 1956 (signed under Dwight D. Eisenhower) established the U.S.’s interstate highway system and is considered the country’s largest public works project. Adjust the x-axis scale of the plot below to help tell this story. Specifically, bin years into before 1954 (when Eisenhower was elected) and 1954-2021. Set the label at 1954 to “Eisenhower Elected” and the label at 2021 to “Today.”</p>
+<p>The Interstate Highway Act of 1956 (signed under Dwight D. Eisenhower) established the U.S.’s interstate highway system and is considered the country’s largest public works project. Adjust the x-axis scale of the plot below to help tell this story. Specifically, bin years into before 1954 (when Eisenhower was elected) and 1954-2021. Set the label at 1954 to “Eisenhower Elected” and the label at 2021 to “Today.” If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nbi_ma <span class="sc">|&gt;</span></span>
@@ -847,7 +833,7 @@ introduced infinite values.</code></pre>
 <section id="question-7" class="level6">
 <h6 class="anchored" data-anchor-id="question-7">Question</h6>
 <div class="question">
-<p>Add `<code>+ scale_color_brewer()`</code> to the <code>ggplot()</code> object below and assign a categorical palette. Refer to the ggplot cheatsheet or the help pages for help with formatting the function call.</p>
+<p>Add `<code>+ scale_color_brewer()`</code> to the <code>ggplot()</code> object below and assign a categorical palette. Refer to the ggplot cheatsheet or the help pages for help with formatting the function call. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>nbi_hampshire <span class="sc">|&gt;</span></span>
@@ -877,7 +863,7 @@ introduced infinite values.</code></pre>
 <section id="question-8" class="level6">
 <h6 class="anchored" data-anchor-id="question-8">Question</h6>
 <div class="question">
-<p>Add `<code>+ scale_color_distiller()`</code> to the <code>ggplot()</code> object below and assign a sequential palette. By default the colors will be ordered from darkest to lightest. Add an argument to the function call to reverse the direction of the colors. Refer to the ggplot cheatsheet or the help pages for help with formatting the function call.</p>
+<p>Add `<code>+ scale_color_distiller()`</code> to the <code>ggplot()</code> object below and assign a sequential palette. By default the colors will be ordered from darkest to lightest. Add an argument to the function call to reverse the direction of the colors. Refer to the ggplot cheatsheet or the help pages for help with formatting the function call. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>nbi_hampshire <span class="sc">|&gt;</span></span>
@@ -1015,7 +1001,7 @@ Tip
 <section id="question-9" class="level6">
 <h6 class="anchored" data-anchor-id="question-9">Question</h6>
 <div class="question">
-<p>Facet the plot below by <code>STRUCTURE_KIND_043A_L</code> to see the degree of structural deficiencies for different kinds of highway bridges of different ages in Massachusetts.</p>
+<p>Facet the plot below by <code>STRUCTURE_KIND_043A_L</code> to see the degree of structural deficiencies for different kinds of highway bridges of different ages in Massachusetts. If successful, your plot should look like mine below.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>nbi_ma <span class="sc">|&gt;</span></span>
