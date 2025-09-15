@@ -3315,7 +3315,7 @@
     "href": "schedule.html#september-15-2025",
     "title": "Schedule",
     "section": "September 15, 2025",
-    "text": "September 15, 2025\n\nGrammar of Graphics\n\nDue TodayFurther Resources\n\n\n 2. Data Visualization , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"
+    "text": "September 15, 2025\n\nGrammar of Graphics\n\nDue TodayFurther Resources\n\n\n 2. Data Visualization , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n Course slides here\n Exercise Instructions here\n ggplot2 cheatsheet"
   },
   {
     "objectID": "schedule.html#september-17-2025",
@@ -4597,5 +4597,180 @@
     "title": "R Fundamentals",
     "section": "",
     "text": "Nouns: Data objects in R\nVerbs: R Functions\nConjunctions: R Operators\nMissing Values and R Functions\nExercise"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#for-today",
+    "href": "slides/grammar_graphics.html#for-today",
+    "title": "Visualizing Data",
+    "section": "For Today",
+    "text": "For Today\n\nPerusall quiz debriefing\nWhat is a data visualization?\nTaxonomy of Data Visualizations\nVisualization Conventions and Critiques\nWork on Problem Solving Lab in Class"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-is-data-visualization",
+    "href": "slides/grammar_graphics.html#what-is-data-visualization",
+    "title": "Visualizing Data",
+    "section": "What is data visualization?",
+    "text": "What is data visualization?\n\nthe translation of information into a graphical format\nhelps analysts summarize and identify patterns across large datasets\nalways involves critical judgment calls on the part of the designer"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#elements-of-data-graphics",
+    "href": "slides/grammar_graphics.html#elements-of-data-graphics",
+    "title": "Visualizing Data",
+    "section": "Elements of data graphics",
+    "text": "Elements of data graphics\n\nvisual cues/aesthetics\n\ncolor\n\nscale\ncontext\n\n\nFramework drawn from: Yau, Nathan. 2013. Data Points: Visualization That Means Something. 1st edition. Indianapolis, IN: Wiley."
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#visual-cues",
+    "href": "slides/grammar_graphics.html#visual-cues",
+    "title": "Visualizing Data",
+    "section": "Visual Cues",
+    "text": "Visual Cues\n\nWhere is the data positioned on the plot?\nWhat is the length of shapes on the plot?\nHow large is the angle between vectors?\nWhat shapes/symbols appear on the plot?\nHow much area do shapes take up on a plot?\nHow intense is the color presented on the plot?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-1",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-1",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?\n\n** This is the last time you will see me use a pie chart in this class!"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-2",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-2",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-3",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-3",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-4",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-4",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-5",
+    "href": "slides/grammar_graphics.html#what-variables-mapped-onto-what-visual-cues-5",
+    "title": "Visualizing Data",
+    "section": "What variables mapped onto what visual cues?",
+    "text": "What variables mapped onto what visual cues?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#color",
+    "href": "slides/grammar_graphics.html#color",
+    "title": "Visualizing Data",
+    "section": "Color",
+    "text": "Color\n\nCategorical: Distinct colors used to bucket categorical data\nSequential: Gradient of color used to represent a uni-directional range of quantitative values\nDivergent: Gradations of color from a neutral center used to represent a bi-directional range of quantitative values"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#accessible-color-palettes",
+    "href": "slides/grammar_graphics.html#accessible-color-palettes",
+    "title": "Visualizing Data",
+    "section": "Accessible Color Palettes",
+    "text": "Accessible Color Palettes\n\ndisplay.brewer.all(colorblindFriendly = TRUE)"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#scale",
+    "href": "slides/grammar_graphics.html#scale",
+    "title": "Visualizing Data",
+    "section": "Scale",
+    "text": "Scale\n\nLinear: Numeric values are evenly spaced on axis.\nLogarithmic: Numeric interval are spaced by a factor of the base of the logarithm.\nCategorical: Categorical values are discretely placed on axis.\nOrdinal: Categorical values are ordered on axis.\nPercent: Percentages of a whole are evenly spaced on axis.\nTime: Date/time values are placed on axis in years, months, days, hours, etc."
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#examples",
+    "href": "slides/grammar_graphics.html#examples",
+    "title": "Visualizing Data",
+    "section": "Examples",
+    "text": "Examples"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#context",
+    "href": "slides/grammar_graphics.html#context",
+    "title": "Visualizing Data",
+    "section": "Context",
+    "text": "Context\nIn every plot you submit for this class, I will be looking for five pieces of context.\n\nThe data’s unit of observation\nVariables represented on the plot\nFilters applied to the data\nGeographic context of the data\nTemporal (date/time range) context of the date"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#context-1",
+    "href": "slides/grammar_graphics.html#context-1",
+    "title": "Visualizing Data",
+    "section": "Context",
+    "text": "Context"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#data-visualization-conventions",
+    "href": "slides/grammar_graphics.html#data-visualization-conventions",
+    "title": "Visualizing Data",
+    "section": "Data Visualization Conventions",
+    "text": "Data Visualization Conventions\n\nEdward Tufte, American statistician sometimes considered “father of data visualization”\nIntroduced the concept of “graphical integrity”\nHow do we present data as honestly as possible?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#lie-factor",
+    "href": "slides/grammar_graphics.html#lie-factor",
+    "title": "Visualizing Data",
+    "section": "Lie Factor",
+    "text": "Lie Factor\n\nLie Factor = (size of effect in graphic)/(size of effect in data)\nLie factor is greater when variations on a graph fail to match variations in data\n\n\nTufte, Visual Display of Quantitative Information\n5.3-0.6 / 0.6 * 100= 783 (graph)\n27.5-18 /18 *100 = 53 (data)\n783/53 = 14.8"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#inconsistent-scales",
+    "href": "slides/grammar_graphics.html#inconsistent-scales",
+    "title": "Visualizing Data",
+    "section": "Inconsistent Scales",
+    "text": "Inconsistent Scales\n\nExample from callingbullshit.org"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#presenting-data-out-of-context",
+    "href": "slides/grammar_graphics.html#presenting-data-out-of-context",
+    "title": "Visualizing Data",
+    "section": "Presenting Data out of Context",
+    "text": "Presenting Data out of Context\n\nExample from mediamatters.org"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#disproportionate-data-to-ink-ratio",
+    "href": "slides/grammar_graphics.html#disproportionate-data-to-ink-ratio",
+    "title": "Visualizing Data",
+    "section": "Disproportionate Data-to-Ink Ratio",
+    "text": "Disproportionate Data-to-Ink Ratio\n\nEnsure that the ink used on the data match the amount of data presented\nData-to-ink ratio = (ink used to represent data)/(ink used to print graphic)\nShould be as close as possible to 1\nAnother way to think about it: How much of this graph could I erase without losing data?"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#disproportionate-data-to-ink-ratio-1",
+    "href": "slides/grammar_graphics.html#disproportionate-data-to-ink-ratio-1",
+    "title": "Visualizing Data",
+    "section": "Disproportionate Data-to-Ink Ratio",
+    "text": "Disproportionate Data-to-Ink Ratio"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#deviating-from-norms",
+    "href": "slides/grammar_graphics.html#deviating-from-norms",
+    "title": "Visualizing Data",
+    "section": "Deviating from Norms",
+    "text": "Deviating from Norms\n\nExample from callingbullshit.org"
+  },
+  {
+    "objectID": "slides/grammar_graphics.html#when-can-i-break-convention",
+    "href": "slides/grammar_graphics.html#when-can-i-break-convention",
+    "title": "Visualizing Data",
+    "section": "When can I break convention??",
+    "text": "When can I break convention??"
+  },
+  {
+    "objectID": "exercises/grammar_graphics.html",
+    "href": "exercises/grammar_graphics.html",
+    "title": "Grammar Graphics",
+    "section": "",
+    "text": "Today, we’re going to take a look at some visualizations online, identify their components, and evaluate their integrity. You should work in groups of 4-5 and be prepared to share your findings with the class.\n\nNavigate to the New York Times Grapics. Select a data visualization. …but no maps for today! Take no more than 2 minutes to for this! Drop a link to the data visualization in a thread in sds-192-discussions.\nIdentify the visual cues on the visualization, the color palette, and the scale of the visualization. Remember visual cues are used to represent variations in the data, while scale is the scale at which those visual cues are differentiated.\n\n\nVisual cues include: position, length, angle, shape, size, color\nColor palette: Categorical, sequential, divergent\nScales include: numeric, logarithmic, categorical, ordinal, percentage date-time\n\n\nIdentify the context provided on the visualization. Are all five components of context represented?\n\n\nContext components include: units of observation, variables, filter, geographic context, temporal context\n\n\nAssess the graphical integrity of the visualization. Does the visualization violate any of Tufte’s principles? If so, does this violation serve a purpose?"
   }
 ]
