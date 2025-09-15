@@ -194,7 +194,7 @@ nyc_urban %>%
 
 ## Color 
 
--   Categorical: Distinct colors used to bucket categorical data
+-   Qualitative: Distinct colors used to bucket categorical data
 -   Sequential: Gradient of color used to represent a uni-directional range of quantitative values
 -   Divergent: Gradations of color from a neutral center used to represent a bi-directional range of quantitative values
 
