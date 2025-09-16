@@ -133,7 +133,7 @@ nbi_hampshire |>
              y = STRUCTURAL_EVAL_067,
              col = ROUTE_PREFIX_005B_L)) +
   geom_jitter(size = 2, alpha = 0.5, height = 0.2) +
-  labs(title = "Highway Bridge Conditions, Massachusetts, 2024",
+  labs(title = "Highway Bridge Conditions, Hampshire County, MA, 2024",
        x = "Year Built", 
        y = "Structural Evaluation",
        col = "Route Prefix") +
@@ -149,7 +149,7 @@ nbi_hampshire |>
              y = STRUCTURAL_EVAL_067,
              col = ADT_029)) +
   geom_jitter(size = 2, alpha = 0.5, height = 0.2) +
-  labs(title = "Highway Bridge Conditions, MA, 2024",
+  labs(title = "Highway Bridge Conditions, Hampshire County, MA, 2024",
        x = "Year Built", 
        y = "Structural Evaluation",
        col = "Average Daily Traffic") +
