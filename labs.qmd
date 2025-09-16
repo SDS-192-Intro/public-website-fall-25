@@ -64,7 +64,7 @@ In this lab, we will create a few data visualizations documenting point-in-time 
 
 ### Lab 8: Programming with Data
 
-In this lab, we will program some custom `R` functions that allow us to analyze data related to medical conflicts of interest. Specifically, we will determine which ten Massachusetts-based doctors received the most money from pharmaceutical or medical device manufacturers in 2021. Then we will leverage our custom functions to produce a number of tables and plots documenting information about the payments made to each of these doctors. In doing so, we will update a similar analysis produced by ProPublica in 2018 called [*Dollars for Docs*](https://projects.propublica.org/docdollars/).
+In this lab, we will program some custom `R` functions that allow us to analyze data related to medical conflicts of interest. Specifically, we will determine which ten Massachusetts-based doctors received the most money from pharmaceutical or medical device manufacturers in 2024. Then we will leverage our custom functions to produce a number of tables and plots documenting information about the payments made to each of these doctors. In doing so, we will update a similar analysis produced by ProPublica in 2018 called [*Dollars for Docs*](https://projects.propublica.org/docdollars/).
 
 -   [Lab 8 Instructions](labs/lab8.html)
 -   [Template](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/lab8.qmd)
