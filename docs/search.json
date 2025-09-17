@@ -3329,7 +3329,7 @@
     "href": "schedule.html#september-19-2025",
     "title": "Schedule",
     "section": "September 19, 2025",
-    "text": "September 19, 2025\n\nLab: Designing Effective Data Visualizations\n\nDue TodayFurther Resources\n\n\n\n\n\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf\n Lab 2 Instructions"
+    "text": "September 19, 2025\n\nLab: Designing Effective Data Visualizations\n\nDue TodayFurther Resources\n\n\n\n\n\n ggplot2 cheatsheet\n Lab 2 Instructions"
   },
   {
     "objectID": "schedule.html#september-22-2025",
@@ -3343,21 +3343,21 @@
     "href": "schedule.html#september-24-2025",
     "title": "Schedule",
     "section": "September 24, 2025",
-    "text": "September 24, 2025\n\nBoxplots\n\nDue TodayFurther Resources\n\n\n Lab 2 Due\n\n\n Lab 2 Templates\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"
+    "text": "September 24, 2025\n\nBoxplots\n\nDue TodayFurther Resources\n\n\n Lab 2 Due\n\n\n Lab 2 Templates\n [ggplot2 cheatsheet]https://rstudio.github.io/cheatsheets/data-visualization.pdf)"
   },
   {
     "objectID": "schedule.html#september-26-2025",
     "href": "schedule.html#september-26-2025",
     "title": "Schedule",
     "section": "September 26, 2025",
-    "text": "September 26, 2025\n\nLab: Visualizing Data\n\nDue TodayFurther Resources\n\n\n Group Contract Due\n\n\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"
+    "text": "September 26, 2025\n\nLab: Visualizing Data\n\nDue TodayFurther Resources\n\n\n Group Contract Due\n\n\n ggplot2 cheatsheet"
   },
   {
     "objectID": "schedule.html#september-29-2025",
     "href": "schedule.html#september-29-2025",
     "title": "Schedule",
     "section": "September 29, 2025",
-    "text": "September 29, 2025\n\nIntroduction to Open Source\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf\n Lab 3 Instructions"
+    "text": "September 29, 2025\n\nIntroduction to Open Source\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n ggplot2 cheatsheet\n Lab 3 Instructions"
   },
   {
     "objectID": "schedule.html#october-01-2025",
@@ -4884,5 +4884,12 @@
     "title": "ggplot",
     "section": "",
     "text": "library(tidyverse)\npioneer_valley_census_data &lt;- read_csv(\"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv\")\n\npioneer_valley_census_data_dictionary &lt;- pioneer_valley_census_data |&gt; \n  select(VAR_CAT, VAR, VAR_NAME) |&gt;\n  distinct()\n\npioneer_valley_census_data &lt;- pioneer_valley_census_data |&gt;\n  select(-VAR_CAT, -VAR) |&gt;\n  pivot_wider(names_from = VAR_NAME,\n              values_from = VALUE) |&gt;\n  filter(LEVEL_CD_NAME != \"Region\")\n  \nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")\n\n\n#Add practice code from lecture here.\n\n\nQuestion\n\nCheck the column names for pioneer_valley_census_data. View what column names refer to via pioneer_valley_census_data_dictionary.\n\n\n# Write code here\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nWhich of the following does each point on this plot indicate?\nA person\nA municipality\nA commute\nA county"
+  },
+  {
+    "objectID": "exercises/img/ggplot.html",
+    "href": "exercises/img/ggplot.html",
+    "title": "ggplot",
+    "section": "",
+    "text": "library(tidyverse)\npioneer_valley_census_data &lt;- read_csv(\"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv\")\n\npioneer_valley_census_data_dictionary &lt;- pioneer_valley_census_data |&gt; \n  select(VAR_CAT, VAR, VAR_NAME) |&gt;\n  distinct()\n\npioneer_valley_census_data &lt;- pioneer_valley_census_data |&gt;\n  select(-VAR_CAT, -VAR) |&gt;\n  pivot_wider(names_from = VAR_NAME,\n              values_from = VALUE) |&gt;\n  filter(LEVEL_CD_NAME != \"Region\")\n  \nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")\n\n\nggplot(data = hampshire_census_data,\n       mapping = aes(x = COMMUNITY,\n                     y = CEN_CHILD_POV)) +\n  geom_col() +\n  coord_flip() +\n  theme_minimal() +\n  labs(title = \"Hampshire County, MA Child Poverty, 2022\",\n       x = \"Municipality in Hampshire County, MA\",\n       y = \"Child Poverty Rate\")\n\n\n\n\n\n\n\nggplot(data = pioneer_valley_census_data,\n       mapping = aes(x = COUNTY, y = CEN_SINGPARHOU)) +\n  geom_point(size = 2, alpha = 0.5) +\n  coord_flip() +\n  labs(title = \"Single Parent Households in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Number of Households\") +\n  scale_y_log10()\n\nWarning in scale_y_log10(): log-10 transformation introduced infinite values.\n\n\n\n\n\n\n\n\n\n\nQuestion\n\nCheck the column names for pioneer_valley_census_data. View what column names refer to via pioneer_valley_census_data_dictionary.\n\n\n# Write code here\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nWhich of the following does each point on this plot indicate?\nA person\nA municipality\nA commute\nA county"
   }
 ]
