@@ -4772,5 +4772,110 @@
     "title": "Grammar Graphics",
     "section": "",
     "text": "Today, we’re going to take a look at some visualizations online, identify their components, and evaluate their integrity. You should work in groups of 4-5 and be prepared to share your findings with the class.\n\nNavigate to the New York Times Grapics. Select a data visualization. …but no maps for today! Take no more than 2 minutes to for this! Drop a link to the data visualization in a thread in sds-192-discussions.\nIdentify the visual cues on the visualization, the color palette, and the scale of the visualization. Remember visual cues are used to represent variations in the data, while scale is the scale at which those visual cues are differentiated.\n\n\nVisual cues include: position, length, angle, shape, size, color\nColor palette: Qualitative, sequential, divergent\nScales include: numeric, logarithmic, categorical, ordinal, percentage date-time\n\n\nIdentify the context provided on the visualization. Are all five components of context represented?\n\n\nContext components include: units of observation, variables, filter, geographic context, temporal context\n\n\nAssess the graphical integrity of the visualization. Does the visualization violate any of Tufte’s principles? If so, does this violation serve a purpose?"
+  },
+  {
+    "objectID": "slides/ggplot.html#for-today",
+    "href": "slides/ggplot.html#for-today",
+    "title": "ggplot()",
+    "section": "For Today",
+    "text": "For Today\n\nVisualizations Exercise\nIntroduction to ggplot()\nClass Activity"
+  },
+  {
+    "objectID": "slides/ggplot.html#lets-create-the-following-data-frame-to-motivate-todays-lecture.",
+    "href": "slides/ggplot.html#lets-create-the-following-data-frame-to-motivate-todays-lecture.",
+    "title": "ggplot()",
+    "section": "Let’s create the following data frame to motivate today’s lecture.",
+    "text": "Let’s create the following data frame to motivate today’s lecture.\n\nThis dataset comes from Pioneer Valley Data and documents estimates of population characteristics for each municipality in the Pioneer Valley.\n\n\nlibrary(tidyverse)\npioneer_valley_census_data &lt;- read.csv(\"https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv\")\nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")"
+  },
+  {
+    "objectID": "slides/ggplot.html#ggplot",
+    "href": "slides/ggplot.html#ggplot",
+    "title": "ggplot()",
+    "section": "ggplot",
+    "text": "ggplot\n\nMost plots we create in this course will rely on package called ggplot2\nggplot2 is included in the Tidyverse, which you installed in SDS 100\nLoad ggplot2 in your environment.\n\n\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "slides/ggplot.html#anatomy-of-the-ggplot-function",
+    "href": "slides/ggplot.html#anatomy-of-the-ggplot-function",
+    "title": "ggplot()",
+    "section": "Anatomy of the ggplot() function",
+    "text": "Anatomy of the ggplot() function\n\nggplot() takes two arguments:\n\ndata: the dataset used to produce the plot (in a data frame)\nmapping: the variables from the dataset we want mapped onto visual cues\n\nmappings are defined in a function called aes() (short for aesthetics)\nin Cartesian plots, we must supply the variables/columns that will appear on the axes (via x = and y =)"
+  },
+  {
+    "objectID": "slides/ggplot.html#anatomy-of-the-ggplot-function-1",
+    "href": "slides/ggplot.html#anatomy-of-the-ggplot-function-1",
+    "title": "ggplot()",
+    "section": "Anatomy of the ggplot() function",
+    "text": "Anatomy of the ggplot() function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED))"
+  },
+  {
+    "objectID": "slides/ggplot.html#wheres-the-data",
+    "href": "slides/ggplot.html#wheres-the-data",
+    "title": "ggplot()",
+    "section": "Where’s the data?",
+    "text": "Where’s the data?\n\nIn previous plot, we told R what variables to plot, but we didn’t indicate how to plot them.\nTo do this, we need to add a geom function to our ggplot call. Examples:\n\nBar plots: geom_bar()\nScatterplots: geom_point()\n\nAppended to function call with a + sign"
+  },
+  {
+    "objectID": "slides/ggplot.html#adding-a-geom-function",
+    "href": "slides/ggplot.html#adding-a-geom-function",
+    "title": "ggplot()",
+    "section": "Adding a geom function",
+    "text": "Adding a geom function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col()"
+  },
+  {
+    "objectID": "slides/ggplot.html#styling-plots-flipping-coordinates",
+    "href": "slides/ggplot.html#styling-plots-flipping-coordinates",
+    "title": "ggplot()",
+    "section": "Styling Plots: Flipping Coordinates",
+    "text": "Styling Plots: Flipping Coordinates\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() # Flipping the x and y coordinates here makes the labels more legible."
+  },
+  {
+    "objectID": "slides/ggplot.html#styling-plots-changing-the-theme",
+    "href": "slides/ggplot.html#styling-plots-changing-the-theme",
+    "title": "ggplot()",
+    "section": "Styling Plots: Changing the Theme",
+    "text": "Styling Plots: Changing the Theme\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/ggplot.html#styling-plots-adding-labels",
+    "href": "slides/ggplot.html#styling-plots-adding-labels",
+    "title": "ggplot()",
+    "section": "Styling Plots: Adding Labels",
+    "text": "Styling Plots: Adding Labels\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal() +\n  labs(title = \"Hampshire County Early Education Enrollment Rates, 2018\", \n       x = \"Municipality in Hampshire County, MA\", \n       y = \"Enrollment Rate for 3-4 yr old\")"
+  },
+  {
+    "objectID": "slides/ggplot.html#styling-plots-adjusting-the-scale",
+    "href": "slides/ggplot.html#styling-plots-adjusting-the-scale",
+    "title": "ggplot()",
+    "section": "Styling Plots: Adjusting the Scale",
+    "text": "Styling Plots: Adjusting the Scale\n\n# Adjust the Scale\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY,y = CEN_WORKERS)) +\n  geom_point() +\n  coord_flip() +\n  scale_y_log10() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\")"
+  },
+  {
+    "objectID": "slides/ggplot.html#aeshetics-vs.-attributes",
+    "href": "slides/ggplot.html#aeshetics-vs.-attributes",
+    "title": "ggplot()",
+    "section": "Aeshetics vs. Attributes",
+    "text": "Aeshetics vs. Attributes\n\nWe can adjust the way the data appears on plots in two ways:\n\nAccording to a variable:\n\nThis must be done inside of the aes() function\n\nIn a fixed way:\n\nThis must be done outside of the aes() function"
+  },
+  {
+    "objectID": "slides/ggplot.html#adjusting-data-on-plots-via-aeshetics",
+    "href": "slides/ggplot.html#adjusting-data-on-plots-via-aeshetics",
+    "title": "ggplot()",
+    "section": "Adjusting Data on Plots via Aeshetics",
+    "text": "Adjusting Data on Plots via Aeshetics\n\nWe add visual cues to the plot in the aes() call\n\n\n# Add visual cue for size\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY, y = CEN_WORKERS, size = CEN_HOUSEHOLDS)) +\n  geom_point() +\n  coord_flip() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\", size = \"Households\")"
+  },
+  {
+    "objectID": "slides/ggplot.html#adjusting-data-on-plots-via-attributes",
+    "href": "slides/ggplot.html#adjusting-data-on-plots-via-attributes",
+    "title": "ggplot()",
+    "section": "Adjusting Data on Plots via Attributes",
+    "text": "Adjusting Data on Plots via Attributes\n\n# Add visual cue for size and attribute for transparency\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY, y = CEN_WORKERS, size = CEN_HOUSEHOLDS)) +\n  geom_point(alpha = 0.2) +\n  coord_flip() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\", size = \"Households\")"
+  },
+  {
+    "objectID": "slides/ggplot.html#do-i-really-have-to-memorize-all-of-these-stylistic-functions",
+    "href": "slides/ggplot.html#do-i-really-have-to-memorize-all-of-these-stylistic-functions",
+    "title": "ggplot()",
+    "section": "Do I really have to memorize all of these stylistic functions?!",
+    "text": "Do I really have to memorize all of these stylistic functions?!\nNo. There are cheatsheets. The ggplot2() cheatsheet is linked here."
   }
 ]
