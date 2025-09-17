@@ -421,9 +421,20 @@ Professor Lindsay Poirier
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a>pioneer_valley_census_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv"</span>)</span>
-<span id="cb1-3"><a></a>hampshire_census_data <span class="ot">&lt;-</span> pioneer_valley_census_data <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a></a>  <span class="fu">filter</span>(COUNTY <span class="sc">==</span> <span class="st">"Hampshire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a>pioneer_valley_census_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>pioneer_valley_census_data_dictionary <span class="ot">&lt;-</span> pioneer_valley_census_data <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a></a>  <span class="fu">select</span>(VAR_CAT, VAR, VAR_NAME) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a></a>  <span class="fu">distinct</span>()</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a>pioneer_valley_census_data <span class="ot">&lt;-</span> pioneer_valley_census_data <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>VAR_CAT, <span class="sc">-</span>VAR) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> VAR_NAME,</span>
+<span id="cb1-11"><a></a>              <span class="at">values_from =</span> VALUE) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a></a>  <span class="fu">filter</span>(LEVEL_CD_NAME <span class="sc">!=</span> <span class="st">"Region"</span>)</span>
+<span id="cb1-13"><a></a>  </span>
+<span id="cb1-14"><a></a>hampshire_census_data <span class="ot">&lt;-</span> pioneer_valley_census_data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-15"><a></a>  <span class="fu">filter</span>(COUNTY <span class="sc">==</span> <span class="st">"Hampshire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ggplot" class="slide level2">
@@ -456,7 +467,7 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> hampshire_census_data, </span>
 <span id="cb3-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COMMUNITY, </span>
-<span id="cb3-3"><a></a>           <span class="at">y =</span> CEN_EARLYED))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>           <span class="at">y =</span>  CEN_CHILD_POV))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ggplot_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
@@ -485,7 +496,7 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> hampshire_census_data, </span>
 <span id="cb4-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COMMUNITY, </span>
-<span id="cb4-3"><a></a>           <span class="at">y =</span> CEN_EARLYED)) <span class="sc">+</span></span>
+<span id="cb4-3"><a></a>           <span class="at">y =</span>  CEN_CHILD_POV)) <span class="sc">+</span></span>
 <span id="cb4-4"><a></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -503,7 +514,7 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> hampshire_census_data, </span>
 <span id="cb5-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COMMUNITY, </span>
-<span id="cb5-3"><a></a>           <span class="at">y =</span> CEN_EARLYED)) <span class="sc">+</span></span>
+<span id="cb5-3"><a></a>           <span class="at">y =</span> CEN_CHILD_POV)) <span class="sc">+</span></span>
 <span id="cb5-4"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb5-5"><a></a>  <span class="fu">coord_flip</span>() <span class="co"># Flipping the x and y coordinates here makes the labels more legible.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -522,7 +533,7 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> hampshire_census_data, </span>
 <span id="cb6-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COMMUNITY, </span>
-<span id="cb6-3"><a></a>           <span class="at">y =</span> CEN_EARLYED)) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>           <span class="at">y =</span>  CEN_CHILD_POV)) <span class="sc">+</span></span>
 <span id="cb6-4"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb6-5"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="co"># Flipping the x and y coordinates here makes the labels more legible. </span></span>
 <span id="cb6-6"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -542,13 +553,13 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> hampshire_census_data, </span>
 <span id="cb7-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COMMUNITY, </span>
-<span id="cb7-3"><a></a>           <span class="at">y =</span> CEN_EARLYED)) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>           <span class="at">y =</span> CEN_CHILD_POV)) <span class="sc">+</span></span>
 <span id="cb7-4"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb7-5"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="co"># Flipping the x and y coordinates here makes the labels more legible. </span></span>
 <span id="cb7-6"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb7-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hampshire County Early Education Enrollment Rates, 2018"</span>, </span>
+<span id="cb7-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Hampshire County Child Poverty, 2022"</span>, </span>
 <span id="cb7-8"><a></a>       <span class="at">x =</span> <span class="st">"Municipality in Hampshire County, MA"</span>, </span>
-<span id="cb7-9"><a></a>       <span class="at">y =</span> <span class="st">"Enrollment Rate for 3-4 yr old"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-9"><a></a>       <span class="at">y =</span> <span class="st">"Child Poverty Rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ggplot_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
@@ -557,11 +568,11 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Adjust the Scale</span></span>
 <span id="cb8-2"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> pioneer_valley_census_data, </span>
-<span id="cb8-3"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY,<span class="at">y =</span> CEN_WORKERS)) <span class="sc">+</span></span>
+<span id="cb8-3"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY,<span class="at">y =</span> CEN_SINGPARHOU)) <span class="sc">+</span></span>
 <span id="cb8-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb8-5"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb8-6"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb8-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Workers Age 16+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Single Parent Households in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Number of Households"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ggplot_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
@@ -588,11 +599,13 @@ Professor Lindsay Poirier
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Add visual cue for size</span></span>
-<span id="cb9-2"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> pioneer_valley_census_data, </span>
-<span id="cb9-3"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY, <span class="at">y =</span> CEN_WORKERS, <span class="at">size =</span> CEN_HOUSEHOLDS)) <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb9-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Workers Age 16+"</span>, <span class="at">size =</span> <span class="st">"Households"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> pioneer_valley_census_data, </span>
+<span id="cb9-4"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY,<span class="at">y =</span> CEN_SINGPARHOU, <span class="at">size =</span> CEN_HOUSEHOLDS)) <span class="sc">+</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-6"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Single Parent Households in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Number of Single Parent Households"</span>, <span class="at">size =</span> <span class="st">"Total Households"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ggplot_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
@@ -601,10 +614,11 @@ Professor Lindsay Poirier
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Add visual cue for size and attribute for transparency</span></span>
 <span id="cb10-2"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> pioneer_valley_census_data, </span>
-<span id="cb10-3"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY, <span class="at">y =</span> CEN_WORKERS, <span class="at">size =</span> CEN_HOUSEHOLDS)) <span class="sc">+</span></span>
-<span id="cb10-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> COUNTY,<span class="at">y =</span> CEN_SINGPARHOU, <span class="at">size =</span> CEN_HOUSEHOLDS)) <span class="sc">+</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb10-5"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb10-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Workers Age 16+"</span>, <span class="at">size =</span> <span class="st">"Households"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-6"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb10-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Single Parent Households in Pioneer Valley, MA Municipalities, 2018"</span>, <span class="at">x =</span> <span class="st">"County"</span>, <span class="at">y =</span> <span class="st">"Number of Single Parent Households"</span>, <span class="at">size =</span> <span class="st">"Total Households"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ggplot_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>

@@ -31,7 +31,7 @@ execute:
 
 ```{r}
 library(tidyverse)
-pioneer_valley_census_data <- read_csv("data/pioneer_valley_census_2022.csv")
+pioneer_valley_census_data <- read_csv("https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv")
 
 pioneer_valley_census_data_dictionary <- pioneer_valley_census_data |> 
   select(VAR_CAT, VAR, VAR_NAME) |>
@@ -40,7 +40,8 @@ pioneer_valley_census_data_dictionary <- pioneer_valley_census_data |>
 pioneer_valley_census_data <- pioneer_valley_census_data |>
   select(-VAR_CAT, -VAR) |>
   pivot_wider(names_from = VAR_NAME,
-              values_from = VALUE)
+              values_from = VALUE) |>
+  filter(LEVEL_CD_NAME != "Region")
   
 hampshire_census_data <- pioneer_valley_census_data %>% 
   filter(COUNTY == "Hampshire")

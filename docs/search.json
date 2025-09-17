@@ -3322,7 +3322,7 @@
     "href": "schedule.html#september-17-2025",
     "title": "Schedule",
     "section": "September 17, 2025",
-    "text": "September 17, 2025\n\nVisualization Conventions\n\nDue TodayFurther Resources\n\n\n Lab 1 Due\n\n\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"
+    "text": "September 17, 2025\n\nVisualization Conventions\n\nDue TodayFurther Resources\n\n\n Lab 1 Due\n\n\n Course slides here\n Exercise Instructions here\n [ggplot2 cheatsheet](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"
   },
   {
     "objectID": "schedule.html#september-19-2025",
@@ -4785,7 +4785,7 @@
     "href": "slides/ggplot.html#lets-create-the-following-data-frame-to-motivate-todays-lecture.",
     "title": "ggplot()",
     "section": "Let’s create the following data frame to motivate today’s lecture.",
-    "text": "Let’s create the following data frame to motivate today’s lecture.\n\nThis dataset comes from Pioneer Valley Data and documents estimates of population characteristics for each municipality in the Pioneer Valley.\n\n\nlibrary(tidyverse)\npioneer_valley_census_data &lt;- read.csv(\"https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv\")\nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")"
+    "text": "Let’s create the following data frame to motivate today’s lecture.\n\nThis dataset comes from Pioneer Valley Data and documents estimates of population characteristics for each municipality in the Pioneer Valley.\n\n\nlibrary(tidyverse)\npioneer_valley_census_data &lt;- read_csv(\"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv\")\n\npioneer_valley_census_data_dictionary &lt;- pioneer_valley_census_data |&gt; \n  select(VAR_CAT, VAR, VAR_NAME) |&gt;\n  distinct()\n\npioneer_valley_census_data &lt;- pioneer_valley_census_data |&gt;\n  select(-VAR_CAT, -VAR) |&gt;\n  pivot_wider(names_from = VAR_NAME,\n              values_from = VALUE) |&gt;\n  filter(LEVEL_CD_NAME != \"Region\")\n  \nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")"
   },
   {
     "objectID": "slides/ggplot.html#ggplot",
@@ -4806,7 +4806,7 @@
     "href": "slides/ggplot.html#anatomy-of-the-ggplot-function-1",
     "title": "ggplot()",
     "section": "Anatomy of the ggplot() function",
-    "text": "Anatomy of the ggplot() function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED))"
+    "text": "Anatomy of the ggplot() function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y =  CEN_CHILD_POV))"
   },
   {
     "objectID": "slides/ggplot.html#wheres-the-data",
@@ -4820,35 +4820,35 @@
     "href": "slides/ggplot.html#adding-a-geom-function",
     "title": "ggplot()",
     "section": "Adding a geom function",
-    "text": "Adding a geom function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col()"
+    "text": "Adding a geom function\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y =  CEN_CHILD_POV)) +\n  geom_col()"
   },
   {
     "objectID": "slides/ggplot.html#styling-plots-flipping-coordinates",
     "href": "slides/ggplot.html#styling-plots-flipping-coordinates",
     "title": "ggplot()",
     "section": "Styling Plots: Flipping Coordinates",
-    "text": "Styling Plots: Flipping Coordinates\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() # Flipping the x and y coordinates here makes the labels more legible."
+    "text": "Styling Plots: Flipping Coordinates\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_CHILD_POV)) +\n  geom_col() +\n  coord_flip() # Flipping the x and y coordinates here makes the labels more legible."
   },
   {
     "objectID": "slides/ggplot.html#styling-plots-changing-the-theme",
     "href": "slides/ggplot.html#styling-plots-changing-the-theme",
     "title": "ggplot()",
     "section": "Styling Plots: Changing the Theme",
-    "text": "Styling Plots: Changing the Theme\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal()"
+    "text": "Styling Plots: Changing the Theme\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y =  CEN_CHILD_POV)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal()"
   },
   {
     "objectID": "slides/ggplot.html#styling-plots-adding-labels",
     "href": "slides/ggplot.html#styling-plots-adding-labels",
     "title": "ggplot()",
     "section": "Styling Plots: Adding Labels",
-    "text": "Styling Plots: Adding Labels\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_EARLYED)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal() +\n  labs(title = \"Hampshire County Early Education Enrollment Rates, 2018\", \n       x = \"Municipality in Hampshire County, MA\", \n       y = \"Enrollment Rate for 3-4 yr old\")"
+    "text": "Styling Plots: Adding Labels\n\nggplot(data = hampshire_census_data, \n       aes(x = COMMUNITY, \n           y = CEN_CHILD_POV)) +\n  geom_col() +\n  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible. \n  theme_minimal() +\n  labs(title = \"Hampshire County Child Poverty, 2022\", \n       x = \"Municipality in Hampshire County, MA\", \n       y = \"Child Poverty Rate\")"
   },
   {
     "objectID": "slides/ggplot.html#styling-plots-adjusting-the-scale",
     "href": "slides/ggplot.html#styling-plots-adjusting-the-scale",
     "title": "ggplot()",
     "section": "Styling Plots: Adjusting the Scale",
-    "text": "Styling Plots: Adjusting the Scale\n\n# Adjust the Scale\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY,y = CEN_WORKERS)) +\n  geom_point() +\n  coord_flip() +\n  scale_y_log10() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\")"
+    "text": "Styling Plots: Adjusting the Scale\n\n# Adjust the Scale\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY,y = CEN_SINGPARHOU)) +\n  geom_point() +\n  coord_flip() +\n  scale_y_log10() +\n  labs(title = \"Single Parent Households in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Number of Households\")"
   },
   {
     "objectID": "slides/ggplot.html#aeshetics-vs.-attributes",
@@ -4862,14 +4862,14 @@
     "href": "slides/ggplot.html#adjusting-data-on-plots-via-aeshetics",
     "title": "ggplot()",
     "section": "Adjusting Data on Plots via Aeshetics",
-    "text": "Adjusting Data on Plots via Aeshetics\n\nWe add visual cues to the plot in the aes() call\n\n\n# Add visual cue for size\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY, y = CEN_WORKERS, size = CEN_HOUSEHOLDS)) +\n  geom_point() +\n  coord_flip() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\", size = \"Households\")"
+    "text": "Adjusting Data on Plots via Aeshetics\n\nWe add visual cues to the plot in the aes() call\n\n\n# Add visual cue for size\n\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY,y = CEN_SINGPARHOU, size = CEN_HOUSEHOLDS)) +\n  geom_point() +\n  coord_flip() +\n  scale_y_log10() +\n  labs(title = \"Single Parent Households in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Number of Single Parent Households\", size = \"Total Households\")"
   },
   {
     "objectID": "slides/ggplot.html#adjusting-data-on-plots-via-attributes",
     "href": "slides/ggplot.html#adjusting-data-on-plots-via-attributes",
     "title": "ggplot()",
     "section": "Adjusting Data on Plots via Attributes",
-    "text": "Adjusting Data on Plots via Attributes\n\n# Add visual cue for size and attribute for transparency\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY, y = CEN_WORKERS, size = CEN_HOUSEHOLDS)) +\n  geom_point(alpha = 0.2) +\n  coord_flip() +\n  labs(title = \"Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Workers Age 16+\", size = \"Households\")"
+    "text": "Adjusting Data on Plots via Attributes\n\n# Add visual cue for size and attribute for transparency\nggplot(data = pioneer_valley_census_data, \n       aes(x = COUNTY,y = CEN_SINGPARHOU, size = CEN_HOUSEHOLDS)) +\n  geom_point(alpha = 0.5) +\n  coord_flip() +\n  scale_y_log10() +\n  labs(title = \"Single Parent Households in Pioneer Valley, MA Municipalities, 2018\", x = \"County\", y = \"Number of Single Parent Households\", size = \"Total Households\")"
   },
   {
     "objectID": "slides/ggplot.html#do-i-really-have-to-memorize-all-of-these-stylistic-functions",
@@ -4877,5 +4877,12 @@
     "title": "ggplot()",
     "section": "Do I really have to memorize all of these stylistic functions?!",
     "text": "Do I really have to memorize all of these stylistic functions?!\nNo. There are cheatsheets. The ggplot2() cheatsheet is linked here."
+  },
+  {
+    "objectID": "exercises/ggplot.html",
+    "href": "exercises/ggplot.html",
+    "title": "ggplot",
+    "section": "",
+    "text": "library(tidyverse)\npioneer_valley_census_data &lt;- read_csv(\"https://raw.githubusercontent.com/SDS-192-Intro/public-website-fall-25/refs/heads/main/data/pioneer_valley_census_2022.csv\")\n\npioneer_valley_census_data_dictionary &lt;- pioneer_valley_census_data |&gt; \n  select(VAR_CAT, VAR, VAR_NAME) |&gt;\n  distinct()\n\npioneer_valley_census_data &lt;- pioneer_valley_census_data |&gt;\n  select(-VAR_CAT, -VAR) |&gt;\n  pivot_wider(names_from = VAR_NAME,\n              values_from = VALUE) |&gt;\n  filter(LEVEL_CD_NAME != \"Region\")\n  \nhampshire_census_data &lt;- pioneer_valley_census_data %&gt;% \n  filter(COUNTY == \"Hampshire\")\n\n\n#Add practice code from lecture here.\n\n\nQuestion\n\nCheck the column names for pioneer_valley_census_data. View what column names refer to via pioneer_valley_census_data_dictionary.\n\n\n# Write code here\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nRecreate this image using the ggplot() function.\n\n\n\n#Code here.\n\n\n\nQuestion\n\nWhich of the following does each point on this plot indicate?\nA person\nA municipality\nA commute\nA county"
   }
 ]
