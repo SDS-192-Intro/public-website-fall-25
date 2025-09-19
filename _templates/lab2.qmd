@@ -39,7 +39,7 @@ nbi_hampshire <- nbi_ma |> filter(COUNTY_CODE_003_L == "Hampshire")
 rm(counties, kinds, maintenance, route_prefixes)
 ```
 ###### Question 1
-In the code below, change `geom_point()` to `geom_jitter()`. Adjust the size to `2`, the alpha to `0.5`, and set the height of the jitter to `0.2`. If successful, your plot should look like mine below.
+In the code below, change `geom_point()` to `geom_jitter()`. Adjust the size to `2`, the alpha to `0.5`, and set the height of the jitter to `0.2`. Remove the `position` attribute. If successful, your plot should look like mine below.
 
 ```{r unnamed-chunk-3}
 #| eval: false
