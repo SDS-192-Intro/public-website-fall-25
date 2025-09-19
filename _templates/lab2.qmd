@@ -110,7 +110,7 @@ nbi_ma |>
   scale_y_continuous(labels = scales::comma)
 ```
 ###### Question 7
-The Interstate Highway Act of 1956 (signed under Dwight D. Eisenhower) established the U.S.'s interstate highway system and is considered the country's largest public works project. Adjust the x-axis scale of the plot below to help tell this story. Specifically, bin years into before 1954 (when Eisenhower was elected) and 1954-2021. Set the label at 1954 to "Eisenhower Elected" and the label at 2021 to "Today." If successful, your plot should look like mine below.
+The Interstate Highway Act of 1956 (signed under Dwight D. Eisenhower) established the U.S.'s interstate highway system and is considered the country's largest public works project. Adjust the x-axis scale of the plot below to help tell this story. Specifically, bin years into before 1954 (when Eisenhower was elected) and 1954-2024. Set the label at 1954 to "Eisenhower Elected" and the label at 2024 to "Today." If successful, your plot should look like mine below.
 
 ```{r unnamed-chunk-18}
 #| eval: false
