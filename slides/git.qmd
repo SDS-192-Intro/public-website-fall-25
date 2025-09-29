@@ -37,6 +37,13 @@ execute:
 
 ------------------------------------------------------------------------
 
+## What is GitHub?
+
+-   a hosting site for `git` projects
+-   stores `git` projects on the cloud, allowing others to view and make edits to code according to permissions you grant
+
+------------------------------------------------------------------------
+
 ## What is a repository?
 
 -   a data structure for version control systems
@@ -246,7 +253,7 @@ execute:
 
 ------------------------------------------------------------------------
 
-# Part Five: Other features
+# Part Five: Other Important Information
 
 ------------------------------------------------------------------------
 
@@ -263,3 +270,11 @@ execute:
 
 -   This file lists files that `git` should not track.
 -   Important for preventing large files and passwords from being sent to GitHub.com.
+
+------------------------------------------------------------------------
+
+## What if I don’t have permissions to edit or push to a GitHub repository? 
+
+-   This is when you want to fork a repository instead of branching it. Forking a repository creates a copy of a repo in your account. 
+-   You can make changes just like you would in a branch, but you cannot push to the master. Instead, you can create a pull request to the repo’s owners, which they can review before merging your changes into master. 
+-   If you want to keep your fork up-to-date with the original repo, you will need to rebase it. 

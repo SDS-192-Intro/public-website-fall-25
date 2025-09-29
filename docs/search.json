@@ -3357,7 +3357,7 @@
     "href": "schedule.html#september-29-2025",
     "title": "Schedule",
     "section": "September 29, 2025",
-    "text": "September 29, 2025\n\nIntroduction to git and GitHub\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n Course slides here\n ggplot2 cheatsheet\n Lab 3 Instructions"
+    "text": "September 29, 2025\n\nIntroduction to git and GitHub\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n Course slides here\n git Sandbox\n ggplot2 cheatsheet\n Lab 3 Instructions"
   },
   {
     "objectID": "schedule.html#october-01-2025",
@@ -5248,5 +5248,19 @@
     "title": "Boxplots",
     "section": "",
     "text": "Measures of Central Tendency and Dispersion\nBoxplots\nProject 1 Assigned"
+  },
+  {
+    "objectID": "slides/git.html#what-is-github",
+    "href": "slides/git.html#what-is-github",
+    "title": "git and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?\n\na hosting site for git projects\nstores git projects on the cloud, allowing others to view and make edits to code according to permissions you grant"
+  },
+  {
+    "objectID": "slides/git.html#what-if-i-dont-have-permissions-to-edit-or-push-to-a-github-repository",
+    "href": "slides/git.html#what-if-i-dont-have-permissions-to-edit-or-push-to-a-github-repository",
+    "title": "git and GitHub",
+    "section": "What if I don’t have permissions to edit or push to a GitHub repository?",
+    "text": "What if I don’t have permissions to edit or push to a GitHub repository?\n\nThis is when you want to fork a repository instead of branching it. Forking a repository creates a copy of a repo in your account.\nYou can make changes just like you would in a branch, but you cannot push to the master. Instead, you can create a pull request to the repo’s owners, which they can review before merging your changes into master.\nIf you want to keep your fork up-to-date with the original repo, you will need to rebase it."
   }
 ]
