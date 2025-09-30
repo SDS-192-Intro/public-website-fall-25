@@ -270,6 +270,7 @@ Below I've given you some code to produce a plot that visualizes how the distrib
 #| eval: true
 
 hmda_ms_2024 |>
+  mutate(interest_rate = as.numeric(interest_rate)) |>
   filter(action_taken == "Loan originated") |>
   ggplot(aes(x = debt_to_income_ratio, y = interest_rate)) +
   geom_boxplot() +
