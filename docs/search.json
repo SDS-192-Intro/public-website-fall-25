@@ -3357,14 +3357,14 @@
     "href": "schedule.html#september-29-2025",
     "title": "Schedule",
     "section": "September 29, 2025",
-    "text": "September 29, 2025\n\nIntroduction to git and GitHub\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n Course slides here\n git Sandbox\n ggplot2 cheatsheet\n Lab 3 Instructions"
+    "text": "September 29, 2025\n\nIntroduction to git and GitHub\n\nDue TodayFurther Resources\n\n\n Bryan, Jennifer (2018). “Excuse Me, Do You Have a Moment to Talk About Version Control?” In: The American Statistician 72.1. Publisher: Taylor & Francis _eprint: https://doi.org/10.1080/00031305.2017.1399928, pp. 20-27. (Visited on Jan. 14, 2022). Read in Perusall\n\n\n Course slides here\n ggplot2 cheatsheet\n Lab 3 Instructions"
   },
   {
     "objectID": "schedule.html#october-01-2025",
     "href": "schedule.html#october-01-2025",
     "title": "Schedule",
     "section": "October 01, 2025",
-    "text": "October 01, 2025\n\nIntroduction to Open Source\n\nDue TodayFurther Resources\n\n\n Lab 3 Due\n\n\n Lab 3 Template"
+    "text": "October 01, 2025\n\nIntroduction to Open Source\n\nDue TodayFurther Resources\n\n\n Lab 3 Due\n\n\n Course slides here\n git Sandbox\n Example Open Source project\n Choosing a license"
   },
   {
     "objectID": "schedule.html#october-03-2025",
@@ -5262,5 +5262,61 @@
     "title": "git and GitHub",
     "section": "What if I don’t have permissions to edit or push to a GitHub repository?",
     "text": "What if I don’t have permissions to edit or push to a GitHub repository?\n\nThis is when you want to fork a repository instead of branching it. Forking a repository creates a copy of a repo in your account.\nYou can make changes just like you would in a branch, but you cannot push to the master. Instead, you can create a pull request to the repo’s owners, which they can review before merging your changes into master.\nIf you want to keep your fork up-to-date with the original repo, you will need to rebase it."
+  },
+  {
+    "objectID": "slides/open_source.html#for-today",
+    "href": "slides/open_source.html#for-today",
+    "title": "Open Source",
+    "section": "For Today",
+    "text": "For Today\n\nIntroduction Open Source\nPractice with remote repository\nDesign a README with project groups"
+  },
+  {
+    "objectID": "slides/open_source.html#open-source-vs.-free-software",
+    "href": "slides/open_source.html#open-source-vs.-free-software",
+    "title": "Open Source",
+    "section": "Open Source vs. Free Software",
+    "text": "Open Source vs. Free Software\n\nFree software refers to software that doesn’t cost you anything to use\nOpen source software refers to software whose source code has been shared publicly so that others can re-use and/or remix it"
+  },
+  {
+    "objectID": "slides/open_source.html#licensing",
+    "href": "slides/open_source.html#licensing",
+    "title": "Open Source",
+    "section": "Licensing",
+    "text": "Licensing\n\nLicenses identify the conditions under which other individuals may re-use or remix source code\nWithout specifying a license, code published on Github.com is copyrighted.\nCopyleft: an alternative to copyright laws that indicates that code must remain free and open\nThere are many existing licenses; resources like this can be helpful."
+  },
+  {
+    "objectID": "slides/open_source.html#license-considerations",
+    "href": "slides/open_source.html#license-considerations",
+    "title": "Open Source",
+    "section": "License Considerations",
+    "text": "License Considerations\n\nCan I use, modify, or redistribute this content? Can I do any of this for commercial purposes?\nCan I modify the license when I redistribute the original? Do I have to include the full text of the original license when I redistribute it?\nAm I required to distribute a copy of the original content when I distribute the content?\nDo I need to disclose where my source code came from?\nDo I need to describe changes I made to the source code when I redistribute it?"
+  },
+  {
+    "objectID": "slides/open_source.html#documentation",
+    "href": "slides/open_source.html#documentation",
+    "title": "Open Source",
+    "section": "Documentation",
+    "text": "Documentation\n\nREADME files are files that outline what others need to know about a project.\nGood README files often include:\n\nA project description\nProject contributors\nA roadmap/overview of the repo’s organization\nAn explanation of how others can install/configure the code\nAn overview of how to contribute to the project\nInformation on how to ask questions or request changes to the code\n\nHere is a great resource for README templates"
+  },
+  {
+    "objectID": "slides/open_source.html#issues",
+    "href": "slides/open_source.html#issues",
+    "title": "Open Source",
+    "section": "Issues",
+    "text": "Issues\n\nSupport project planning by allowing you to create a wishlist of project changes\nSpace for reporting bugs, requesting features, or asking questions\nIssues have labels like “good first issue” to track good issues to start contributing to.\nAn example of a robust issue queue is here."
+  },
+  {
+    "objectID": "slides/open_source.html#contributing-guides",
+    "href": "slides/open_source.html#contributing-guides",
+    "title": "Open Source",
+    "section": "Contributing Guides",
+    "text": "Contributing Guides\n\nGuides for contributing to open source projects are often outlined in a contributing.md file.\nMay include a code of conduct, requirements for project set-up, a development workflow, how to submit your changes, and how to style your code"
+  },
+  {
+    "objectID": "slides/open_source.html#forking-an-open-source-project",
+    "href": "slides/open_source.html#forking-an-open-source-project",
+    "title": "Open Source",
+    "section": "Forking an Open Source Project",
+    "text": "Forking an Open Source Project\n\nCode licensed with a copyleft license and made available on github.com can be forked.\nForking involves copying a project’s source code so that you can use it as the basis for your own project.\nIt is possible to make edits and request that the original creators of the code merge those changes into their project."
   }
 ]
