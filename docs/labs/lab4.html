@@ -533,7 +533,7 @@ Before moving on to the next section…
 <h6 class="anchored" data-anchor-id="question-13">Question</h6>
 <div class="question">
 <p>One of your partners should navigate to the GitHub.com repository. Click on the file README.md. Click the pencil icon to edit the file. Replace the text: ADD NAME 1 HERE ADD NAME 2 HERE, and so on with your names. Scroll to the bottom of the page and commit changes noting in the message that your names were added.</p>
-<p>Other partner: Return to RStudio. <strong>Do not pull changes yet.</strong> Open github-practice.Rmd. On line 40 change the <code>ncol()</code> function to <code>dim()</code>. Save the file. Stage and commit your changes. Click the green upward arrow to push your changes. You should get an error that looks like this.</p>
+<p>Other partner: Return to RStudio. <strong>Do not pull changes yet.</strong> Open github-practice.Rmd. On line 39 change the <code>names()</code> function to <code>colnames()</code>. Save the file. Stage and commit your changes. Click the green upward arrow to push your changes. You should get an error that looks like this.</p>
 <p><img src="img/push-error.png" class="img-fluid" alt="This shows the text that we see when we get a push error. It says hint: Updates were rejected because the remote contains work that you do hint: not have locally. This is usually caused by another repository pushing hint: to the same ref. You may want to first integrate the remote changes hint: (e.g., 'git pull ...') before pushing again."></p>
 <p>Follow the steps above to resolve the error.</p>
 </div>
@@ -551,9 +551,9 @@ Before moving on to the next section…
 <section id="question-14" class="level6">
 <h6 class="anchored" data-anchor-id="question-14">Question</h6>
 <div class="question">
-<p>One of your partners should navigate to the GitHub.com repository. Click on the file github-practice.Rmd. Click the pencil icon to edit the file. Replace the code on line 47 with the following: <code>colnames(pioneer_valley_2013).</code></p>
+<p>One of your partners should navigate to the GitHub.com repository. Click on the file github-practice.Rmd. Click the pencil icon to edit the file. Replace the code on line 39 with the following: <code>dim(pioneer_valley_2013).</code></p>
 <p>Scroll to the bottom of the page and commit changes noting in the message how you updated the function.</p>
-<p>Other partner: Return to RStudio. <strong>Do not pull changes yet.</strong> Open github-practice.Rmd. Replace the code on line 47 with the following: <code>ncol(pioneer_valley_2013)</code></p>
+<p>Other partner: Return to RStudio. <strong>Do not pull changes yet.</strong> Open github-practice.Rmd. Replace the code on line 39 with the following: <code>ncol(pioneer_valley_2013)</code></p>
 <p>Save the file. Click the blue downward button to Pull changes. You should get an error that looks like this.</p>
 <p><img src="img/pull-error.png" class="img-fluid" alt="This shows the error message we get for a pull error. It says &quot;error: Your local changes to the following files would be overwritten by merge:    README.md Please commit your changes or stash them before you merge.&quot;"></p>
 <p>Follow the steps above to resolve the error.</p>
@@ -573,11 +573,11 @@ Before moving on to the next section…
 <p>To fix this one your partners should open the file with the conflict. In this case it will be github-practice.Rmd. Scroll to the section of the file with the conflict. It will now look something like this:</p>
 <pre><code>    &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
-    ncol(pioneer_valley_2013)
+    [...code]
 
     =======
 
-    colnames(pioneer_valley_2013)
+    [...code]
 
     &gt;&gt;&gt;&gt;&gt;&gt;&gt; ee175895783b64e0e1f696d9456be4c4c7c3f3bf</code></pre>
 <p>The code following HEAD represents the recent changes you made on your local machine, and the code right before the long string of characters represents the changes that were made in an earlier commit (the long string of characters is the commit hash). Decide what that line should look like and delete all other content. This means you <em>must</em> delete “&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD”, “=======”, and “&gt;&gt;&gt;&gt;&gt;&gt;&gt; &lt;long-hash&gt;”, and you likely should delete at least one other line. Save the file, stage the file by clicking the checkbox next to the file in the Git page, and then commit your changes, and push them to GitHub.com.</p>
