@@ -87,9 +87,7 @@ hmda_ms_2024 <- read.csv("https://ffiec.cfpb.gov/v2/data-browser-api/view/csv?st
 ###### Question
 
 ::: question
-
-Send me a list of all of the lending IDs for the mortgage applications that were originated for borrowers with a debt-to-income ratio of greater than 60%. 
-
+Send me a list of all of the lending IDs for the mortgage applications that were originated for borrowers with a debt-to-income ratio of greater than 60%.
 :::
 
 ```{r}
@@ -97,98 +95,154 @@ Send me a list of all of the lending IDs for the mortgage applications that were
 #Code here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(debt_to_income_ratio == ">60%") |>
+  select(lei)
+```
+
+
 ###### Question
 
 ::: question
-
 Send me the lending ID and action taken for the *home purchases* with the top 10 loan-to value ratios.
-
 :::
 
 ```{r}
 # Code Here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(loan_purpose == "Home Purchase") |>
+  arrange(desc(loan_to_value_ratio)) |>
+  head(10) |>
+  select(lei, action_taken)
+```
+
 ###### Question
 
 ::: question
-
-Send me a list of the loan to value ratios, loan amounts, and property values for each originated loan. 
-
+Send me a list of the loan to value ratios, loan amounts, and property values for each originated loan.
 :::
 
 ```{r}
 # Code Here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  mutate(property_value = loan_amount / (loan_to_value_ratio/100)) |>
+  select(loan_to_value_ratio, loan_amount, property_value)
+```
+
 ###### Question
 
 ::: question
-
 How many `NA` values were listed in the loan to value ratio variable?
-
 :::
 
 ```{r}
 # Code Here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(is.na(loan_to_value_ratio)) |>
+  nrow()
+
+hmda_ms_2024 |>
+  summarize(total_na = sum(is.na(loan_to_value_ratio)))
+```
+
 ###### Question
 
 ::: question
-
-Of applicants with a debt-to-income ratio of less than 36%, what was the mean and median interest rate of originated loans for each race? 
-
+Of applicants with a debt-to-income ratio of less than 36%, what was the mean and median interest rate of originated loans for each race?
 :::
 
 ```{r}
 # Code Here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(debt_to_income_ratio %in% c("<20%", "20%-<30%", "30%-<36%")) |>
+  group_by(derived_race) |>
+  summarize(mean_interest = mean(interest_rate, na.rm = TRUE),
+            median_interest = median(interest_rate, na.rm = TRUE))
+```
+
 ###### Question
 
 ::: question
-
-Which 5 lending institutions lent the most? Send me a list of their IDs, the number of loans they originated, and the total originated. 
-
+Which 5 lending institutions lent the most? Send me a list of their IDs, the number of loans they originated, and the total originated.
 :::
 
 ```{r}
 # Code Here
 ```
 
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(action_taken == "Loan originated") |>
+  group_by(lei) |>
+  summarize(total_loans = n(),
+            total_amount = sum(loan_amount)) |>
+  arrange(desc(total_amount)) |>
+  head(5)
+```
+
 ###### Question
 
 ::: question
-
 How many loans were denied because of debt-to-income ratio for each race and debt-to-income ratio bracket? Send me a list of the race, debt-to-income ratio, and count of denied loans, sorted first by the derived race, and second by the count in descending order.
-
 :::
 
 ```{r}
 # Code Here
 ```
 
-###### Question
-
-::: question
-
-Which 5 lending institutions lent the most? Send me a list of their IDs, the number of loans, they originated, and the total originated. 
-
-:::
-
 ```{r}
-# Code Here
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(denial_reason == "Debt-to-income ratio") |>
+  group_by(derived_race, debt_to_income_ratio) |>
+  summarize(denied_for_debt_count = n()) |>
+  arrange(derived_race, desc(denied_for_debt_count))
 ```
 
 ###### Question
 
 ::: question
-
 When applicants were denied, what was the most common denial reason for each race? Send me a list of the race, top denial reason, and count of loans that were denied for that reason.
-
 :::
 
 ```{r}
 # Code Here
+```
+
+```{r}
+#| document: solutions
+
+hmda_ms_2024 |>
+  filter(action_taken == "Application denied") |>
+  group_by(derived_race, denial_reason) |>
+  summarize(count = n()) |>
+  ungroup() |>
+  group_by(derived_race) |>
+  filter(count == max(count))
 ```
