@@ -69,17 +69,15 @@ Subset the dataset to the six variables listed in the data dictionary above.
 ```{r unnamed-chunk-6}
 #| eval: false
 sqf_2011 <-
-  sqf_2011 |>
-  _____(pct, arrestsumm, _____, wpnfound, race_cat, _____)
+  #Subset the data here
 ```
 ###### Question 3
-Calculate the number of stops in 2011. If you are not sure which function to use below, you may want to refer to the list of Summary functions in the the Data Wrangling cheatsheet. Remember that each row in the data frame is a stop.
+Calculate the number of stops in 2011. If you are not sure which function to use below, you may want to refer to the list of Summary functions in the the Data Wrangling cheatsheet. Remember that each row in the data frame is a stop. Note that we will use `pull()` at the end of this code to pull the value out of the data frame. 
 
 ```{r unnamed-chunk-8}
 #| eval: false
 total_stops <-
-  sqf_2011 |>
-  summarize(Count = _____) |>
+  # Calculate total stops
   pull()
 
 total_stops
@@ -91,10 +89,7 @@ How many stops did not result in an arrest or summons in 2011? What percentage o
 #| eval: false
 sqf_2011 |>
   #Subset to rows where suspect innocent
-  _____(arrestsumm _____ 0) |> 
   #Calculate number of observations
-  _____(total_innocent = n(), 
-            percent_innocent = _____ / total_stops * 100)
 ```
 ###### Question 5
 
@@ -104,14 +99,11 @@ In how many stops were the individuals aged 14-24? In what percentage of stops w
 #| eval: false
 sqf_2011 |>
   #Subset to rows where suspect age 14-24
-  _____(age _____ 14 & age _____ 24) |> 
   #Calculate number of observations and percentage of observations
-  _____(total_14_24 = _____, 
-            percent_14_24 = n() / total_stops * 100)
 ```
 ###### Question 6
 
-Fix the code below to calculate the currect number of stops for individuals 14-24. 
+Fix the code below to calculate the correct number of stops for individuals 14-24. 
 
 
 ```{r unnamed-chunk-14}
@@ -119,8 +111,7 @@ Fix the code below to calculate the currect number of stops for individuals 14-2
 total_stops_age_recorded <-
   sqf_2011 |>
   #Subset to rows where age is not 999
-  _____(age _____ 999) |> 
-  summarize(Count = n()) |>
+  #Calculate total number of stops
   pull()
 
 sqf_2011 |>
@@ -137,20 +128,13 @@ How many stops were there per race in 2011? What percentage of stops per race in
 total_stops_race_recorded <-
   sqf_2011 |>
   #Subset to rows where race_cat is not NA or "OTHER"
-  filter(_____(race_cat) & race_cat _____ "OTHER") |> 
-  summarize(Count = n()) |>
+  #Calculate the total number of stops
   pull()
 
 sqf_2011 |>
   #Subset to rows where race_cat is not NA or "OTHER"
-  _____(_____(race_cat) & race_cat _____ "OTHER") |> 
-  #Group by race
-  _____(race_cat) |> 
-  #Calculate number of observations
-  _____(stops = n(), 
-            percent_stops = n() / total_stops_race_recorded * 100) |>
+  #Calculate number of stops per race and percent of stops per race
   #Sort by stops in descending order
-  _____(_____(stops)) 
 ```
 ###### Question 8
 
@@ -160,10 +144,7 @@ In how many stops were the individuals identified as Latinx (i.e. "WHITE-HISPANI
 #| eval: false
 sqf_2011 |>
   #Subset to rows where race_cat is "WHITE-HISPANIC" or "BLACK-HISPANIC"
-  _____(race_cat _____ c("WHITE-HISPANIC", "BLACK-HISPANIC")) |> 
-  #Calculate number of observations
-  _____(stops_Latinx = _____, 
-            percent_Latinx = n() / total_stops_race_recorded * 100)
+  #Calculate number of stops and percentage of stops
 ```
 ###### Question 9
 

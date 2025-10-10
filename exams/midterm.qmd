@@ -1,0 +1,188 @@
+---
+title: "SDS 192 Midterm Exam"
+subtitle: "Professor Lindsay Poirier"
+format: pdf
+editor: source
+knitr:
+  opts_chunk: 
+    message: false
+    warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+nyc_squirrel_census <- read.csv("https://data.cityofnewyork.us/resource/ej9h-v6g2.csv")
+```
+\noindent\textbf{Instructions:}
+\begin{itemize}
+\item This midterm lasts 75 minutes.
+\item This exam is closed-book, to be individually completed and without the aid of the internet or mobile phones. You may reference the `R` cheatsheets, along with any supplementary material I have provided.
+\item If there are any areas of the exam that are ambiguous to you, please note that on the exam, state your assumptions, and use your best judgment.
+\end{itemize}
+
+Several questions in this exam will reference an example dataset. That dataset is the 2018 Central Park Squirrel Census. I have provided you with the documentation for that dataset. Please note that you will be working specifically with the **Hectare Data**. 
+
+1. What is the unit of observation in the example dataset?
+
+\vspace{5cm}
+
+2. Identify one nominal, one oridinal, one discrete numeric variable in the example dataset.
+
+\vspace{4cm}
+
+3. What are the characteristics of a data frame in `R`? What are the characteristics of a vector? How are they related?
+
+\vspace{4cm}
+
+4. What is the chief difference between a barplot and a histogram?
+
+\vspace{4cm}
+
+5. We saw in class that there are two ways to create a barplot using `ggplot`: either using `geom_bar()` or
+using `geom_col()`. Illustrate the need for these two different ways using simple data frame examples.
+
+\vspace{6cm}
+
+6. What is overplotting? What are two ways that we can deal with overplotting?
+
+\vspace{4cm}
+
+7. When would we use each of the following types of color palettes on a plot: a qualitative palette, a sequential palette, and a divergent palette?
+
+\vspace{4cm}
+
+8. Given the example dataset, what would be an appropriate y-axis label for the following plot?
+
+```{r}
+nyc_squirrel_census |>
+  ggplot(aes(x = number_of_squirrels)) +
+  geom_histogram(binwidth = 2) +
+  labs(x = "Number of Squirrels",
+       y = "________________________")
+```
+
+9. Develop a descriptive title and labels for the following plot.
+
+```{r}
+library(lubridate)
+nyc_squirrel_census |>
+  mutate(date = mdy(date)) |>
+  ggplot(aes(x = date, fill = hectare_conditions)) +
+  geom_bar(position = "fill") +
+  labs(title = "___________________________________",
+       x = "________________",
+       y = "________________",
+       fill = "____________________")
+```
+
+10. What is the scale of the x-axis on the previous plot? What is the scale of the y-axis?
+
+\vspace{4cm}
+
+11. According to Tufte, what is a plot's lie factor?
+
+\vspace{4cm}
+
+12. Approximately what is the interquartile range represented on the following plot?
+
+```{r}
+nyc_squirrel_census |>
+  ggplot(aes(x = total_time_of_sighting)) +
+  geom_boxplot()
+```
+
+\vspace{4cm}
+
+13. Two students were working on the same lab assignment and tried to edit the same line in the file. The merge conflict below appeared. What should Student 2 do to ensure that their version of the code gets pushed to the remote repository?
+
+```
+<<<<<<< HEAD:lab1.Rmd
+#Student 1's code
+ggplot(lobby_chicago, aes(x = ACTION)) + geom_bar()
+-------
+#Student 2's code
+ggplot(lobby_chicago, aes(x = PURPOSE)) + geom_bar()
+>>>>>>> hash
+```
+
+\vspace{4cm}
+
+14. Fill in the following statement with the correct `git` vocabulary. 
+
+`git __________` downloads a remote repository to your local computer. `git __________` fetches changes to code from a remote repository to your local machine. __________ involves selecting files we wish to commit changes on. `git __________` saves a snapshot of the current version of code to the git version control. `git __________` uploads changes to a remote repository. 
+
+15. What is branching? Outline a collaborative GitHub workflow that engages branching to incorporate multiple changes into a final document. 
+
+\vspace{4cm}
+
+16. In what hectares and on what dates and shifts did anonymous sighter 37 count? Write pseduo-code to produce the following data frame.
+
+```{r}
+#| echo: false
+
+nyc_squirrel_census |>
+  filter(anonymized_sighter == 37) |>
+  select(hectare, shift, date, anonymized_sighter)
+```
+
+\vspace{6cm}
+
+17. What would be the difference in outputs between the following two code chunks?
+
+```{r}
+#| eval: false
+
+mean(nyc_squirrel_census$total_time_of_sighting, na.rm = TRUE)
+
+nyc_squirrel_census |>
+  summarize(mean_time_of_sighting = mean(total_time_of_sighting, na.rm = TRUE))
+```
+
+\vspace{6cm}
+
+18. In which 10 counting sessions where the most squirrels sighted per minute? Write pseudo-code to produce the following data frame.
+
+```{r}
+#| echo: false
+
+nyc_squirrel_census |>
+  mutate(sightings_per_minute = number_of_squirrels/total_time_of_sighting) |>
+  arrange(desc(sightings_per_minute)) |>
+  select(hectare, shift, date, sightings_per_minute) |>
+  head(10)
+```
+
+\vspace{6cm}
+
+19. In which 5 hectares were the most total squirrels squirrels sighted? How much time was spent sighting in each of these hectares? Write pseduo-code to produce the following data frame.
+
+```{r}
+#| echo: false
+
+nyc_squirrel_census |>
+  group_by(hectare) |>
+  summarize(total_squirrels = sum(number_of_squirrels, na.rm = TRUE),
+            total_time_hectare = sum(total_time_of_sighting, na.rm = TRUE)) |>
+  arrange(desc(total_squirrels)) |>
+  head(5)
+```
+
+\vspace{6cm}
+
+20. What was the total, mean, median time spent sighting squirrels in AM vs. PM counting sessions, and how many times was the total time spenting counting recorded as `NA`? Write pseduo-code to produce the following data frame.
+
+
+```{r}
+#| echo: false
+
+nyc_squirrel_census |>
+  group_by(shift) |>
+  summarize(total_time = sum(total_time_of_sighting, na.rm = TRUE),
+            mean_time = mean(total_time_of_sighting, na.rm = TRUE),
+            median_time = median(total_time_of_sighting, na.rm = TRUE), 
+            na_time = sum(is.na(total_time_of_sighting)))
+```
+
+\vspace{6cm}
