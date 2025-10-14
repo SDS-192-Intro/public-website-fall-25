@@ -3406,7 +3406,7 @@
     "href": "schedule.html#october-15-2025",
     "title": "Schedule",
     "section": "October 15, 2025",
-    "text": "October 15, 2025\n\nReview\n\nDue TodayFurther Resources\n\n\n Lab 5 Due"
+    "text": "October 15, 2025\n\nReview\n\nDue TodayFurther Resources\n\n\n Lab 5 Due\n\n\n Course slides are here\n Midterm Review here\n Exercise Instructions here\n Exercise Template here"
   },
   {
     "objectID": "schedule.html#october-17-2025",
@@ -5906,5 +5906,68 @@
     "title": "Data Wrangling",
     "section": "Of applicants with a debt-to-income ratio of less than 36%, what was the mean and median interest rate of originated loans for each race?",
     "text": "Of applicants with a debt-to-income ratio of less than 36%, what was the mean and median interest rate of originated loans for each race?"
+  },
+  {
+    "objectID": "midterm-review.html",
+    "href": "midterm-review.html",
+    "title": "Mid-Term Review",
+    "section": "",
+    "text": "Understanding Datasets and R Fundamentals\n\nReading data documentation/data dictionary\nIdentifying a unit of observation\nIdentifying types of variables in a dataset\nCharacterizing different data objects in R\nInterpreting functions and arguments in R\nIdentifying missing data in R\n\n\n\nVisualization Aesthetics\n\nMapping appropriate variables onto plot aesthetics\nAdjusting plot attributes\nRecognizing and adjusting plot scales\nContextualizing a plot with titles and labels\nRecognizing and dealing with overplotting\nEffectively selecting color palettes for plots\nFaceting plots into small multiples\nDefining and recognizing a plot’s graphical integrity (e.g. lie factor and data-to-ink ratio)\n\n\n\nPlotting Freqencies\n\nUnderstanding how to visualize the frequency of both categorical and numeric values\nRecognizing how to visualize frequency for aggregate data\nInterpreting frequencies and distributions via a plot\nInterpreting a boxplot\n\n\n\nGitHub\n\nUnderstanding git vocabulary\nIdentifying the steps of a collaborative GitHub workflow, including when to branch and merge changes\nAddressing common push/pull errors\nResolving merge conflicts\n\n\n\nData Wrangling\n\nUnderstanding the 6 data wrangling verbs and when to appy them\nUnderstanding how a data structure transforms when wrangling data\nWriting pseduo-code to transform a dataset from one form to another"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#helper-functions-for-select",
+    "href": "slides/adv_wrangling.html#helper-functions-for-select",
+    "title": "Advanced Data Wrangling",
+    "section": "Helper Functions for select()",
+    "text": "Helper Functions for select()\n\nselect(contains(\"abc\")) : select columns containing string\nselect(starts_with(\"abc\")) : select columns starting with string\nselect(ends_with(\"abc)) : select columns ending with string\nselect(-col_name) : select all columns except this column\nselect(x:y) : select columns with indexes x:y"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#filtering-to-distinct-values",
+    "href": "slides/adv_wrangling.html#filtering-to-distinct-values",
+    "title": "Advanced Data Wrangling",
+    "section": "Filtering to Distinct Values",
+    "text": "Filtering to Distinct Values\n\ndistinct() : filter to rows with distinct values\nslice(x:y) : filter to rows in index x:y"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#boolean-filter-operators",
+    "href": "slides/adv_wrangling.html#boolean-filter-operators",
+    "title": "Advanced Data Wrangling",
+    "section": "Boolean Filter Operators",
+    "text": "Boolean Filter Operators\n\n==\n&lt;, &gt;, &lt;=, &gt;=\n&\n|\n!\nis.na()\n%in%"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#filtering-by-strings",
+    "href": "slides/adv_wrangling.html#filtering-by-strings",
+    "title": "Advanced Data Wrangling",
+    "section": "Filtering by Strings",
+    "text": "Filtering by Strings\n\nfilter(str_detect(col_name, \"abc\")) : filter to rows where string is detected"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#convert-missing-values-to-nas",
+    "href": "slides/adv_wrangling.html#convert-missing-values-to-nas",
+    "title": "Advanced Data Wrangling",
+    "section": "Convert Missing Values to NAs",
+    "text": "Convert Missing Values to NAs\n\nmutate(new_col_name = na_if(col_name, x) : if a value in col_name is x convert it to NA in the new column\nmutate(new_col_name = na_if(col_name, \" \") : if a value in col_name is \" \" convert it to NA in the new column\nmutate(new_col_name = na_if(col_name, \"NA\") : if a value in col_name is \"NA\" convert it to NA in the new column\nmutate(new_col_name = na_if(col_name, \"NULL\") : if a value in col_name is \"NULL\" convert it to NA in the new column"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#mutate-with-vectorized-if-else",
+    "href": "slides/adv_wrangling.html#mutate-with-vectorized-if-else",
+    "title": "Advanced Data Wrangling",
+    "section": "Mutate with Vectorized if-else",
+    "text": "Mutate with Vectorized if-else\n\nSometimes we want to set a value in a column based on the conditions of a value in another column.\nUsing case_when() we can assign values based on conditions, and then assign a final value when no conditions are met.\n\n  mutate(new_col_name = case_when(col_name == \"Y\" ~ \"Yes\", \n                                  col_name == \"N\" ~ \"No\",\n                                  TRUE ~ NA)"
+  },
+  {
+    "objectID": "slides/adv_wrangling.html#ungrouping",
+    "href": "slides/adv_wrangling.html#ungrouping",
+    "title": "Advanced Data Wrangling",
+    "section": "Ungrouping",
+    "text": "Ungrouping\n\nGrouping changes the metadata of the data frame so that subsequent functions are applied to each group.\nSometimes we want to apply a function to each group and then apply subsequent functions to the whole data frame.\nungroup() removes the grouping metadata."
+  },
+  {
+    "objectID": "exercises/adv_wrangling.html",
+    "href": "exercises/adv_wrangling.html",
+    "title": "Advanced Data Wrangling",
+    "section": "",
+    "text": "Question\n\nSelect all columns relating the crime suspected.\n\n\n#Code here\n\n\n\n  cs_objcs cs_descr cs_casng cs_lkout cs_cloth cs_drgtr cs_furtv cs_vcrim\n1        N        N        Y        N        N        N        N        N\n2        N        N        Y        N        N        N        Y        N\n3        N        N        N        N        N        N        Y        N\n4        N        N        N        N        N        N        Y        N\n5        N        N        N        N        N        N        Y        N\n  cs_bulge cs_other\n1        N        N\n2        N        N\n3        N        Y\n4        N        Y\n5        N        Y\n\n\n\n\nQuestion\n\nSelect all of the first 5 columns, except the 4th column.\n\n\n# Code Here\n\n\n\n  year pct ser_num timestop\n1 2011 102     185        0\n2 2011 115      50        5\n3 2011 100       4        7\n4 2011 100       3        7\n5 2011 100       1        7\n\n\n\n\nQuestion\n\nSend me the distinct values in the crime suspected column.\n\n\n# Code Here\n\n\n\n           crimsusp\n1          BURGLARY\n2               FEL\n3               CPW\n4 CRIMINAL TRESPASS\n5           ROBBERY\n\n\n\n\nQuestion\n\nIn which rows where a suspect was frisked and searched was either contraband or a pistol found on the suspect? Add a line of code below to determine this.\n\n\nsqf_2011 |&gt;\n  select(frisked, searched, contrabn, pistol) |&gt; \n  head(5)\n\n  frisked searched contrabn pistol\n1       Y        N        N      N\n2       Y        N        N      N\n3       Y        N        N      N\n4       Y        N        N      N\n5       Y        N        N      N\n\n\n\n\n  frisked searched contrabn pistol\n1       Y        Y        N      Y\n2       Y        Y        Y      N\n3       Y        Y        Y      N\n4       Y        Y        N      Y\n5       Y        Y        Y      N\n\n\n\n\nQuestion\n\nSend me all of the rows where the crime suspected contains “FEL.”\n\n\n# Code Here\n\n\n\n  pct ser_num crimsusp\n1 115      50      FEL\n2 101       8      FEL\n3  70       1      FEL\n4 101      11   FELONY\n5  28       1   FELONY\n\n\n\n\nQuestion\n\nThe NYPD uses the number 999 to indicate a missing age. In the code below, add a line to convert 999 to NA, using mutate().\n\n\n# Code Here\n\nsqf_2011 |&gt;\n  filter(age &gt; 100) |&gt;\n  ggplot(aes(x = age)) +\n  geom_histogram(binwidth = 100)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\nAdd a line to the code below to create a new column called innocent that is set to “Y” if both arstmade and sumissue are “N”, and otherwise set to “N”.\n\n\n#sqf_2011 |&gt;\n  #select(pct, ser_num, arstmade, sumissue) #|&gt;\n  #summarize(num_innocent = sum(innocent == \"Y\"))\n\n\n\n  num_innocent\n1       685022\n\n\n\n\nQuestion\n\nIn the following code, the percent total stops is calculated out the total stops for each city. How can I adjust the code if I wanted to calculate percent total stops out of the total stops in the entire dataset.\n\n\nsqf_2011 |&gt;\n  group_by(city, race) |&gt;\n  summarize(count = n()) |&gt;\n  mutate(total_stops = sum(count)) |&gt;\n  mutate(percent_total_stops = count/total_stops)\n\n`summarise()` has grouped output by 'city'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 45 × 5\n# Groups:   city [6]\n   city    race  count total_stops percent_total_stops\n   &lt;chr&gt;   &lt;chr&gt; &lt;int&gt;       &lt;int&gt;               &lt;dbl&gt;\n 1 \" \"     B        22          38             0.579  \n 2 \" \"     I         1          38             0.0263 \n 3 \" \"     P         5          38             0.132  \n 4 \" \"     Q         7          38             0.184  \n 5 \" \"     W         3          38             0.0789 \n 6 \"BRONX\" A      1125      135738             0.00829\n 7 \"BRONX\" B     64232      135738             0.473  \n 8 \"BRONX\" I       340      135738             0.00250\n 9 \"BRONX\" P     16311      135738             0.120  \n10 \"BRONX\" Q     44325      135738             0.327  \n# ℹ 35 more rows\n\n\n\n\n`summarise()` has grouped output by 'city'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 45 × 5\n   city    race  count total_stops percent_total_stops\n   &lt;chr&gt;   &lt;chr&gt; &lt;int&gt;       &lt;int&gt;               &lt;dbl&gt;\n 1 \" \"     B        22      685724          0.0000321 \n 2 \" \"     I         1      685724          0.00000146\n 3 \" \"     P         5      685724          0.00000729\n 4 \" \"     Q         7      685724          0.0000102 \n 5 \" \"     W         3      685724          0.00000437\n 6 \"BRONX\" A      1125      685724          0.00164   \n 7 \"BRONX\" B     64232      685724          0.0937    \n 8 \"BRONX\" I       340      685724          0.000496  \n 9 \"BRONX\" P     16311      685724          0.0238    \n10 \"BRONX\" Q     44325      685724          0.0646    \n# ℹ 35 more rows\n\n\n\n\nQuestion\n\nIn which precinct were individuals of each race stopped the most?\n\n\n# Code Here\n\n\n\n`summarise()` has grouped output by 'race'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 8 × 3\n# Groups:   race [8]\n  race    pct count\n  &lt;chr&gt; &lt;int&gt; &lt;int&gt;\n1 A       106  3000\n2 B        75 21742\n3 I       103   232\n4 P        34  3818\n5 Q       115 12979\n6 U        81   483\n7 W       122  5680\n8 Z        34  1151"
   }
 ]

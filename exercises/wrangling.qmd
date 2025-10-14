@@ -103,7 +103,6 @@ hmda_ms_2024 |>
   select(lei)
 ```
 
-
 ###### Question
 
 ::: question

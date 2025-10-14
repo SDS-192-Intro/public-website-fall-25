@@ -28,7 +28,7 @@ Several questions in this exam will reference an example dataset. That dataset i
 
 \vspace{5cm}
 
-2. Identify one nominal, one oridinal, one discrete numeric variable in the example dataset.
+2. Identify one nominal, one ordinal, one discrete numeric variable in the example dataset.
 
 \vspace{4cm}
 
@@ -142,7 +142,7 @@ nyc_squirrel_census |>
 
 \vspace{6cm}
 
-18. In which 10 counting sessions where the most squirrels sighted per minute? Write pseudo-code to produce the following data frame.
+18. In which 10 counting sessions where the most squirrels sighted per minute? Return for me their hectares, shifts, dates, and sightings per minute. Write pseudo-code to produce the following data frame.
 
 ```{r}
 #| echo: false
