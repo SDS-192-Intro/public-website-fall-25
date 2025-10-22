@@ -215,15 +215,3 @@ In which precinct were individuals of each race stopped the most?
 # Code Here
 ```
 
-```{r}
-#| document: solutions
-#| echo: false
-
-
-sqf_2011 |>
-  group_by(race, pct) |>
-  summarize(count = n()) |>
-  ungroup() |>
-  group_by(race) |>
-  filter(count == max(count))
-```

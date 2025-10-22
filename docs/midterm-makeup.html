@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Advanced Data Wrangling</title>
+<title>Mid-Term Reassessment Instructions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">SDS 192: Introduction to Data Science</span>
     </a>
   </div>
@@ -123,19 +89,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignments.html"> 
+    <a class="nav-link" href="./assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../labs.html"> 
+    <a class="nav-link" href="./labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html"> 
+    <a class="nav-link" href="./schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
 </ul>
@@ -150,14 +116,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Advanced Data Wrangling</h1>
+<h1 class="title">Mid-Term Reassessment Instructions</h1>
 </div>
 
 
@@ -174,228 +146,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="question" class="level6">
-<h6 class="anchored" data-anchor-id="question">Question</h6>
-<div class="question">
-<p>Select all columns relating the crime suspected.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>  cs_objcs cs_descr cs_casng cs_lkout cs_cloth cs_drgtr cs_furtv cs_vcrim
-1        N        N        Y        N        N        N        N        N
-2        N        N        Y        N        N        N        Y        N
-3        N        N        N        N        N        N        Y        N
-4        N        N        N        N        N        N        Y        N
-5        N        N        N        N        N        N        Y        N
-  cs_bulge cs_other
-1        N        N
-2        N        N
-3        N        Y
-4        N        Y
-5        N        Y</code></pre>
-</div>
-</div>
-</section>
-<section id="question-1" class="level6">
-<h6 class="anchored" data-anchor-id="question-1">Question</h6>
-<div class="question">
-<p>Select all of the first 5 columns, except the 4th column.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>  year pct ser_num timestop
-1 2011 102     185        0
-2 2011 115      50        5
-3 2011 100       4        7
-4 2011 100       3        7
-5 2011 100       1        7</code></pre>
-</div>
-</div>
-</section>
-<section id="question-2" class="level6">
-<h6 class="anchored" data-anchor-id="question-2">Question</h6>
-<div class="question">
-<p>Send me the distinct values in the crime suspected column.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>           crimsusp
-1          BURGLARY
-2               FEL
-3               CPW
-4 CRIMINAL TRESPASS
-5           ROBBERY</code></pre>
-</div>
-</div>
-</section>
-<section id="question-3" class="level6">
-<h6 class="anchored" data-anchor-id="question-3">Question</h6>
-<div class="question">
-<p>In which rows where a suspect was frisked and searched was either contraband or a pistol found on the suspect? Add a line of code below to determine this.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sqf_2011 <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(frisked, searched, contrabn, pistol) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  frisked searched contrabn pistol
-1       Y        N        N      N
-2       Y        N        N      N
-3       Y        N        N      N
-4       Y        N        N      N
-5       Y        N        N      N</code></pre>
-</div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>  frisked searched contrabn pistol
-1       Y        Y        N      Y
-2       Y        Y        Y      N
-3       Y        Y        Y      N
-4       Y        Y        N      Y
-5       Y        Y        Y      N</code></pre>
-</div>
-</div>
-</section>
-<section id="question-4" class="level6">
-<h6 class="anchored" data-anchor-id="question-4">Question</h6>
-<div class="question">
-<p>Send me all of the rows where the crime suspected contains “FEL.”</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>  pct ser_num crimsusp
-1 115      50      FEL
-2 101       8      FEL
-3  70       1      FEL
-4 101      11   FELONY
-5  28       1   FELONY</code></pre>
-</div>
-</div>
-</section>
-<section id="question-5" class="level6">
-<h6 class="anchored" data-anchor-id="question-5">Question</h6>
-<div class="question">
-<p>The NYPD uses the number 999 to indicate a missing age. In the code below, add a line to convert 999 to NA, using <code>mutate()</code>.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sqf_2011 <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="adv_wrangling_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="adv_wrangling_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="question-6" class="level6">
-<h6 class="anchored" data-anchor-id="question-6">Question</h6>
-<div class="question">
-<p>Add a line to the code below to create a new column called <code>innocent</code> that is set to “Y” if both <code>arstmade</code> and <code>sumissue</code> are “N”, and otherwise set to “N”.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sqf_2011 |&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#select(pct, ser_num, arstmade, sumissue) #|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summarize(num_innocent = sum(innocent == "Y"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stdout">
-<pre><code>  num_innocent
-1       685022</code></pre>
-</div>
-</div>
-</section>
-<section id="question-7" class="level6">
-<h6 class="anchored" data-anchor-id="question-7">Question</h6>
-<div class="question">
-<p>In the following code, the percent total stops is calculated out the total stops for each city. How can I adjust the code if I wanted to calculate percent total stops out of the total stops in the entire dataset.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sqf_2011 <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(city, race) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_stops =</span> <span class="fu">sum</span>(count)) <span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_total_stops =</span> count<span class="sc">/</span>total_stops)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'city'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 45 × 5
-# Groups:   city [6]
-   city    race  count total_stops percent_total_stops
-   &lt;chr&gt;   &lt;chr&gt; &lt;int&gt;       &lt;int&gt;               &lt;dbl&gt;
- 1 " "     B        22          38             0.579  
- 2 " "     I         1          38             0.0263 
- 3 " "     P         5          38             0.132  
- 4 " "     Q         7          38             0.184  
- 5 " "     W         3          38             0.0789 
- 6 "BRONX" A      1125      135738             0.00829
- 7 "BRONX" B     64232      135738             0.473  
- 8 "BRONX" I       340      135738             0.00250
- 9 "BRONX" P     16311      135738             0.120  
-10 "BRONX" Q     44325      135738             0.327  
-# ℹ 35 more rows</code></pre>
-</div>
-</div>
-<div class="cell" data-document="solutions">
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'city'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 45 × 5
-   city    race  count total_stops percent_total_stops
-   &lt;chr&gt;   &lt;chr&gt; &lt;int&gt;       &lt;int&gt;               &lt;dbl&gt;
- 1 " "     B        22      685724          0.0000321 
- 2 " "     I         1      685724          0.00000146
- 3 " "     P         5      685724          0.00000729
- 4 " "     Q         7      685724          0.0000102 
- 5 " "     W         3      685724          0.00000437
- 6 "BRONX" A      1125      685724          0.00164   
- 7 "BRONX" B     64232      685724          0.0937    
- 8 "BRONX" I       340      685724          0.000496  
- 9 "BRONX" P     16311      685724          0.0238    
-10 "BRONX" Q     44325      685724          0.0646    
-# ℹ 35 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="question-8" class="level6">
-<h6 class="anchored" data-anchor-id="question-8">Question</h6>
-<div class="question">
-<p>In which precinct were individuals of each race stopped the most?</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>As noted in the syllabus, you may have up to two questions from the mid-term reassessed in an in-person technical interview with me. This interview must be scheduled <em>before Spring Break</em>. In the interview, I will ask you a question similar to the question you would like to have reassessed, you will have about 7 minutes per question to talk through an answer. Note that I may ask follow-up questions to assess the depth of your understanding on the topic.</p>
+<p>Each question on the exam was five points. You may earn back up to half of the missed points back based on your reassessment. So if you lost five points on one question, you may earn up to 2.5 points back after reassessing that question. If you lost three points on one question, you may earn up to 1.5 points back after reassessing that question.</p>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ol type="1">
+<li>Schedule a meeting with me via my booking form in Moodle.</li>
+<li>In the Comments section of the booking form, indicate which midterm questions you would like reassessed.</li>
+<li>Study up!</li>
+<li><strong>Bring your midterm with you to the interview.</strong> If you don’t have the midterm with you, the appointment will be cancelled.</li>
+</ol>
 
 
 </section>
