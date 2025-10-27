@@ -6109,5 +6109,124 @@
     "title": "SDS 192 Midterm Exam",
     "section": "",
     "text": "Several questions in this exam will reference an example dataset. That dataset is the 2018 Central Park Squirrel Census. I have provided you with the documentation for that dataset. Please note that you will be working specifically with the Hectare Data.\n\nWhat is the unit of observation in the example dataset?\n\n\nIdentify one nominal, one ordinal, one discrete numeric variable in the example dataset.\n\n\nWhat are the characteristics of a data frame in R? What are the characteristics of a vector? How are they related?\n\n\nWhat is the chief difference between a barplot and a histogram?\n\n\nWe saw in class that there are two ways to create a barplot using ggplot: either using geom_bar() or using geom_col(). Illustrate the need for these two different ways using simple data frame examples.\n\n\nWhat is overplotting? What are two ways that we can deal with overplotting?\n\n\nWhen would we use each of the following types of color palettes on a plot: a qualitative palette, a sequential palette, and a divergent palette?\n\n\nGiven the example dataset, what would be an appropriate y-axis label for the following plot?\n\n\nnyc_squirrel_census |&gt;\n  ggplot(aes(x = number_of_squirrels)) +\n  geom_histogram(binwidth = 2) +\n  labs(x = \"Number of Squirrels\",\n       y = \"________________________\")\n\n\n\n\n\n\n\n\n\nDevelop a descriptive title and labels for the following plot.\n\n\nlibrary(lubridate)\nnyc_squirrel_census |&gt;\n  mutate(date = mdy(date)) |&gt;\n  ggplot(aes(x = date, fill = hectare_conditions)) +\n  geom_bar(position = \"fill\") +\n  labs(title = \"___________________________________\",\n       x = \"________________\",\n       y = \"________________\",\n       fill = \"____________________\")\n\n\n\n\n\n\n\n\n\nWhat is the scale of the x-axis on the previous plot? What is the scale of the y-axis?\n\n\nAccording to Tufte, what is a plot’s lie factor?\n\n\nApproximately what is the interquartile range represented on the following plot?\n\n\nnyc_squirrel_census |&gt;\n  ggplot(aes(x = total_time_of_sighting)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\nTwo students were working on the same lab assignment and tried to edit the same line in the file. The merge conflict below appeared. What should Student 2 do to ensure that their version of the code gets pushed to the remote repository?\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:lab1.Rmd\n#Student 1's code\nggplot(lobby_chicago, aes(x = ACTION)) + geom_bar()\n-------\n#Student 2's code\nggplot(lobby_chicago, aes(x = PURPOSE)) + geom_bar()\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; hash\n\nFill in the following statement with the correct git vocabulary.\n\ngit __________ downloads a remote repository to your local computer. git __________ fetches changes to code from a remote repository to your local machine. __________ involves selecting files we wish to commit changes on. git __________ saves a snapshot of the current version of code to the git version control. git __________ uploads changes to a remote repository.\n\nWhat is branching? Outline a collaborative GitHub workflow that engages branching to incorporate multiple changes into a final document.\n\n\nIn what hectares and on what dates and shifts did anonymous sighter 37 count? Write pseduo-code to produce the following data frame.\n\n\n\n   hectare shift     date anonymized_sighter\n1      11G    AM 10122018                 37\n2      11H    AM 10102018                 37\n3      14G    AM 10122018                 37\n4      16G    AM 10102018                 37\n5      18I    AM 10172018                 37\n6      21H    AM 10172018                 37\n7      21I    AM 10182018                 37\n8      22H    AM 10182018                 37\n9      38I    AM 10192018                 37\n10     39I    AM 10192018                 37\n\n\n\nWhat would be the difference in outputs between the following two code chunks?\n\n\nmean(nyc_squirrel_census$total_time_of_sighting, na.rm = TRUE)\n\nnyc_squirrel_census |&gt;\n  summarize(mean_time_of_sighting = mean(total_time_of_sighting, na.rm = TRUE))\n\n\nIn which 10 counting sessions where the most squirrels sighted per minute? Return for me their hectares, shifts, dates, and sightings per minute. Write pseudo-code to produce the following data frame.\n\n\n\n   hectare shift     date sightings_per_minute\n1      35F    AM 10072018            1.0000000\n2      04C    PM 10102018            0.8500000\n3      07F    AM 10082018            0.7727273\n4      01B    AM 10122018            0.7391304\n5      03B    PM 10072018            0.7333333\n6      12F    PM 10072018            0.7142857\n7      20F    PM 10072018            0.7000000\n8      32E    AM 10072018            0.7000000\n9      05C    PM 10102018            0.6500000\n10     33E    AM 10142018            0.6500000\n\n\n\nIn which 5 hectares were the most total squirrels squirrels sighted? How much time was spent sighting in each of these hectares? Write pseduo-code to produce the following data frame.\n\n\n\n# A tibble: 5 × 3\n  hectare total_squirrels total_time_hectare\n  &lt;chr&gt;             &lt;int&gt;              &lt;int&gt;\n1 14D                  32                 90\n2 32E                  30                 45\n3 14E                  28                 65\n4 01B                  27                 58\n5 07H                  26                 55\n\n\n\nWhat was the total, mean, median time spent sighting squirrels in AM vs. PM counting sessions, and how many times was the total time spenting counting recorded as NA? Write pseduo-code to produce the following data frame.\n\n\n\n# A tibble: 2 × 5\n  shift total_time mean_time median_time na_time\n  &lt;chr&gt;      &lt;int&gt;     &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt;\n1 AM          8457      24.9          24      11\n2 PM          8480      24.9          24       9"
+  },
+  {
+    "objectID": "slides/pivoting.html#for-today",
+    "href": "slides/pivoting.html#for-today",
+    "title": "Pivoting Data",
+    "section": "For Today",
+    "text": "For Today\n\nPivoting longer\nPivoting wider\nSeparating\nUniting"
+  },
+  {
+    "objectID": "slides/pivoting.html#lets-create-the-following-data-frame-to-motivate-todays-lecture.",
+    "href": "slides/pivoting.html#lets-create-the-following-data-frame-to-motivate-todays-lecture.",
+    "title": "Pivoting Data",
+    "section": "Let’s create the following data frame to motivate today’s lecture.",
+    "text": "Let’s create the following data frame to motivate today’s lecture.\n\nlibrary(tidyverse)\nlibrary(tidyverse)\nlibrary(echor)\n\necho_air_ca &lt;- \n  echoAirGetFacilityInfo(p_st = \"CA\", \n                         qcolumns = \"1,4,5,8,107,108,109,110\") |&gt;\n  select(-SourceID)\n\necho_water_ca &lt;- \n  echoWaterGetFacilityInfo(p_st = \"CA\", \n                           qcolumns = \"1,4,5,9,203,204,205,206\") |&gt;\n  select(-SourceID)\n\necho_air_ca_agg &lt;-\n  echo_air_ca |&gt;\n  group_by(RegistryID) |&gt;\n  summarize(\n    CurrSvFlag = max(CurrSvFlag),\n    ViolFlag = max(ViolFlag),\n    CurrVioFlag = max(CurrVioFlag),\n    Insp5yrFlag = max(Insp5yrFlag)\n  )\n\necho_water_ca_agg &lt;-\n  echo_water_ca |&gt;\n  group_by(RegistryID) |&gt;\n  summarize(\n    CurrSvFlag = max(CurrSvFlag),\n    ViolFlag = max(ViolFlag),\n    CurrVioFlag = max(CurrVioFlag),\n    Insp5yrFlag = max(Insp5yrFlag)\n  )\n\necho_water_air_ca &lt;- echo_water_ca_agg |&gt; \n  full_join(echo_air_ca_agg, by = \"RegistryID\") |&gt;\n  rename(\n    CurrSvFlag_water = CurrSvFlag.x,\n    ViolFlag_water = ViolFlag.x, \n    CurrVioFlag_water = CurrVioFlag.x,\n    Insp5yrFlag_water = Insp5yrFlag.x,\n    CurrSvFlag_air = CurrSvFlag.y,\n    ViolFlag_air = ViolFlag.y,\n    CurrVioFlag_air = CurrVioFlag.y,\n    Insp5yrFlag_air = Insp5yrFlag.y,\n  )\n\nrm(echo_air_ca, echo_water_ca, echo_air_ca_agg, echo_water_ca_agg)"
+  },
+  {
+    "objectID": "slides/pivoting.html#tidy-data",
+    "href": "slides/pivoting.html#tidy-data",
+    "title": "Pivoting Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\nEvery observation has its own row.\nEvery variable has its own columns.\nEvery value has its own cell."
+  },
+  {
+    "objectID": "slides/pivoting.html#is-this-tidy",
+    "href": "slides/pivoting.html#is-this-tidy",
+    "title": "Pivoting Data",
+    "section": "Is this tidy?",
+    "text": "Is this tidy?\n\nWhat variables are displayed on this plot?\n\n\ndf &lt;- data.frame(\n  date = c(\"10/27/2025\",\"10/28/2025\",\"10/29/2025\"),\n  Northampton_AQI = c(16, 12, 9),\n  Easthampton_AQI = c(19, 13, 9),\n  Hatfield_AQI = c(17, 12, 9)\n)\ndatatable(df, extensions = 'FixedColumns')"
+  },
+  {
+    "objectID": "slides/pivoting.html#could-i-make-this-plot",
+    "href": "slides/pivoting.html#could-i-make-this-plot",
+    "title": "Pivoting Data",
+    "section": "Could I make this plot?",
+    "text": "Could I make this plot?"
+  },
+  {
+    "objectID": "slides/pivoting.html#what-will-it-look-like-when-tidy",
+    "href": "slides/pivoting.html#what-will-it-look-like-when-tidy",
+    "title": "Pivoting Data",
+    "section": "What will it look like when tidy?",
+    "text": "What will it look like when tidy?\n\na &lt;- df |&gt; pivot_longer(-date, \n                    names_to = \"city\", \n                    values_to = \"aqi\")\n\ndatatable(a, extensions = 'FixedColumns')"
+  },
+  {
+    "objectID": "slides/pivoting.html#pivoting-longer",
+    "href": "slides/pivoting.html#pivoting-longer",
+    "title": "Pivoting Data",
+    "section": "Pivoting Longer",
+    "text": "Pivoting Longer\n\nWe use pivot_longer() to pivot a datasets from wider to longer format:\npivot_longer() takes the following arguments:\n\n\ncols =: Identify a series of columns to pivot - The names of those columns will become repeated rows in the pivoted data frame, and the values in those columns will be stored in a new column.\nnames_to =: Identify a name for the column where the column names will be store\nvalues_to =: Identify a name for the column were the values associated with those names will be stored\nVarious arguments to support transformations to names"
+  },
+  {
+    "objectID": "slides/pivoting.html#example",
+    "href": "slides/pivoting.html#example",
+    "title": "Pivoting Data",
+    "section": "Example",
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = ends_with(\"AQI\"), \n                    names_to = \"city\", \n                    values_to = \"aqi\") |&gt;\n  mutate(city = str_replace(city, \"_AQI\", \"\"))"
+  },
+  {
+    "objectID": "slides/pivoting.html#pivoting-wider",
+    "href": "slides/pivoting.html#pivoting-wider",
+    "title": "Pivoting Data",
+    "section": "Pivoting Wider",
+    "text": "Pivoting Wider\n\nNote: I use this far less often than pivot_longer()\n\n\nWe use pivot_wider() to pivot a datasets from longer to wider format:\npivot_wider() takes the following arguments:\n\n\nnames_from =: Identify the column to get the new column names from\nvalues_from =: Identify the column to get the cell values from\nVarious arguments to support transformations to names"
+  },
+  {
+    "objectID": "slides/pivoting.html#example-1",
+    "href": "slides/pivoting.html#example-1",
+    "title": "Pivoting Data",
+    "section": "Example",
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_wider(names_from = \"date\", \n                   values_from = \"aqi\", \n                   names_repair = make.names)"
+  },
+  {
+    "objectID": "slides/pivoting.html#separating-columns",
+    "href": "slides/pivoting.html#separating-columns",
+    "title": "Pivoting Data",
+    "section": "Separating Columns",
+    "text": "Separating Columns\n\nWe use separate() to split a column into multiple columns:\nseparate() takes the following arguments:\n\n\ncol: Identify the existing column to separate\ninto = c(): Identify the names of the new columns\nsep =: Identify the characters or numeric position that indicate where to separate columns"
+  },
+  {
+    "objectID": "slides/pivoting.html#uniting-columns",
+    "href": "slides/pivoting.html#uniting-columns",
+    "title": "Pivoting Data",
+    "section": "Uniting Columns",
+    "text": "Uniting Columns\n\nWe use unit() to join multiple columns into one column:\nunite takes the following arguments:\n\n\n...: Identify the existing columns to unite\ncol: Name of the new column\nsep =: Identify the characters or numeric position that indicate where to separate columns"
+  },
+  {
+    "objectID": "slides/pivoting.html#lets-practice",
+    "href": "slides/pivoting.html#lets-practice",
+    "title": "Pivoting Data",
+    "section": "Let’s practice!",
+    "text": "Let’s practice!"
+  },
+  {
+    "objectID": "slides/pivoting.html#steps",
+    "href": "slides/pivoting.html#steps",
+    "title": "Pivoting Data",
+    "section": "Steps",
+    "text": "Steps\n\nBrainstorm the ggplot code (i.e. what goes on the x and y axis).\nSketch out what the data frame should look like (i.e. what columns and rows).\nList the cleaning functions that you will need to to create the data frame.\nWrite pseudo-code to create the data frame."
+  },
+  {
+    "objectID": "slides/pivoting.html#unite",
+    "href": "slides/pivoting.html#unite",
+    "title": "Pivoting Data",
+    "section": "Unite",
+    "text": "Unite\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; unite(month_day, year, col = \"date\", sep = \"/\")"
+  },
+  {
+    "objectID": "slides/pivoting.html#example-2",
+    "href": "slides/pivoting.html#example-2",
+    "title": "Pivoting Data",
+    "section": "Example",
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = -date,\n                   names_to = \"city\", \n                   values_to = \"values\") |&gt;\n  separate(city, into = c(\"city\", \"metric\"), sep = \"_\")"
+  },
+  {
+    "objectID": "slides/pivoting.html#example-3",
+    "href": "slides/pivoting.html#example-3",
+    "title": "Pivoting Data",
+    "section": "Example",
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; unite(month_day, year, col = \"date\", sep = \"/\")"
   }
 ]

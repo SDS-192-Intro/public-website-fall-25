@@ -28,10 +28,11 @@ vignettes/*.pdf
 .Renviron
 .DS_Store
 /.quarto/
+/exams/
+/docs/exams/
 /labs
 /_solutions
 /labs
 /solutions
 2011.csv
 hmda_ms_2024.csv
-/exams
