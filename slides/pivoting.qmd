@@ -99,7 +99,7 @@ df <- data.frame(
   Easthampton_AQI = c(19, 13, 9),
   Hatfield_AQI = c(17, 12, 9)
 )
-datatable(df, extensions = 'FixedColumns')
+df
 ```
 
 --------
@@ -127,7 +127,7 @@ a <- df |> pivot_longer(-date,
                     names_to = "city", 
                     values_to = "aqi")
 
-datatable(a, extensions = 'FixedColumns')
+a
 ```
 
 --------
@@ -160,7 +160,7 @@ df <- data.frame(
   Hatfield_AQI = c(17, 12, 9)
 )
 
-datatable(df, extensions = 'FixedColumns')
+df
 ```
 
 ### Code
@@ -184,7 +184,7 @@ a <- df |> pivot_longer(cols = ends_with("AQI"),
                     values_to = "aqi") |>
   mutate(city = str_replace(city, "_AQI", ""))
 
-datatable(a, extensions = 'FixedColumns')
+a
 ```
 
 :::
@@ -221,7 +221,7 @@ df <- data.frame(
                     names_to = "city", 
                     values_to = "aqi") |>
   mutate(city = str_replace(city, "_AQI", ""))
-datatable(df, extensions = 'FixedColumns')
+df
 ```
 
 ### Code
@@ -241,7 +241,7 @@ a <- df |> pivot_wider(names_from = "date",
                    values_from = "aqi", 
                    names_repair = make.names)
 
-datatable(a, extensions = 'FixedColumns')
+a
 ```
 
 :::
@@ -277,7 +277,7 @@ df <- data.frame(
   Easthampton_temperature = c(54, 58, 55),
   Hatfield_temperature = c(53, 57, 55))
 
-datatable(df, extensions = 'FixedColumns')
+df
 ```
 
 
@@ -300,7 +300,7 @@ a <- df |> pivot_longer(cols = -date,
                    values_to = "values") |>
   separate(city, into = c("city", "metric"), sep = "_")
 
-datatable(a, extensions = 'FixedColumns')
+a
 ```
 
 :::
@@ -334,7 +334,7 @@ df <- data.frame(
   Easthampton_AQI = c(19, 13, 9),
   Hatfield_AQI = c(17, 12, 9))
 
-datatable(df, extensions = 'FixedColumns')
+df
 ```
 
 
@@ -351,7 +351,7 @@ df |> unite(month_day, year, col = "date", sep = "/")
 #| echo: false
 a <- df |> unite(month_day, year, col = "date", sep = "/")
 
-datatable(a, extensions = 'FixedColumns')
+a
 ```
 
 :::
@@ -398,7 +398,7 @@ echo_water_air_ca |>
 
 ```{r}
 #| echo: false
-datatable(echo_water_air_ca, extensions = 'FixedColumns')
+echo_water_air_ca
 ```
 
 
