@@ -28,8 +28,8 @@ vignettes/*.pdf
 .Renviron
 .DS_Store
 /.quarto/
-/exams/
-/docs/exams/
+/exams
+/docs/exams
 /labs
 /_solutions
 /labs
