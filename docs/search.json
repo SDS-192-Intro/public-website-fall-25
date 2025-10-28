@@ -3441,14 +3441,14 @@
     "href": "schedule.html#october-27-2025",
     "title": "Schedule",
     "section": "October 27, 2025",
-    "text": "October 27, 2025\n\nTidying Datasets\n\nDue TodayFurther Resources\n\n\n 6. Tidy Data , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n 26. Parsing dates and times , list() Read in Perusall\n\n\n tidyr Cheatsheet"
+    "text": "October 27, 2025\n\nReshaping Datasets\n\nDue TodayFurther Resources\n\n\n 6. Tidy Data , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n 26. Parsing dates and times , list() Read in Perusall\n\n\n Course slides are here\n tidyr Cheatsheet"
   },
   {
     "objectID": "schedule.html#october-29-2025",
     "href": "schedule.html#october-29-2025",
     "title": "Schedule",
     "section": "October 29, 2025",
-    "text": "October 29, 2025\n\nPivoting Datasets\n\nDue TodayFurther Resources\n\n\n Lab 6 Due\n\n\n tidyr Cheatsheet"
+    "text": "October 29, 2025\n\nTidying Datasets\n\nDue TodayFurther Resources\n\n\n Lab 6 Due\n\n\n tidyr Cheatsheet"
   },
   {
     "objectID": "schedule.html#october-31-2025",
@@ -6136,7 +6136,7 @@
     "href": "slides/pivoting.html#is-this-tidy",
     "title": "Pivoting Data",
     "section": "Is this tidy?",
-    "text": "Is this tidy?\n\nWhat variables are displayed on this plot?\n\n\ndf &lt;- data.frame(\n  date = c(\"10/27/2025\",\"10/28/2025\",\"10/29/2025\"),\n  Northampton_AQI = c(16, 12, 9),\n  Easthampton_AQI = c(19, 13, 9),\n  Hatfield_AQI = c(17, 12, 9)\n)\ndatatable(df, extensions = 'FixedColumns')"
+    "text": "Is this tidy?\n\nWhat variables are displayed on this plot?\n\n\ndf &lt;- data.frame(\n  date = c(\"10/27/2025\",\"10/28/2025\",\"10/29/2025\"),\n  Northampton_AQI = c(16, 12, 9),\n  Easthampton_AQI = c(19, 13, 9),\n  Hatfield_AQI = c(17, 12, 9)\n)\ndf"
   },
   {
     "objectID": "slides/pivoting.html#could-i-make-this-plot",
@@ -6150,7 +6150,7 @@
     "href": "slides/pivoting.html#what-will-it-look-like-when-tidy",
     "title": "Pivoting Data",
     "section": "What will it look like when tidy?",
-    "text": "What will it look like when tidy?\n\na &lt;- df |&gt; pivot_longer(-date, \n                    names_to = \"city\", \n                    values_to = \"aqi\")\n\ndatatable(a, extensions = 'FixedColumns')"
+    "text": "What will it look like when tidy?\n\na &lt;- df |&gt; pivot_longer(-date, \n                    names_to = \"city\", \n                    values_to = \"aqi\")\n\na"
   },
   {
     "objectID": "slides/pivoting.html#pivoting-longer",
@@ -6164,7 +6164,7 @@
     "href": "slides/pivoting.html#example",
     "title": "Pivoting Data",
     "section": "Example",
-    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = ends_with(\"AQI\"), \n                    names_to = \"city\", \n                    values_to = \"aqi\") |&gt;\n  mutate(city = str_replace(city, \"_AQI\", \"\"))"
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n  \n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = ends_with(\"AQI\"), \n                    names_to = \"city\", \n                    values_to = \"aqi\") |&gt;\n  mutate(city = str_replace(city, \"_AQI\", \"\"))"
   },
   {
     "objectID": "slides/pivoting.html#pivoting-wider",
@@ -6178,7 +6178,7 @@
     "href": "slides/pivoting.html#example-1",
     "title": "Pivoting Data",
     "section": "Example",
-    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_wider(names_from = \"date\", \n                   values_from = \"aqi\", \n                   names_repair = make.names)"
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n  \n\n\n\n\n\n\ndf |&gt; pivot_wider(names_from = \"date\", \n                   values_from = \"aqi\", \n                   names_repair = make.names)"
   },
   {
     "objectID": "slides/pivoting.html#separating-columns",
@@ -6220,13 +6220,13 @@
     "href": "slides/pivoting.html#example-2",
     "title": "Pivoting Data",
     "section": "Example",
-    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = -date,\n                   names_to = \"city\", \n                   values_to = \"values\") |&gt;\n  separate(city, into = c(\"city\", \"metric\"), sep = \"_\")"
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n  \n\n\n\n\n\n\ndf |&gt; pivot_longer(cols = -date,\n                   names_to = \"city\", \n                   values_to = \"values\") |&gt;\n  separate(city, into = c(\"city\", \"metric\"), sep = \"_\")"
   },
   {
     "objectID": "slides/pivoting.html#example-3",
     "href": "slides/pivoting.html#example-3",
     "title": "Pivoting Data",
     "section": "Example",
-    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n\n\n\n\n\n\ndf |&gt; unite(month_day, year, col = \"date\", sep = \"/\")"
+    "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n  \n\n\n\n\n\n\ndf |&gt; unite(month_day, year, col = \"date\", sep = \"/\")"
   }
 ]
