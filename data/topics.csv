@@ -22,7 +22,7 @@ topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional
 21,joining,Joining Datasets,10/22/25,,baumerModernDataScience2021,5. Data wrangling on multiple tables,,,,,Course slides are [here](slides/joining.html),[dplyr Cheatsheet](https://www.washstat.org/seminars/2015/20150428_datascience_docs/data-wrangling-cheatsheet.pdf); Midterm reassessment instructions [here](midterm-makeup.html),,
 22,joining_lab,Lab: Joining Datasets,10/24/25,,,,,,,Group Contract Due,,[Lab 6 Instructions](labs/lab6.html),,
 23,tidying,Reshaping Datasets,10/27/25,,baumerModernDataScience2021; irizarryIntroductionDataScience2022,6. Tidy Data; 26. Parsing dates and times,,,,,Course slides are [here](slides/pivoting.html),[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf),,
-24,pivoting,Tidying Datasets,10/29/25,,,,,,[Lab 6](labs/lab6.html) Due,,,[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf),,
+24,pivoting,Tidying Datasets,10/29/25,,,,,,[Lab 6](labs/lab6.html) Due,,Course slides are [here](slides/cleaning.html),[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf),,
 25,pivoting_lab,Lab: Pivoting and Tidying Datasets,10/31/25,,,,,,,,,[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf);[Lab 7 Instructions](labs/lab7.html),,
 26,functions,Writing Functions,11/3/25,,baumerModernDataScience2021,7. Iteration,,,,,,,,
 27,iteration,Iteration,11/5/25,,,,,,[Lab 7](labs/lab7.html) Due,,,[`purrr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf),,

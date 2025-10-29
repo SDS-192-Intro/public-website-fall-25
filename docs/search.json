@@ -3448,7 +3448,7 @@
     "href": "schedule.html#october-29-2025",
     "title": "Schedule",
     "section": "October 29, 2025",
-    "text": "October 29, 2025\n\nTidying Datasets\n\nDue TodayFurther Resources\n\n\n Lab 6 Due\n\n\n tidyr Cheatsheet"
+    "text": "October 29, 2025\n\nTidying Datasets\n\nDue TodayFurther Resources\n\n\n Lab 6 Due\n\n\n Course slides are here\n tidyr Cheatsheet"
   },
   {
     "objectID": "schedule.html#october-31-2025",
@@ -6228,5 +6228,68 @@
     "title": "Pivoting Data",
     "section": "Example",
     "text": "Example\n\nBeforeCodeAfter\n\n\n\n\n\n  \n\n\n\n\n\n\ndf |&gt; unite(month_day, year, col = \"date\", sep = \"/\")"
+  },
+  {
+    "objectID": "slides/cleaning.html#for-today",
+    "href": "slides/cleaning.html#for-today",
+    "title": "Cleaning Data",
+    "section": "For Today",
+    "text": "For Today\n\nMutating to reformat vectors\nWorking with NA columns\nPractice cleaning a dataset"
+  },
+  {
+    "objectID": "slides/cleaning.html#converting-types",
+    "href": "slides/cleaning.html#converting-types",
+    "title": "Cleaning Data",
+    "section": "Converting Types",
+    "text": "Converting Types\n\nas.character(), as.numeric(), as.logical() all convert a variable from an original type to a new type\n\n\nBeforeCodeAfter\n\n\n\ntypeof(prisons$COUNTYFIPS)\n\n[1] \"character\"\n\n\n\n\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(COUNTYFIPS = as.numeric(COUNTYFIPS))\n\n\n\n\ntypeof(prisons$COUNTYFIPS)\n\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/cleaning.html#parsing-dates",
+    "href": "slides/cleaning.html#parsing-dates",
+    "title": "Cleaning Data",
+    "section": "Parsing Dates",
+    "text": "Parsing Dates\n\nDates can be converted to a date format using the lubridate package\n\nStep 1: Check how dates are formatted\nStep 2: Find corresponding conversion code on lubridate cheatsheet"
+  },
+  {
+    "objectID": "slides/cleaning.html#setting-dates",
+    "href": "slides/cleaning.html#setting-dates",
+    "title": "Cleaning Data",
+    "section": "Setting Dates",
+    "text": "Setting Dates\n\nymd_hms() will take a date formatted as year, month, day, hour, minute, second and convert it to a date time format\n\n\nBeforeCodeAfter\n\n\n\nprisons |&gt; \n  select(NAME, SOURCEDATE) |&gt; \n  head(3)\n\n\n  \n\n\n\n\n\n\nlibrary(lubridate)\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(SOURCEDATE = ymd_hms(SOURCEDATE))"
+  },
+  {
+    "objectID": "slides/cleaning.html#setting-na-values",
+    "href": "slides/cleaning.html#setting-na-values",
+    "title": "Cleaning Data",
+    "section": "Setting NA values",
+    "text": "Setting NA values\n\nna_if() will take a variable and set specified values to NA\n\n\nBeforeCodeAfter\n\n\n\nprisons |&gt; \n  select(NAME, POPULATION) |&gt; \n  head(3)\n\n\n  \n\n\nsum(is.na(prisons$POPULATION))\n\n[1] 0\n\n\n\n\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(POPULATION = na_if(POPULATION, -999))\n\n\n\n\nprisons |&gt; \n  select(NAME, POPULATION) |&gt; \n  head(3)\n\n\n  \n\n\nsum(is.na(prisons$POPULATION))\n\n[1] 4047"
+  },
+  {
+    "objectID": "slides/cleaning.html#replacing-strings",
+    "href": "slides/cleaning.html#replacing-strings",
+    "title": "Cleaning Data",
+    "section": "Replacing Strings",
+    "text": "Replacing Strings\n\nstr_replace() will take a variable and replace an existing string with a new string\n\n\nBeforeCodeAfter\n\n\n\nprisons |&gt; \n  select(NAME, ADDRESS) |&gt; \n  head(3)\n\n\n  \n\n\n\n\n\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(ADDRESS = str_replace(ADDRESS, \n                               \"DR\", \n                               \"DRIVE\"))"
+  },
+  {
+    "objectID": "slides/cleaning.html#removing-strings",
+    "href": "slides/cleaning.html#removing-strings",
+    "title": "Cleaning Data",
+    "section": "Removing Strings",
+    "text": "Removing Strings\n\nstr_replace() will take a variable and replace an existing string with a new string\n\n\nBeforeCodeAfter\n\n\n\nprisons |&gt; select(NAME, WEBSITE) |&gt; head(3)\n\n\n  \n\n\n\n\n\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(WEBSITE = str_replace(WEBSITE, \n                               \"http://\", \n                               \"\"))"
+  },
+  {
+    "objectID": "slides/cleaning.html#conditionals",
+    "href": "slides/cleaning.html#conditionals",
+    "title": "Cleaning Data",
+    "section": "Conditionals",
+    "text": "Conditionals\n\ncase_when() allows us to set values when conditions are met\n\n\nBeforeCodeAfter\n\n\n\nprisons |&gt; \n  select(SECURELVL) |&gt; \n  distinct()\n\n\n  \n\n\n\n\n\n\nprisons &lt;- \n  prisons |&gt; \n  mutate(JUVENILE = \n           case_when(\n             SECURELVL == \"JUVENILE\" ~ \"Juvenile\",\n             TRUE ~ \"Not Juvenile\"))"
+  },
+  {
+    "objectID": "slides/cleaning.html#identifying-prisons-in-echo",
+    "href": "slides/cleaning.html#identifying-prisons-in-echo",
+    "title": "Cleaning Data",
+    "section": "Identifying Prisons in ECHO",
+    "text": "Identifying Prisons in ECHO"
   }
 ]
