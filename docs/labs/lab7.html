@@ -723,15 +723,9 @@ Ethical Considerations
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>While this is one of the primary datasets used to direct resources for homelessness in the U.S., there are a number of reasons unhoused individual may go uncounted through point-in-time counts:</p>
-<ul>
-<li>Only individuals that are visible to enumerators get counted. However, other sources (such as surveys in public schools) have shown that the majority of unhoused individuals are not on the streets or in shelters, but instead are temporarily residing with family/friends or are in staying in motels.</li>
-<li>As living on the streets is increasingly criminalized in cities across the U.S., there are reasons why unhoused individuals may try to avoid being seen on a given night.</li>
-<li>Only recently have counting protocols started to include separate categories for Transgender and Gender Non-Conforming individuals. When counting PIT data against census population data, however, these sub-groups won’t appear because the census only collects Sex as “Male” and “Female”.</li>
-<li>Different CoCs use different methods to generate PIT counts.</li>
-</ul>
-<p>For more information see <span class="citation" data-cites="enationallawcenteronhomelessness2017">e National Law Center on Homelessness &amp; Poverty (<a href="#ref-enationallawcenteronhomelessness2017" role="doc-biblioref">2017</a>)</span>.</p>
-<p>Taking into consideration all of these factors, how should we, as data scientists, think about and present this data? Is there value in PIT count data? How should we go about communicating its shortcomings? How might we go about collecting this data in different ways? Share your ideas on our <code>sds-192-discussions</code> Slack channel.</p>
+<p>Over the past several years, the Department of Housing and Urban Development <a href="https://endhomelessness.org/wp-content/uploads/2024/10/Federal-Data-Demonstrates-the-Need-for-Safe-Supportive-and-Specific-Housing-for-Gender-Expansive-People_1-23-24-1.pdf">has been updating</a> how sex/gender gets classified when it comes to collecting data about the unhoused population. Recognizing the particular housing vulnerabilities of folks that do not identify as male or female, HUD felt it important to expand the way that gender was categorized in the data. In 2022, available options for recording gender in the dataset you analyzed today included “female,” “male,” “transgender,” “gender-questioning,” and “not singularly female or male.” While this expanded the way that gender could be recorded in this dataset, the US census has not similarly expanded their gender categories. In the US census, people are listed as either Male or Female. This poses a challenge. Without accounting for the overall population of each of these genders when analyzing this data, the total number of unhoused individuals that do not identify as male or female may appear very small when in fact the <em>proportion</em> of unhoused individuals that do not identify as male or female may be quite high. We can’t see this proportion without overall population data - data that would be very difficult to collect. On the other hand, if we were to try and map the more current data onto the existing census categories, we would literally clean folks that identify as “transgender,” “gender-questioning,” and “not singularly female or male” out of being represented in the data. With all of this in mind, what do you think is the most ethical or just way to display the most recent point in time count data? What would need to happen to make our data about the unhoused more representative? What are the some of the benefits to different communities to having their identities represented in this data? Are there any potential harms?</p>
+<p>To complicate this quesiton further,</p>
+<p>Share your ideas on our <code>sds-192-discussions</code> Slack channel.</p>
 </div>
 </div>
 
@@ -742,9 +736,6 @@ Ethical Considerations
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-enationallawcenteronhomelessness2017" class="csl-entry" role="listitem">
-e National Law Center on Homelessness &amp; Poverty. 2017. <span>“Don’t <span>Count</span> on <span>It</span>: <span>How</span> the <span class="nocase">HUD Point-in-Time Count Underestimates</span> the <span>Homelessness Crisis</span> in <span>America</span>.”</span> <a href="https://homelesslaw.org/wp-content/uploads/2018/10/HUD-PIT-report2017.pdf">https://homelesslaw.org/wp-content/uploads/2018/10/HUD-PIT-report2017.pdf</a>.
-</div>
 <div id="ref-wickhamTidyData2014a" class="csl-entry" role="listitem">
 Wickham, Hadley. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (September): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
 </div>
