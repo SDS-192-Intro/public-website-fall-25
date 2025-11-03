@@ -103,7 +103,7 @@ Step 3: Pivot the Measure column wider, taking the values from the Values column
 #gender_pivoted_longer <- gender |> pivot_longer(_____)
 
 # Step 2
-#gender_separated <- gender_pivoted |> separate(_____)
+#gender_separated <- gender_pivoted_longer |> separate(_____)
 
 # Step 3
 #gender_final <- gender_separated |> pivot_wider(_____)
@@ -112,7 +112,7 @@ Step 3: Pivot the Measure column wider, taking the values from the Values column
 #race_pivoted_longer <- race |> pivot_longer(_____)
 
 # Step 2
-#race_separated <- race_pivoted |> separate(_____)
+#race_separated <- race_pivoted_longer |> separate(_____)
 
 # Step 3
 #race_final <- race_separated |> pivot_wider(_____)
