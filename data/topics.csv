@@ -25,7 +25,7 @@ topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional
 24,pivoting,Tidying Datasets,10/29/25,,,,,,[Lab 6](labs/lab6.html) Due,,Course slides are [here](slides/cleaning.html),[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf),,
 25,pivoting_lab,Lab: Pivoting and Tidying Datasets,10/31/25,,,,,,,,,[tidyr Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf);[Lab 7 Instructions](labs/lab7.html),,
 26,functions,Writing Functions,11/3/25,,baumerModernDataScience2021,7. Iteration,,,,,Course slides are [here](slides/functions.html),Exericse Instructions[here](exercises/functions.html);Exercise Template[here](https://github.com/SDS-192-Intro/public-website-fall-25/blob/main/_templates/functions.qmd),,
-27,iteration,Iteration,11/5/25,,,,,,[Lab 7](labs/lab7.html) Due,,,[`purrr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf),,
+27,iteration,Iteration,11/5/25,,,,,,[Lab 7](labs/lab7.html) Due,,Course slides are [here](slides/iteration.html),[`purrr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf),,
 28,coding_lab,Lab: Programming in R,11/7/25,,,,,,,Project 2 Due,,[`purrr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf);[Lab 8 Instructions](labs/lab8.html),,
 29,projections,Map Projections and Spatial Thinking,11/10/25,,baumerModernDataScience2021,17. Working with geospatial data  (17.1-17.3),,,,,,,,
 30,leaflet,Introduction to Leaflet,11/12/25,,,,,,[Lab 8](labs/lab8.html) Due,,,[Leaflet Guide](https://rstudio.github.io/leaflet/),,
