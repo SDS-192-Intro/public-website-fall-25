@@ -3476,7 +3476,7 @@
     "href": "schedule.html#november-07-2025",
     "title": "Schedule",
     "section": "November 07, 2025",
-    "text": "November 07, 2025\n\nLab: Programming in R\n\nDue TodayFurther Resources\n\n\n Project 2 Due\n\n\n purrr cheatsheet\n Lab 8 Instructions"
+    "text": "November 07, 2025\n\nLab: Programming in R\n\nDue TodayFurther Resources\n\n\n\n\n\n purrr cheatsheet\n Lab 8 Instructions"
   },
   {
     "objectID": "schedule.html#november-10-2025",
@@ -3490,7 +3490,7 @@
     "href": "schedule.html#november-12-2025",
     "title": "Schedule",
     "section": "November 12, 2025",
-    "text": "November 12, 2025\n\nIntroduction to Leaflet\n\nDue TodayFurther Resources\n\n\n Lab 8 Due\n\n\n Course slides are here\n Exericse Instructionshere\n Exercise TemplatehereLeaflet Guide"
+    "text": "November 12, 2025\n\nIntroduction to Leaflet\n\nDue TodayFurther Resources\n\n\n Project 2 Due\n Lab 8 Due\n\n\n Course slides are here\n Exericse Instructionshere\n Exercise TemplatehereLeaflet Guide"
   },
   {
     "objectID": "schedule.html#november-14-2025",
@@ -3504,7 +3504,7 @@
     "href": "schedule.html#november-17-2025",
     "title": "Schedule",
     "section": "November 17, 2025",
-    "text": "November 17, 2025\n\nPolygon Mapping in Leaflet\n\nDue TodayFurther Resources\n\n\n 17. Working with geospatial data (17.4-17.8) , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n Project 3 Assigned\n\n\n MP3 Template Your team name should be a string with your team members’ last names.\n Leaflet Guide"
+    "text": "November 17, 2025\n\nPolygon Mapping in Leaflet\n\nDue TodayFurther Resources\n\n\n 17. Working with geospatial data (17.4-17.8) , Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton (2021). Modern Data Science with R. 2nd. CRC Press. (Visited on Jan. 14, 2022). Read in Perusall\n Project 3 Assigned\n\n\n Course slides are here\n MP3 Template Your team name should be a string with your team members’ last names.\n Leaflet Guide"
   },
   {
     "objectID": "schedule.html#november-19-2025",
@@ -6662,5 +6662,131 @@
     "title": "Point Mapping in R",
     "section": "",
     "text": "Projections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#for-today",
+    "href": "slides/polygon_mapping.html#for-today",
+    "title": "Polygon Mapping in R",
+    "section": "For Today",
+    "text": "For Today\n\nMapping Geographic Boundaries\nImporting and Mapping Shapefiles\nChloropleth Maps\nProject 3 Assigned"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#mapping-polygons",
+    "href": "slides/polygon_mapping.html#mapping-polygons",
+    "title": "Polygon Mapping in R",
+    "section": "Mapping Polygons",
+    "text": "Mapping Polygons\n\nNot all cartographic data is encoded as a latitude and longitude! Some cartographic data is encoded as regularly or irregularly shaped polygons\nCan demarcate:\n\nAdministrative boundaries (e.g. census tracts, zip codes, states),\nFeature boundaries (e.g. buildings, bodies of water, etc.)\nBuffers (e.g. areas at a specified distance from a point source)"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#administrative-boundaries-us-census",
+    "href": "slides/polygon_mapping.html#administrative-boundaries-us-census",
+    "title": "Polygon Mapping in R",
+    "section": "Administrative Boundaries: US Census",
+    "text": "Administrative Boundaries: US Census"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#administrative-boundaries-us-census-1",
+    "href": "slides/polygon_mapping.html#administrative-boundaries-us-census-1",
+    "title": "Polygon Mapping in R",
+    "section": "Administrative Boundaries: US Census",
+    "text": "Administrative Boundaries: US Census"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#administrative-boundaries-us-census-2",
+    "href": "slides/polygon_mapping.html#administrative-boundaries-us-census-2",
+    "title": "Polygon Mapping in R",
+    "section": "Administrative Boundaries: US Census",
+    "text": "Administrative Boundaries: US Census"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#administrative-boundary-soup",
+    "href": "slides/polygon_mapping.html#administrative-boundary-soup",
+    "title": "Polygon Mapping in R",
+    "section": "Administrative Boundary Soup",
+    "text": "Administrative Boundary Soup\n\nNYC Boundaries Map"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#feature-boundaries",
+    "href": "slides/polygon_mapping.html#feature-boundaries",
+    "title": "Polygon Mapping in R",
+    "section": "Feature Boundaries",
+    "text": "Feature Boundaries"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#feature-boundaries-1",
+    "href": "slides/polygon_mapping.html#feature-boundaries-1",
+    "title": "Polygon Mapping in R",
+    "section": "Feature Boundaries",
+    "text": "Feature Boundaries"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#shapefiles",
+    "href": "slides/polygon_mapping.html#shapefiles",
+    "title": "Polygon Mapping in R",
+    "section": "Shapefiles",
+    "text": "Shapefiles\n\nFile for storing geospatial feature data\nActually a series of files (.shp, .shx, and .dbf) that must all be present in the directory for the shapefile to import.\nImported file ends in .shp and contains feature geometry"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#importing-shapefiles",
+    "href": "slides/polygon_mapping.html#importing-shapefiles",
+    "title": "Polygon Mapping in R",
+    "section": "Importing Shapefiles",
+    "text": "Importing Shapefiles\n\nFunction st_read() from sf package used to read in shapefiles\n\n\n\n\n\n\nlibrary(sf)\nnyc_cd &lt;- st_read(\"../data/nycd_25b/nycd.shp\")\n\nReading layer `nycd' from data source \n  `/Users/lnpoirier/Documents/Smith/Courses/IntroDataScience/public-website-fall-25/data/nycd_25b/nycd.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 71 features and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 913175.1 ymin: 120128.4 xmax: 1067383 ymax: 272844.3\nProjected CRS: NAD83 / New York Long Island (ftUS)"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#importing-shapefiles-1",
+    "href": "slides/polygon_mapping.html#importing-shapefiles-1",
+    "title": "Polygon Mapping in R",
+    "section": "Importing Shapefiles",
+    "text": "Importing Shapefiles\n\nnyc_cd |&gt; head(4)\n\nSimple feature collection with 4 features and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 980883.8 ymin: 173977.6 xmax: 1039416 ymax: 232849.4\nProjected CRS: NAD83 / New York Long Island (ftUS)\n  BoroCD Shape_Leng Shape_Area                       geometry\n1    410  105822.38  172077375 MULTIPOLYGON (((1023869 176...\n2    480   47338.74   32777561 MULTIPOLYGON (((1022277 218...\n3    104   67546.05   49310052 MULTIPOLYGON (((985929.3 22...\n4    107   39863.70   53152583 MULTIPOLYGON (((995422.2 23..."
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#mapping-polygons-with-leaflet",
+    "href": "slides/polygon_mapping.html#mapping-polygons-with-leaflet",
+    "title": "Polygon Mapping in R",
+    "section": "Mapping Polygons with Leaflet",
+    "text": "Mapping Polygons with Leaflet\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(leaflet)\nnyc_cd &lt;- nyc_cd |&gt;\n  st_transform(4326)\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd)"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#chloropleth-maps",
+    "href": "slides/polygon_mapping.html#chloropleth-maps",
+    "title": "Polygon Mapping in R",
+    "section": "Chloropleth Maps",
+    "text": "Chloropleth Maps\n\nPresents a numeric variable aggregated by a geospatial unit\nRepresents the value of the aggregated numeric variable via intensity of color\n\nValues presented via a sequential or diverging palette"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#mapping-population-how-to-join",
+    "href": "slides/polygon_mapping.html#mapping-population-how-to-join",
+    "title": "Polygon Mapping in R",
+    "section": "Mapping Population: How to Join?",
+    "text": "Mapping Population: How to Join?\n\nPop DataCD Data\n\n\n\nlibrary(tidyverse)\ncd_pop &lt;- read_csv(\"https://data.cityofnewyork.us/resource/xi7c-iiu2.csv?$select=borough,cd_number,_2010_population%20as%20population_2010\")\n\ncd_pop |&gt; \n  select(borough,cd_number) |&gt; \n  head(5)\n\n# A tibble: 5 × 2\n  borough cd_number\n  &lt;chr&gt;       &lt;dbl&gt;\n1 Bronx           1\n2 Bronx           2\n3 Bronx           3\n4 Bronx           4\n5 Bronx           5\n\n\n\n\n\nnyc_cd |&gt; \n  select(BoroCD) |&gt; \n  head(5)\n\nSimple feature collection with 5 features and 1 field\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -74.14063 ymin: 40.52928 xmax: -73.80113 ymax: 40.80579\nGeodetic CRS:  WGS 84\n  BoroCD                       geometry\n1    410 MULTIPOLYGON (((-73.85722 4...\n2    480 MULTIPOLYGON (((-73.86272 4...\n3    104 MULTIPOLYGON (((-73.99394 4...\n4    107 MULTIPOLYGON (((-73.95965 4...\n5    595 MULTIPOLYGON (((-74.05051 4..."
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#cleaning-geographic-id-fields",
+    "href": "slides/polygon_mapping.html#cleaning-geographic-id-fields",
+    "title": "Polygon Mapping in R",
+    "section": "Cleaning Geographic ID Fields",
+    "text": "Cleaning Geographic ID Fields\n\ncd_pop &lt;- cd_pop |&gt;\n  mutate(borough_num = case_when( \n    borough == \"Manhattan\" ~ 1,\n    borough == \"Bronx\" ~ 2,\n    borough == \"Brooklyn\" ~ 3,\n    borough == \"Queens\" ~ 4,\n    borough == \"Staten Island\" ~ 5)) |&gt;\n  mutate(cd = str_pad(cd_number, 2, side=\"left\", \"0\")) |&gt;\n  mutate(BoroCD = paste0(borough_num, cd) |&gt; as.numeric())\n\nnyc_cd &lt;- \n  nyc_cd |&gt;\n  left_join(cd_pop, by = c(\"BoroCD\" = \"BoroCD\"))"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-numeric",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-numeric",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Numeric",
+    "text": "NYC Commmunity District Chloropleth: Numeric\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_num &lt;- colorNumeric(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_num(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_num,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Bin",
+    "text": "NYC Commmunity District Chloropleth: Bin\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_bin &lt;- colorBin(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_bin(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_bin,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Quantile",
+    "text": "NYC Commmunity District Chloropleth: Quantile\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_quant(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_quant,\n            title = \"Population\")"
   }
 ]
