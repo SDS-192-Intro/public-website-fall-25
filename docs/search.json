@@ -3490,7 +3490,7 @@
     "href": "schedule.html#november-12-2025",
     "title": "Schedule",
     "section": "November 12, 2025",
-    "text": "November 12, 2025\n\nIntroduction to Leaflet\n\nDue TodayFurther Resources\n\n\n Lab 8 Due\n\n\n Leaflet Guide"
+    "text": "November 12, 2025\n\nIntroduction to Leaflet\n\nDue TodayFurther Resources\n\n\n Lab 8 Due\n\n\n Course slides are here\n Exericse Instructionshere\n Exercise TemplatehereLeaflet Guide"
   },
   {
     "objectID": "schedule.html#november-14-2025",
@@ -6536,5 +6536,131 @@
     "title": "SDS 192 Midterm Exam",
     "section": "",
     "text": "Several questions in this exam will reference an example dataset. That dataset is the COVID-19 Cases, Tests, and Deaths by ZIP Code - Historical dataset. I have provided you with the documentation for that dataset.\n\nWhat is the unit of observation in the example dataset?\n\n\nIdentify one nominal, one discrete numeric, and one continuous numeric variable in the example dataset.\n\n\nGiven the example dataset, which of the ggplot geom functions did I use to create this plot? Draw how the data frame might look if the other function for creating barplots with ggplot were used.\n\n\n\n\n\n\n\n\n\n\n\nWhat does an NA value in the “Cases - Weekly” column mean? What does this mean for how we should calculate case totals?\n\n\nAssume I filtered the dataset to the week starting on August 30, 2020. Develop a descriptive title and labels for the following plot.\n\n\ncovid_chicago_aug_30_2020  |&gt;\n  ggplot(aes(x = tests_cumulative)) +\n  geom_histogram(binwidth = 5000) +\n  labs(title = \"____________________\",\n       x = \"____________________\", \n       y = \"____________________\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nLet’s say I created the following calendar of Covid-19 data reported for zip code 60601 in the year 2020, and I wanted the color of each point to represent the weekly case count for its corresponding week. Pick an appropriate color palette in R Color Brewer to assign to the point.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe following boxplots compare the number of tests administered per week in three zip codes in 2020. Write at least two statements below that compare weekly testing numbers across these three zip codes.\n\n\n\n\n\n\n\n\n\n\n\nFill in the following statement with the correct git vocabulary.\n\ngit __________ creates a separate copy of a git repository for editing. git __________ fetches changes to code from a remote repository to your local machine. git __________ saves a snapshot of the current version of code to the git version control. git __________ uploads changes to a remote repository. git __________ integrates changes made in one branch into another branch.\n\nIn which three weeks were the total weekly case counts across all Chicago zip codes the greatest? Write pseduo-code to produce the following data frame.\n\n\n\n# A tibble: 3 × 2\n  week_start              total_cases\n  &lt;chr&gt;                         &lt;int&gt;\n1 2021-12-26T00:00:00.000       48716\n2 2022-01-02T00:00:00.000       43909\n3 2021-12-19T00:00:00.000       35346\n\n\n\nHow many weeks was a Covid-19 death reported in an Unknown zip code? Write pseduo-code to return the following value.\n\n\n\n[1] 13\n\n\n\nAssuming that case_rate_weekly was not already a column in this dataset, how could we use data wrangling verbs to create it? Write pseudo-code for this.\n\nFor the next two questions, let’s say that I have the following two data frames that marked 1) the total cumulative cases per zip code by mid-September 2023 and 2) the total cumulative vaccine doses administered by mid-September 2023.\n\n\n  zip_code cases_cumulative\n1    60614            19507\n2    60646             9051\n3    60631            10110\n4    60610            11532\n5    60616            12616\n6    60644            12995\n\n\n# A tibble: 6 × 2\n# Groups:   zip_code [6]\n  zip_code total_doses_cumulative\n  &lt;chr&gt;                     &lt;int&gt;\n1 60603                      5265\n2 60607                     73652\n3 60608                    157334\n4 60609                    116534\n5 60604                      3147\n6 60610                     97680\n\n\n\nIf I wanted to join these two data frames, what would be the join key?\n\n\nExplain how the resulting data frames would differ if I were to use an inner join vs. a left join vs. a full join to join these two data frames.\n\n\nWhich lubridate function would I use to convert the week_start variable in the example dataset into a time and date format?\n\n\nWrite pseudo-code to create a new column that reports whether or not there were Covid-19 deaths in a given zip code in a given week. The resulting data frame should look like mine below.\n\n\n\n  zip_code              week_start\n1    60601 2024-01-21T00:00:00.000\n2    60601 2024-02-04T00:00:00.000\n3    60601 2024-02-11T00:00:00.000\n4    60601 2023-11-12T00:00:00.000\n5    60625 2023-12-31T00:00:00.000\n6    60626 2023-12-31T00:00:00.000\n                                                deaths_flag\n1 There were no Covid-19 deaths in this zip code this week.\n2 There were no Covid-19 deaths in this zip code this week.\n3 There were no Covid-19 deaths in this zip code this week.\n4 There were no Covid-19 deaths in this zip code this week.\n5    There were Covid-19 deaths in this zip code this week.\n6 There were no Covid-19 deaths in this zip code this week.\n\n\n\nLet’s say I subset the example dataset to zip code 60601 and the following four columns. Write pseudo-code to tidy the data and create the following plot.\n\n\n\n  zip_code week_start cases_weekly tests_weekly\n1    60601 2024-01-21            5            0\n2    60601 2024-02-04            4            0\n3    60601 2024-02-11            3            0\n4    60601 2023-11-12            5           44\n5    60601 2024-04-07            3            0\n6    60601 2024-03-17            2            0\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s say I subset the data to cases reported in April 2024, and the following three columns.\n\n\n\n  zip_code week_start cases_weekly\n1    60606 2024-04-14            0\n2    60605 2024-04-14            4\n3    60613 2024-04-07            3\n4    60610 2024-04-14           10\n5    60622 2024-04-14            4\n6    60624 2024-04-07            3\n\n\nWrite pseudo-code to create the following data frame.\n\n\n# A tibble: 60 × 5\n   zip_code `2024-04-14` `2024-04-07` `2024-04-28` `2024-04-21`\n   &lt;chr&gt;           &lt;int&gt;        &lt;int&gt;        &lt;int&gt;        &lt;int&gt;\n 1 60606               0            1            3            0\n 2 60605               4            3            4            2\n 3 60613               5            3            4            7\n 4 60610              10           11            2            7\n 5 60622               4            6            3            2\n 6 60624               3            3            3            6\n 7 60625               6           12            8            7\n 8 60630               4            8            8            8\n 9 60616               2            8            2            3\n10 60631               3            5            5            6\n# ℹ 50 more rows\n\n\n\nWrite pseduo-code for a function that takes a given zip code and then returns the week start date with for the week with the greatest number of cases in that zip code.\n\n\nWrite pseudo-code for a function that takes a given zip code and week start date and returns a string indicating whether there were deaths in that zip code that week.\n\n\nLet’s say I wanted to iterate a function over all of the unique zip codes in the example dataset. I wrote the code below to get the unique zip codes. What would I need to do the the output of this code before I could pass the zip codes to a map() function?\n\n\ncovid_chicago |&gt; \n  select(zip_code) |&gt;\n  distinct() \n\n\nLet’s say I were to write the function below and wanted to iterate it over the vector of counties stored in zip_codes. Which map function would make the most sense for me to use?\n\n\ncalc_weeks_more_100_cases &lt;- function(zip){\n  covid_chicago |&gt;\n    filter(zip_code == zip & cases_weekly &gt; 100) |&gt;\n    nrow()\n}\n\nzip &lt;- c(\"60637\", \"60618\", \"60646\")\n\n\nWhat is a map projection, and why should we consider it when mapping data points?\n\n\n\n\n\nThe following map visualizes the total cumulative cases of Covid-19 per zip code by May 12, 2024. How could we normalize the values presented on this map, and why is it important to do so?\n\n\n\nReading layer `unjd-c2ca' from data source \n  `https://data.cityofchicago.org/resource/unjd-c2ca.geojson' \n  using driver `GeoJSON'\nSimple feature collection with 59 features and 4 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -87.94011 ymin: 41.64454 xmax: -87.52414 ymax: 42.02304\nGeodetic CRS:  WGS 84\n\n\n\n\n\n\n\nThe following two maps display the same data. Describe the difference in how color is applied to polygons in the two maps. Why would I choose one vs. another?"
+  },
+  {
+    "objectID": "slides/point_mapping.html#for-today",
+    "href": "slides/point_mapping.html#for-today",
+    "title": "Point Mapping in R",
+    "section": "For Today",
+    "text": "For Today\n\nProjections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points\nExercise"
+  },
+  {
+    "objectID": "slides/point_mapping.html#why-analyze-spatial-data",
+    "href": "slides/point_mapping.html#why-analyze-spatial-data",
+    "title": "Point Mapping in R",
+    "section": "Why analyze spatial data?",
+    "text": "Why analyze spatial data?\n\nHow are features distributed across geographies, and what does this tell us about potential disparities?\nWhere are certain events or features concentrated, and what other conditions might implicate these patterns?\nWhat kinds of features are proximate, and what impact might this have?\nWhat is the best way to get from point A to point B?"
+  },
+  {
+    "objectID": "slides/point_mapping.html#geographic-comparisons",
+    "href": "slides/point_mapping.html#geographic-comparisons",
+    "title": "Point Mapping in R",
+    "section": "Geographic Comparisons",
+    "text": "Geographic Comparisons"
+  },
+  {
+    "objectID": "slides/point_mapping.html#concentrations-of-features",
+    "href": "slides/point_mapping.html#concentrations-of-features",
+    "title": "Point Mapping in R",
+    "section": "Concentrations of Features",
+    "text": "Concentrations of Features\n\nWhere are the most were Missed Collections on October 1, 2021?"
+  },
+  {
+    "objectID": "slides/point_mapping.html#proximity-analysis-carceral-ej-mapper",
+    "href": "slides/point_mapping.html#proximity-analysis-carceral-ej-mapper",
+    "title": "Point Mapping in R",
+    "section": "Proximity Analysis: Carceral EJ Mapper",
+    "text": "Proximity Analysis: Carceral EJ Mapper"
+  },
+  {
+    "objectID": "slides/point_mapping.html#projections",
+    "href": "slides/point_mapping.html#projections",
+    "title": "Point Mapping in R",
+    "section": "Projections",
+    "text": "Projections\n\nMeans by which we convert curved surface of the globe to 2D rectangle\nNecessarily distorts the surface (e.g. area, distance)\nMany projections exist, serving different purposes"
+  },
+  {
+    "objectID": "slides/point_mapping.html#orange-peel-example",
+    "href": "slides/point_mapping.html#orange-peel-example",
+    "title": "Point Mapping in R",
+    "section": "Orange Peel Example",
+    "text": "Orange Peel Example\n\n\n\nImagine that you peel an orange\n\nDatum is the original shape of the fruit (e.g. orange, lemon, apple, grapefruit)\nProjection is how we go about peeling and flattening the orange\n\n\n\n\n\nhttps://geohackweek.github.io/visualization/02-projections/"
+  },
+  {
+    "objectID": "slides/point_mapping.html#coordinate-reference-system-crs",
+    "href": "slides/point_mapping.html#coordinate-reference-system-crs",
+    "title": "Point Mapping in R",
+    "section": "Coordinate Reference System (CRS)",
+    "text": "Coordinate Reference System (CRS)\n\nPoints are in different locations depending on how we flatten Earth’s surface into 2D map\nCRS is a system for locating features on a certain map projection via coordinates\nThousands of CRSs but some are more common than others (e.g. WGS 84 most common)\nFor locations to appear correctly on maps, geographic features and underlying maps need to share same CRS"
+  },
+  {
+    "objectID": "slides/point_mapping.html#sf-package",
+    "href": "slides/point_mapping.html#sf-package",
+    "title": "Point Mapping in R",
+    "section": "sf Package",
+    "text": "sf Package\n\nEncodes spatial data into geometry objects\nLocates latitudes and longitudes according to a particular CRS\nEnables setting and transforming CRSs\n\n\nLat/LongX/Y Coordinates\n\n\n\nnyc_311_lat_long |&gt;\n  st_as_sf(coords = c(\"longitude\", \n                      \"latitude\"), \n           crs = 4326) |&gt;\n  head(4)\n\nSimple feature collection with 4 features and 0 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -73.98817 ymin: 40.72957 xmax: -73.91205 ymax: 40.76753\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 1\n              geometry\n           &lt;POINT [°]&gt;\n1 (-73.98817 40.72957)\n2  (-73.9193 40.75861)\n3 (-73.91206 40.76752)\n4 (-73.91205 40.76753)\n\n\n\n\n\nnyc_311_xy |&gt;\n  st_as_sf(coords = c(\"x_coordinate_state_plane\", \n                      \"y_coordinate_state_plane\"), \n           crs = 2263) |&gt;\n  head(4)\n\nSimple feature collection with 4 features and 0 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 987530 ymin: 205080 xmax: 1008612 ymax: 218920\nProjected CRS: NAD83 / New York Long Island (ftUS)\n# A tibble: 4 × 1\n                  geometry\n  &lt;POINT [US_survey_foot]&gt;\n1          (987530 205080)\n2         (1006606 215670)\n3         (1008610 218916)\n4         (1008612 218920)"
+  },
+  {
+    "objectID": "slides/point_mapping.html#how-do-i-know-which-crs-to-use",
+    "href": "slides/point_mapping.html#how-do-i-know-which-crs-to-use",
+    "title": "Point Mapping in R",
+    "section": "How do I know which CRS to use?",
+    "text": "How do I know which CRS to use?\n\nWe hope that it’s listed somewhere in data documentation.\nNot always the case."
+  },
+  {
+    "objectID": "slides/point_mapping.html#leaflet",
+    "href": "slides/point_mapping.html#leaflet",
+    "title": "Point Mapping in R",
+    "section": "Leaflet",
+    "text": "Leaflet\n\nStart by calling leaflet() function, setting the original view, and adding basemap tiles\nNote that you need to look up the coordinates of the geography you wish to center in on.\n\n\n\n\nlibrary(leaflet)\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -100.0, zoom = 3) |&gt; \n  addProviderTiles(\"OpenStreetMap\")"
+  },
+  {
+    "objectID": "slides/point_mapping.html#adding-markers",
+    "href": "slides/point_mapping.html#adding-markers",
+    "title": "Point Mapping in R",
+    "section": "Adding Markers",
+    "text": "Adding Markers\n\naddCircleMarkers()\naddMarkers()\naddPolygons\n\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
+  },
+  {
+    "objectID": "slides/point_mapping.html#transforming-crs",
+    "href": "slides/point_mapping.html#transforming-crs",
+    "title": "Point Mapping in R",
+    "section": "Transforming CRS",
+    "text": "Transforming CRS\n\nWhy didn’t points appear?\nLeaflet assumes that coordinates will be in CRS:4326 (WGS84)\nWe can use st_transform() to convert points to a different CRS.\n\n\nBeforeAfter\n\n\n\nnyc_311_xy |&gt;\n  st_as_sf(coords = c(\"x_coordinate_state_plane\", \n                      \"y_coordinate_state_plane\"), \n           crs = 2263) |&gt;\n  head(4)\n\nSimple feature collection with 4 features and 0 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -73.98817 ymin: 40.72957 xmax: -73.91205 ymax: 40.76753\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 1\n              geometry\n           &lt;POINT [°]&gt;\n1 (-73.98817 40.72957)\n2  (-73.9193 40.75861)\n3 (-73.91206 40.76752)\n4 (-73.91205 40.76753)\n\n\n\n\n\nnyc_311_xy |&gt;\n  st_as_sf(coords = c(\"x_coordinate_state_plane\", \n                      \"y_coordinate_state_plane\"), \n           crs = 2263) |&gt;\n  st_transform(crs = 4326) |&gt;\n  head(4)\n\nSimple feature collection with 4 features and 0 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -73.98817 ymin: 40.72957 xmax: -73.91205 ymax: 40.76753\nGeodetic CRS:  WGS 84\n# A tibble: 4 × 1\n              geometry\n           &lt;POINT [°]&gt;\n1 (-73.98817 40.72957)\n2  (-73.9193 40.75861)\n3 (-73.91206 40.76752)\n4 (-73.91205 40.76753)"
+  },
+  {
+    "objectID": "slides/point_mapping.html#leaflet-cont.",
+    "href": "slides/point_mapping.html#leaflet-cont.",
+    "title": "Point Mapping in R",
+    "section": "Leaflet, cont.",
+    "text": "Leaflet, cont.\n\nnyc_311_xy &lt;- nyc_311_xy |&gt;\n  st_transform(4326)\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
+  },
+  {
+    "objectID": "slides/point_mapping.html#layers",
+    "href": "slides/point_mapping.html#layers",
+    "title": "Point Mapping in R",
+    "section": "Layers",
+    "text": "Layers\n\nNYC Rodent and Litter Complaints on October 31, 2025\n\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_rodent,\n                   fillColor = \"red\",\n                   stroke = FALSE) |&gt;\n  addCircleMarkers(data = nyc_311_litter,\n                   fillColor = \"blue\",\n                   stroke = FALSE)"
+  },
+  {
+    "objectID": "slides/point_mapping.html#creating-palettes-for-points",
+    "href": "slides/point_mapping.html#creating-palettes-for-points",
+    "title": "Point Mapping in R",
+    "section": "Creating Palettes for Points",
+    "text": "Creating Palettes for Points\n\ncolorNumeric(): Maps numbers to colors in a specified palette\ncolorBin(): Maps numbers into equally-spaced intervals (e.g. 0-10, &gt;10-20, etc.)\ncolorQuantile(): Maps numbers into equally-sized intervals (same number of observations in each grouping)\ncolorFactor(): Maps categories into a specified number of categorical buckets"
+  },
+  {
+    "objectID": "exercises/point_mapping.html",
+    "href": "exercises/point_mapping.html",
+    "title": "Point Mapping",
+    "section": "",
+    "text": "Question\n\nConvert nbi_ma to an sf object. The CRS is 4326.\n\n\n# Code Here\n\n\n\nQuestion\n\nInitiate a basemap of MA and add “CartoDB.Positron” provider tiles. You can use coordinates: 42.4072 (lat) -71.3824 (long) and set the zoom to 7.\n\n\n#Code here\n\n\n\n\n\n\n\n\n\nQuestion\n\nAdd Circle Markers of bridges to the map.\n\n\n# Code Here\n\n\n\n\n\n\n\n\n\nQuestion\n\nAdjust the radius, stroke, and fillOpacity.\n\n\n# Code Here\n\n\n\n\n\n\n\n\n\nQuestion\n\nSet the fillColor to ADT_029, and swap out the different palettes. I’ve given you code to add a legend. Be sure to update the palette in the legend when swapping out palettes. Which palette do you think is most appropriate?\n\n\npal_numeric &lt;- colorNumeric(palette = \"YlOrRd\", \n                    domain = nbi_ma$ADT_029)\n  \npal_bin &lt;- colorBin(palette = \"YlOrRd\", \n                    domain = nbi_ma$ADT_029, \n                    bins = 4)\n\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                    domain = nbi_ma$ADT_029, \n                    n = 4)\n\n\n# Code Here\n\n# addLegend(data = nbi_ma,\n#             title = \"Annual Daily Traffic of Bridges, 2024\", \n#             pal = pal_numeric, \n#             values = ~ADT_029)\n\n\n\n\n\n\n\n\n\nQuestion\n\nSet the fillColor to STRUCTURAL_EVAL_067, and swap out the different palettes. I’ve given you code to add a legend. Be sure to update the palette in the legend when swapping out palettes. Note how I reversed the scale. Which palette do you think is most appropriate?\n\n\npal_numeric &lt;- colorNumeric(palette = \"YlOrRd\", \n                    domain = nbi_ma$STRUCTURAL_EVAL_067,\n                    reverse = TRUE)\n  \npal_bin &lt;- colorBin(palette = \"YlOrRd\", \n                    domain = nbi_ma$STRUCTURAL_EVAL_067, \n                    bins = 4,\n                    reverse = TRUE)\n\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                    domain = nbi_ma$STRUCTURAL_EVAL_067, \n                    n = 4,\n                    reverse = TRUE)\n\n\n# Code Here\n\n# addLegend(data = nbi_ma,\n#             title = \"Structural Evaluation of Bridges, 2024\", \n#             pal = pal_numeric, \n#             values = ~STRUCTURAL_EVAL_067)"
+  },
+  {
+    "objectID": "slides/point_mapping.html",
+    "href": "slides/point_mapping.html",
+    "title": "Point Mapping in R",
+    "section": "",
+    "text": "Projections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points"
   }
 ]
