@@ -33,7 +33,7 @@ topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional
 32,polygon_map,Polygon Mapping in Leaflet,11/17/25,,baumerModernDataScience2021,17. Working with geospatial data  (17.4-17.8),,,,Project 3 Assigned,Course slides are [here](slides/polygon_mapping.html),[Leaflet Guide](https://rstudio.github.io/leaflet/),[MP3 Template](https://moodle.smith.edu/mod/url/view.php?id=1384780) Your team name should be a string with your team members' last names.,
 33,chloropleth,How to Lie with Maps,11/19/25,,,,,,[Lab 9](labs/lab9.html) Due,,Course slides are [here](slides/how_to_lie.html),Exericse Instructions[here](exercises/how_to_lie.html);[Leaflet Guide](https://rstudio.github.io/leaflet/),,
 34,polygon_lap,Lab: Mapping Polygon Data with Leaflet,11/21/25,,,,,,,,,[Leaflet Guide](https://rstudio.github.io/leaflet/);[Lab 10 Instructions](labs/lab10.html),,
-35,review2,Review,11/24/25,,,,,,,,,,,
+35,review2,Review,11/24/25,,,,,,,,,Final Review [here](final-review.html),,
 36,no_class2,No Class,11/26/25,,,,,,,,,,,
 37,no_class3,No Class,11/28/25,,,,,,,,,,,
 38,apis,Working with APIs,12/1/25,,,,,,[Lab 10](labs/lab10.html) Due,,,,,

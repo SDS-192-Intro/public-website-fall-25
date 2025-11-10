@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignments</title>
+<title>Final Review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
+    <a class="nav-link" href="./assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -120,13 +120,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#syllabus-quiz-3" id="toc-syllabus-quiz-3" class="nav-link active" data-scroll-target="#syllabus-quiz-3">Syllabus Quiz (3%)</a></li>
-  <li><a href="#reading-quizzes-5" id="toc-reading-quizzes-5" class="nav-link" data-scroll-target="#reading-quizzes-5">Reading Quizzes (5%)</a></li>
-  <li><a href="#course-infrastructure-set-up-2" id="toc-course-infrastructure-set-up-2" class="nav-link" data-scroll-target="#course-infrastructure-set-up-2">Course Infrastructure Set-up (2%)</a></li>
-  <li><a href="#labs-30" id="toc-labs-30" class="nav-link" data-scroll-target="#labs-30">Labs (30%)</a></li>
-  <li><a href="#projects-30" id="toc-projects-30" class="nav-link" data-scroll-target="#projects-30">Projects (30%)</a></li>
-  <li><a href="#mid-term-exam-15" id="toc-mid-term-exam-15" class="nav-link" data-scroll-target="#mid-term-exam-15">Mid-Term Exam (15%)</a></li>
-  <li><a href="#final-exam-15" id="toc-final-exam-15" class="nav-link" data-scroll-target="#final-exam-15">Final Exam (15%)</a></li>
+  <li><a href="#understanding-datasets-and-r-fundamentals" id="toc-understanding-datasets-and-r-fundamentals" class="nav-link active" data-scroll-target="#understanding-datasets-and-r-fundamentals">Understanding Datasets and <code>R</code> Fundamentals</a></li>
+  <li><a href="#visualization-aesthetics" id="toc-visualization-aesthetics" class="nav-link" data-scroll-target="#visualization-aesthetics">Visualization Aesthetics</a></li>
+  <li><a href="#plotting-freqencies" id="toc-plotting-freqencies" class="nav-link" data-scroll-target="#plotting-freqencies">Plotting Freqencies</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#joining" id="toc-joining" class="nav-link" data-scroll-target="#joining">Joining</a></li>
+  <li><a href="#tidying-data" id="toc-tidying-data" class="nav-link" data-scroll-target="#tidying-data">Tidying Data</a></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming">Programming</a></li>
+  <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping">Mapping</a></li>
   </ul>
 </nav>
     </div>
@@ -135,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Final Review</h1>
 </div>
 
 
@@ -152,42 +154,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="syllabus-quiz-3" class="level2">
-<h2 class="anchored" data-anchor-id="syllabus-quiz-3">Syllabus Quiz (3%)</h2>
-<p>Our course syllabus is a contract that identifies expectations that I have of you, expectations you can have of me, and how we can effectively use resources to create an impactful learning environment. It serves you to know the syllabus inside and out; knowing the syllabus means that you are aware of resources available to you if you are struggling and that you won’t be surprised by course policies that may negatively impact your grade. It also serves the whole class to have everyone know the course syllabus; knowing the syllabus sets standards for how we will learn as a community, and it also reduces the class time spent answering questions that have already been documented.</p>
-<p>After reading the syllabus, you should complete the 20 question syllabus quiz in Perusall. This syllabus quiz is graded on <strong>correctness</strong>. Please note that <strong>this is an open note quiz, and you may work with other students on this quiz.</strong></p>
-</section>
-<section id="reading-quizzes-5" class="level2">
-<h2 class="anchored" data-anchor-id="reading-quizzes-5">Reading Quizzes (5%)</h2>
-<p>I’ve selected 10 readings that correspond to 10 different units we will engage in class. Reading ahead of class will help introduce you to the language you will see in class. Lectures and class activities will reinforce the concepts that you learn in the reading. All readings will be posted in Perusall with a very short reading quiz. Reading quizzes are graded based on <strong>completion</strong>, not on <strong>correctness</strong>. They are designed to let me know ahead of time which concepts students understand from the reading and which concepts they are struggling with. They also help you understand which concepts you may want to study/practice further.</p>
-</section>
-<section id="course-infrastructure-set-up-2" class="level2">
-<h2 class="anchored" data-anchor-id="course-infrastructure-set-up-2">Course Infrastructure Set-up (2%)</h2>
-<p>In this course, you will submit most assignments via GitHub. The course infrastructure set-up will help you configure RStudio to easily push assignments to GitHub. This assignment is graded on <strong>completion</strong>.</p>
-</section>
-<section id="labs-30" class="level2">
-<h2 class="anchored" data-anchor-id="labs-30">Labs (30%)</h2>
-<p>There are ten units in this course, and ten labs associated with each unit. Labs in this course introduce a data science skill by walking you through exploratory analysis of a dataset documenting a socially-relevant issue (such as racial profiling in policing, affordable housing, and pollution). Labs will be started in class on Fridays and completed for homework by the following Wednesday. If you finish a lab early, you are encouraged to help your classmates. Labs will be graded on both <strong>completion</strong> and <strong>correctness</strong>. You will earn some credit for every exercise that you attempt, but points may be deducted for incorrect responses/code. Note that, at the end of each lab, there will be a prompt asking you to consider some of the ethical considerations of the data analysis you just completed. <strong>You must respond to this prompt in Slack to earn full credit on the lab.</strong></p>
-</section>
-<section id="projects-30" class="level2">
-<h2 class="anchored" data-anchor-id="projects-30">Projects (30%)</h2>
-<p>There will be three group projects assigned over the course of the semester.</p>
+<section id="understanding-datasets-and-r-fundamentals" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-datasets-and-r-fundamentals">Understanding Datasets and <code>R</code> Fundamentals</h3>
 <ul>
-<li><a href="https://github.com/SDS-192-Intro/MP1">Project 1</a></li>
-<li><a href="https://github.com/SDS-192-Intro/MP2">Project 2</a></li>
-<li><a href="https://github.com/SDS-192-Intro/MP3">Project 3</a></li>
+<li>Reading data documentation/data dictionary</li>
+<li>Identifying a unit of observation</li>
+<li>Identifying types of variables in a dataset</li>
+<li>Characterizing different data objects in <code>R</code></li>
+<li>Interpreting functions and arguments in <code>R</code></li>
+<li>Identifying missing data in <code>R</code></li>
 </ul>
 </section>
-<section id="mid-term-exam-15" class="level2">
-<h2 class="anchored" data-anchor-id="mid-term-exam-15">Mid-Term Exam (15%)</h2>
-<p>There will be one closed book mid-term exam. You will be permitted to bring any of the course-approved <code>R</code> cheatsheets with you to the exam, but use of laptops and cell phones are not permitted. The mid-term exam will be graded on <strong>correctness</strong>.</p>
-<p>Note that after you receive your grade, you may choose up to two questions on the mid-term exam to have re-assessed in an in-person technical interview with me. In an in-person technical interview, I will ask you questions related to the exam questions you would like re-assessed, and you will have an opportunity to demonstrate your understanding of the concepts. Please note that an in-person technical interview must be scheduled <em>before Thanksgiving Break</em>.</p>
-<p><a href="midterm-review.html">Mid-term Review</a></p>
+<section id="visualization-aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-aesthetics">Visualization Aesthetics</h3>
+<ul>
+<li>Mapping appropriate variables onto plot aesthetics</li>
+<li>Adjusting plot attributes</li>
+<li>Recognizing and adjusting plot scales</li>
+<li>Contextualizing a plot with titles and labels</li>
+<li>Recognizing and dealing with overplotting</li>
+<li>Effectively selecting color palettes for plots</li>
+<li>Faceting plots into small multiples</li>
+<li>Defining and recognizing a plot’s graphical integrity (e.g.&nbsp;lie factor and data-to-ink ratio)</li>
+</ul>
 </section>
-<section id="final-exam-15" class="level2">
-<h2 class="anchored" data-anchor-id="final-exam-15">Final Exam (15%)</h2>
-<p>The final exam will be a cumulative exam that assesses your understanding of concepts covered throughout the course. It will be closed book and self-scheduled. You will be permitted to bring any of the course-approved <code>R</code> cheatsheets with you to the exam, but use of laptops and cell phones are not permitted. The final exam will be graded on <strong>correctness</strong>.</p>
-<p><a href="final-review.html">Final Review</a></p>
+<section id="plotting-freqencies" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-freqencies">Plotting Freqencies</h3>
+<ul>
+<li>Understanding how to visualize the frequency of both categorical and numeric values</li>
+<li>Recognizing how to visualize frequency for aggregate data</li>
+<li>Interpreting frequencies and distributions via a plot</li>
+<li>Interpreting a boxplot</li>
+</ul>
+</section>
+<section id="github" class="level3">
+<h3 class="anchored" data-anchor-id="github">GitHub</h3>
+<ul>
+<li>Understanding <code>git</code> vocabulary</li>
+<li>Identifying the steps of a collaborative GitHub workflow, including when to branch and merge changes</li>
+<li>Addressing common push/pull errors</li>
+<li>Resolving merge conflicts</li>
+</ul>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<ul>
+<li>Understanding the 6 data wrangling verbs and when to appy them</li>
+<li>Understanding how a data structure transforms when wrangling data</li>
+<li>Writing pseduo-code to transform a dataset from one form to another</li>
+</ul>
+</section>
+<section id="joining" class="level3">
+<h3 class="anchored" data-anchor-id="joining">Joining</h3>
+<ul>
+<li>Identifying a join key</li>
+<li>Understanding the outputs of different kinds of joins (inner vs.&nbsp;left vs.&nbsp;full)</li>
+</ul>
+</section>
+<section id="tidying-data" class="level3">
+<h3 class="anchored" data-anchor-id="tidying-data">Tidying Data</h3>
+<ul>
+<li>Formatting date and time in a data frame</li>
+<li>Mutating a column based on a condition (i.e.&nbsp;<code>case_when()</code>)</li>
+<li>Mutating a column to convert its type or format strings</li>
+<li>Understanding how and when to pivot data longer and wider</li>
+</ul>
+</section>
+<section id="programming" class="level3">
+<h3 class="anchored" data-anchor-id="programming">Programming</h3>
+<ul>
+<li>Writing custom functions</li>
+<li>Writing if-else statements</li>
+<li>Recognizing when to <code>pull()</code> values from a vector</li>
+<li>Applying functions <code>across</code> a series of columns</li>
+<li>Iterating functions using the family <code>map</code> functions</li>
+</ul>
+</section>
+<section id="mapping" class="level3">
+<h3 class="anchored" data-anchor-id="mapping">Mapping</h3>
+<ul>
+<li>Understanding the significance of map projections and coordinate reference systems</li>
+<li>Understanding the features of different types of spatial datasets</li>
+<li>Recognizing how and why to classify numeric data into different color bins when mapping</li>
+<li>Defining and addressing “lies” on maps (e.g.&nbsp;symbolization, aggregation, normalization, modifiable aerial unit problem)</li>
+</ul>
 
 
 </section>
