@@ -153,7 +153,7 @@ tri_la_2023 <- tri_la_2023 %>%
   st_as_sf(coords = c("X13..LONGITUDE", "X12..LATITUDE"), crs = 4269) %>%
   st_transform(4326)
 
-pal_bin <- colorBin(palette="YlOrRd", 
+pal_bin <- colorBin(palette="BuPu", 
                     domain = tri_la_2023$X107..TOTAL.RELEASES,
                     bins = 6)
 

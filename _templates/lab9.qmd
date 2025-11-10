@@ -116,11 +116,11 @@ Your map should look like mine below.
 ```
 ###### Question 8
 
-Create three palettes below (one using each function `colorNumeric()`, `colorBin()`, and `colorQuantile()`), setting the `palette` to "YlOrRd", and the domain to `tri_la_2023$X107..TOTAL.RELEASES`. For `colorBin()`, set the `bins` to 6, and for `colorQuantile()`, set `n` to 4.
+Create three palettes below (one using each function `colorNumeric()`, `colorBin()`, and `colorQuantile()`), setting the `palette` to "BuPu", and the domain to `tri_la_2023$X107..TOTAL.RELEASES`. For `colorBin()`, set the `bins` to 6, and for `colorQuantile()`, set `n` to 4.
 
 
 ```{r unnamed-chunk-17}
-pal_num <- colorNumeric(palette="YlOrRd", 
+pal_num <- colorNumeric(palette="BuPu", 
                         domain = tri_la_2023$X107..TOTAL.RELEASES)
 #Uncomment below to create the other two palettes.
 
