@@ -3350,7 +3350,7 @@
     "href": "schedule.html#september-26-2025",
     "title": "Schedule",
     "section": "September 26, 2025",
-    "text": "September 26, 2025\n\nLab: Visualizing Data\n\nDue TodayFurther Resources\n\n\n Group Contract Due\n\n\n ggplot2 cheatsheet"
+    "text": "September 26, 2025\n\nLab: Visualizing Data\n\nDue TodayFurther Resources\n\n\n\n\n\n ggplot2 cheatsheet"
   },
   {
     "objectID": "schedule.html#september-29-2025",
@@ -3434,7 +3434,7 @@
     "href": "schedule.html#october-24-2025",
     "title": "Schedule",
     "section": "October 24, 2025",
-    "text": "October 24, 2025\n\nLab: Joining Datasets\n\nDue TodayFurther Resources\n\n\n Group Contract Due\n\n\n Lab 6 Instructions"
+    "text": "October 24, 2025\n\nLab: Joining Datasets\n\nDue TodayFurther Resources\n\n\n\n\n\n Lab 6 Instructions"
   },
   {
     "objectID": "schedule.html#october-27-2025",
@@ -3511,14 +3511,14 @@
     "href": "schedule.html#november-19-2025",
     "title": "Schedule",
     "section": "November 19, 2025",
-    "text": "November 19, 2025\n\nHow to Lie with Maps\n\nDue TodayFurther Resources\n\n\n Lab 9 Due\n\n\n Leaflet Guide"
+    "text": "November 19, 2025\n\nHow to Lie with Maps\n\nDue TodayFurther Resources\n\n\n Lab 9 Due\n\n\n Course slides are here\n Exericse Instructionshere\n Leaflet Guide"
   },
   {
     "objectID": "schedule.html#november-21-2025",
     "href": "schedule.html#november-21-2025",
     "title": "Schedule",
     "section": "November 21, 2025",
-    "text": "November 21, 2025\n\nLab: Mapping Polygon Data with Leaflet\n\nDue TodayFurther Resources\n\n\n Group Contract Due\n\n\n Leaflet Guide\n Lab 10 Instructions"
+    "text": "November 21, 2025\n\nLab: Mapping Polygon Data with Leaflet\n\nDue TodayFurther Resources\n\n\n\n\n\n Leaflet Guide\n Lab 10 Instructions"
   },
   {
     "objectID": "schedule.html#november-24-2025",
@@ -6788,5 +6788,89 @@
     "title": "Polygon Mapping in R",
     "section": "NYC Commmunity District Chloropleth: Quantile",
     "text": "NYC Commmunity District Chloropleth: Quantile\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_quant(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_quant,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#for-today",
+    "href": "slides/how_to_lie.html#for-today",
+    "title": "How to Lie with Maps",
+    "section": "For Today",
+    "text": "For Today\n\nStrategies for Lying with Maps"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#all-maps-lie",
+    "href": "slides/how_to_lie.html#all-maps-lie",
+    "title": "How to Lie with Maps",
+    "section": "All maps lie!",
+    "text": "All maps lie!"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#acknowledgements",
+    "href": "slides/how_to_lie.html#acknowledgements",
+    "title": "How to Lie with Maps",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nToday’s lecture is almost entirely structured based on:\nDeluca, Eric, and Sara Nelson. 2017. “7. Lying With Maps.” In Mapping, Society, and Technology, edited by Steven Manson. Minneapolis, Minnesota: University of Minnesota Libraries Publishing. https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/."
+  },
+  {
+    "objectID": "slides/how_to_lie.html#projections",
+    "href": "slides/how_to_lie.html#projections",
+    "title": "How to Lie with Maps",
+    "section": "Projections",
+    "text": "Projections"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#symbolization",
+    "href": "slides/how_to_lie.html#symbolization",
+    "title": "How to Lie with Maps",
+    "section": "Symbolization",
+    "text": "Symbolization"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#cartograms",
+    "href": "slides/how_to_lie.html#cartograms",
+    "title": "How to Lie with Maps",
+    "section": "Cartograms",
+    "text": "Cartograms\n\n\nBenjamin Hennig, https://www.viewsoftheworld.net/"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#normalization",
+    "href": "slides/how_to_lie.html#normalization",
+    "title": "How to Lie with Maps",
+    "section": "Normalization",
+    "text": "Normalization"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#classification",
+    "href": "slides/how_to_lie.html#classification",
+    "title": "How to Lie with Maps",
+    "section": "Classification",
+    "text": "Classification\n\n\nBinning creates equal interval breaks, and classifies the data into the intervals.\n\n\n\n\n\n\n\nQuantiles creates breaks so that there are the same number of observations classified into each bin."
+  },
+  {
+    "objectID": "slides/how_to_lie.html#aggregation",
+    "href": "slides/how_to_lie.html#aggregation",
+    "title": "How to Lie with Maps",
+    "section": "Aggregation",
+    "text": "Aggregation\n\nEcological fallacy: Assuming that a value calculated for a group is equivalent to the values for individual members of the group"
+  },
+  {
+    "objectID": "slides/how_to_lie.html#zonation",
+    "href": "slides/how_to_lie.html#zonation",
+    "title": "How to Lie with Maps",
+    "section": "Zonation",
+    "text": "Zonation\n\n\n\nModifiable Aerial Unit Problem\nThe boundaries we aggregate data into are often arbitrary (i.e. not meaningful for the analysis)\n\nIf I’m studying air quality effects of a facility on surrounding populations, air pollution doesn’t stop at a zip code even if I aggregate my data by zip code.\n\nDrawing boundaries in a different way would produce different results."
+  },
+  {
+    "objectID": "slides/how_to_lie.html#gerrymandering",
+    "href": "slides/how_to_lie.html#gerrymandering",
+    "title": "How to Lie with Maps",
+    "section": "Gerrymandering",
+    "text": "Gerrymandering"
+  },
+  {
+    "objectID": "exercises/how_to_lie.html",
+    "href": "exercises/how_to_lie.html",
+    "title": "How to Lie with Maps",
+    "section": "",
+    "text": "Today, we’re going to take a look at some maps online, and examine choices in how the maps were designed. You should work in your Project 3 groups and be prepared to share your findings with the class.\n\nNavigate to the Our World in Data. Select a world map. Take no more than 2 minutes for this! Drop a link to the map in a thread in sds-192-discussions.\nWhat, if anything, do you notice about the map’s projection?\nIs the numeric data presented on this map normalized? How?\nHow is the data aggregated into geospatial units? How do you expect the map might look differently if aggregated into smaller geospatial units? (You might think about the U.S. specifically or other countries that you are familiar with when answering this question.)\nHow does the map use color to classify quantities? Are the bin widths equal or the bin sizes equal?\nHow meaningful are the geographic boundaries to the metric you are examining? In what ways do the administrative and other features within that boundary impact that metric, and in what ways does the issue represented by the metric extend beyond the individual boundaries shown on the map?"
   }
 ]
