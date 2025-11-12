@@ -56,7 +56,8 @@ census <- get_decennial(
   st_transform(4326)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
 pal_bin <- colorBin(palette = "YlOrRd", domain = census$percent_pop, bins = 4)
 leaflet() |>
   setView(lat = 42.35, lng = -72.66, zoom = 8) |>
@@ -86,7 +87,8 @@ nyc_311_missed <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv
   st_transform(crs = 4326)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
 leaflet() |>
   setView(lat = 40.7, lng = -74, zoom = 10) |>
   addProviderTiles("OpenStreetMap") |>
@@ -194,7 +196,7 @@ leaflet() |>
 nyc_311_lat_long <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=longitude,latitude&$where=complaint_type=%27Missed%20Collection%27%20AND%20date_trunc_ymd(created_date)=%272021-10-01%27&$limit=400")
 ```
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 nyc_311_lat_long |>
   st_as_sf(coords = c("longitude", 
                       "latitude"), 
@@ -209,7 +211,7 @@ nyc_311_xy <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$se
 ```
 
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 nyc_311_xy |>
   st_as_sf(coords = c("x_coordinate_state_plane", 
                       "y_coordinate_state_plane"), 
@@ -247,7 +249,8 @@ leaflet() |>
 :::
 ::: {.column width="50%"}
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 library(leaflet)
 leaflet() |>
   setView(lat = 40.7, lng = -100.0, zoom = 3) |> 
@@ -293,7 +296,7 @@ leaflet() |>
 
 ### Before
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 nyc_311_xy |>
   st_as_sf(coords = c("x_coordinate_state_plane", 
                       "y_coordinate_state_plane"), 
@@ -303,7 +306,7 @@ nyc_311_xy |>
 
 ### After
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 nyc_311_xy |>
   st_as_sf(coords = c("x_coordinate_state_plane", 
                       "y_coordinate_state_plane"), 
