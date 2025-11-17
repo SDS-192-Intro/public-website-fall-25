@@ -6612,14 +6612,14 @@
     "href": "slides/point_mapping.html#leaflet",
     "title": "Point Mapping in R",
     "section": "Leaflet",
-    "text": "Leaflet\n\nStart by calling leaflet() function, setting the original view, and adding basemap tiles\nNote that you need to look up the coordinates of the geography you wish to center in on.\n\n\n\n\nlibrary(leaflet)\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -100.0, zoom = 3) |&gt; \n  addProviderTiles(\"OpenStreetMap\")"
+    "text": "Leaflet\n\nStart by calling leaflet(width = \"100%\") function, setting the original view, and adding basemap tiles\nNote that you need to look up the coordinates of the geography you wish to center in on.\n\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -100.0, zoom = 3) |&gt; \n  addProviderTiles(\"OpenStreetMap\")"
   },
   {
     "objectID": "slides/point_mapping.html#adding-markers",
     "href": "slides/point_mapping.html#adding-markers",
     "title": "Point Mapping in R",
     "section": "Adding Markers",
-    "text": "Adding Markers\n\naddCircleMarkers()\naddMarkers()\naddPolygons\n\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
+    "text": "Adding Markers\n\naddCircleMarkers()\naddMarkers()\naddPolygons\n\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
   },
   {
     "objectID": "slides/point_mapping.html#transforming-crs",
@@ -6633,14 +6633,14 @@
     "href": "slides/point_mapping.html#leaflet-cont.",
     "title": "Point Mapping in R",
     "section": "Leaflet, cont.",
-    "text": "Leaflet, cont.\n\nnyc_311_xy &lt;- nyc_311_xy |&gt;\n  st_transform(4326)\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
+    "text": "Leaflet, cont.\n\nnyc_311_xy &lt;- nyc_311_xy |&gt;\n  st_transform(4326)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_xy)"
   },
   {
     "objectID": "slides/point_mapping.html#layers",
     "href": "slides/point_mapping.html#layers",
     "title": "Point Mapping in R",
     "section": "Layers",
-    "text": "Layers\n\nNYC Rodent and Litter Complaints on October 31, 2025\n\n\nleaflet() |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_rodent,\n                   fillColor = \"red\",\n                   stroke = FALSE) |&gt;\n  addCircleMarkers(data = nyc_311_litter,\n                   fillColor = \"blue\",\n                   stroke = FALSE)"
+    "text": "Layers\n\nNYC Rodent and Litter Complaints on October 31, 2025\n\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addCircleMarkers(data = nyc_311_rodent,\n                   fillColor = \"red\",\n                   stroke = FALSE) |&gt;\n  addCircleMarkers(data = nyc_311_litter,\n                   fillColor = \"blue\",\n                   stroke = FALSE)"
   },
   {
     "objectID": "slides/point_mapping.html#creating-palettes-for-points",
@@ -6745,7 +6745,7 @@
     "href": "slides/polygon_mapping.html#mapping-polygons-with-leaflet",
     "title": "Polygon Mapping in R",
     "section": "Mapping Polygons with Leaflet",
-    "text": "Mapping Polygons with Leaflet\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(leaflet)\nnyc_cd &lt;- nyc_cd |&gt;\n  st_transform(4326)\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd)"
+    "text": "Mapping Polygons with Leaflet"
   },
   {
     "objectID": "slides/polygon_mapping.html#chloropleth-maps",
@@ -6773,21 +6773,21 @@
     "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-numeric",
     "title": "Polygon Mapping in R",
     "section": "NYC Commmunity District Chloropleth: Numeric",
-    "text": "NYC Commmunity District Chloropleth: Numeric\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_num &lt;- colorNumeric(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_num(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_num,\n            title = \"Population\")"
+    "text": "NYC Commmunity District Chloropleth: Numeric"
   },
   {
     "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin",
     "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin",
     "title": "Polygon Mapping in R",
     "section": "NYC Commmunity District Chloropleth: Bin",
-    "text": "NYC Commmunity District Chloropleth: Bin\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_bin &lt;- colorBin(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_bin(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_bin,\n            title = \"Population\")"
+    "text": "NYC Commmunity District Chloropleth: Bin"
   },
   {
     "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile",
     "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile",
     "title": "Polygon Mapping in R",
     "section": "NYC Commmunity District Chloropleth: Quantile",
-    "text": "NYC Commmunity District Chloropleth: Quantile\n\nOutputCode\n\n\n\n\n\n\n\n\n\n\n\nlibrary(RColorBrewer)\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_quant(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_quant,\n            title = \"Population\")"
+    "text": "NYC Commmunity District Chloropleth: Quantile"
   },
   {
     "objectID": "slides/how_to_lie.html#for-today",
@@ -6886,5 +6886,33 @@
     "title": "Lab 10: Polygon Mapping in Leaflet",
     "section": "Normalization",
     "text": "Normalization\nNow that we have our basemaps, we can begin to visualize the data we have pulled regarding Louisiana’s Black population from the 2020 census. Below I’ve created the first version of that map for you. First I created a color palette spanning from light green to dark green, and binning Black population values into 5 buckets. Then I added polygons of Louisiana counties to the map and colored the counties according the palette that I created. Finally, I added a legend to explain the colors appearing on the map.\n\npal_bin_census_county_pop &lt;- colorBin(palette=\"BuGn\", \n                    domain = census_counties$value,\n                    bins = 5)\n\nla_map %&gt;%\n  addPolygons(data = census_counties, \n              weight = 1,\n              color = \"black\",\n              fillColor = ~pal_bin_census_county_pop(value),\n              fillOpacity = 0.5,) %&gt;%\n  addLegend(data = census_counties,\n            title = \"Population Black Residents\", \n            pal = pal_bin_census_county_pop, \n            values = ~value)\n\n\n\n\n\nYou may notice that the colors appear a darker shade of green (indicating a higher Black population) right around Louisiana’s major cities. The problem with using this map to identify predominantly Black communities is this: when we compare the total population of a certain demographic across regions, we don’t know if a larger population is a result of that demographic being more represented in that region, or alternatively if it is a result of the total population being higher in that region. To be able to compare how Black communities are represented across Louisiana, we need to normalize our data to account for the total population. In other words, we need to calculate the percentage of the total population that identifies as Black in each region.\n\nQuestion\n\nUsing a data wrangling verb, add a column to each census data frame that calculates the percentage of the population in each census county/tract that identifies as Black. To do so, you will need to divide the Black population stored in value by the total population summary_value and multiply by 100.\n\n\ncensus_counties &lt;- #Fill code here\n\ncensus_tracts &lt;- #Fill code here\n\n\n\n\n\n\nQuestion\n\nCopy the palette and map that I created above, which colored counties by the total Black population. Adjust the code to color the counties by the variable you created to record the percent Black population.\n\n\npal_bin_census_county_perc &lt;- #Create county palette here\n\n#Create county map here"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-numeric-1",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-numeric-1",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Numeric",
+    "text": "NYC Commmunity District Chloropleth: Numeric\n\nlibrary(RColorBrewer)\npal_num &lt;- colorNumeric(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_num(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_num,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin-1",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-bin-1",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Bin",
+    "text": "NYC Commmunity District Chloropleth: Bin\n\nlibrary(RColorBrewer)\npal_bin &lt;- colorBin(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_bin(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_bin,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile-1",
+    "href": "slides/polygon_mapping.html#nyc-commmunity-district-chloropleth-quantile-1",
+    "title": "Polygon Mapping in R",
+    "section": "NYC Commmunity District Chloropleth: Quantile",
+    "text": "NYC Commmunity District Chloropleth: Quantile\n\nlibrary(RColorBrewer)\npal_quant &lt;- colorQuantile(palette = \"YlOrRd\", \n                        domain = nyc_cd$population_2010, n = 4)\n\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd,\n              fillColor = ~pal_quant(population_2010), \n              stroke = FALSE,\n              fillOpacity = 0.5) |&gt;\n  addLegend(data = nyc_cd, \n            values = ~population_2010,\n            pal = pal_quant,\n            title = \"Population\")"
+  },
+  {
+    "objectID": "slides/polygon_mapping.html#mapping-polygons-with-leaflet-1",
+    "href": "slides/polygon_mapping.html#mapping-polygons-with-leaflet-1",
+    "title": "Polygon Mapping in R",
+    "section": "Mapping Polygons with Leaflet",
+    "text": "Mapping Polygons with Leaflet\n\nlibrary(leaflet)\nnyc_cd &lt;- nyc_cd |&gt;\n  st_transform(4326)\nleaflet(width = \"100%\") |&gt;\n  setView(lat = 40.7, lng = -74.0, zoom = 10) |&gt; \n  addProviderTiles(\"CartoDB.Positron\") |&gt;\n  addPolygons(data = nyc_cd)"
   }
 ]
