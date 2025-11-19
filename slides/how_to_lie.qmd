@@ -10,7 +10,7 @@ format:
       boardmarker-width: 5
 editor: source
 execute:
-  echo: true
+  echo: false
   messages: false
   warnings: false
 ---
@@ -23,7 +23,7 @@ execute:
 
 ## All maps lie! 
 
-```{r echo=FALSE, out.width= 300}
+```{r out.width= 300}
 knitr::include_graphics("https://press.uchicago.edu/.imaging/mte/ucp/medium/dam/ucp/books/jacket/978/02/26/43/9780226435923.jpg/jcr:content/9780226435923.jpg")
 ```
 
@@ -85,7 +85,12 @@ Deluca, Eric, and Sara Nelson. 2017. "7. Lying With Maps." In Mapping, Society, 
 
 ## Normalization
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+Adjusting raw counts of data in order to make them comparable relative to one another; often involves turning counts into a percentage or ratio
+
+```{r}
+#| include: false
+
+library(tidyverse)
 library(tidycensus)
 library(sf)
 census_poverty_county <- get_acs(geography = "county",
@@ -100,50 +105,56 @@ census_poverty_county <- get_acs(geography = "county",
 ::: columns
 ::: {.column width="50%"}
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
+```{r}
+#| include: false
 library(leaflet)
 pal_numeric <- colorNumeric(palette = "YlOrRd",
                           domain = census_poverty_county$estimate)
 leaflet() %>%
-  setView(lat = 42.4, lng = -71.4, zoom = 6) %>%
+  setView(lat = 42.4, lng = -70, zoom = 6) %>%
   addProviderTiles("CartoDB.Positron") %>%
-  addLegend(title = "Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_county,
-              pal = pal_numeric, 
-              values = ~estimate) %>%
   addPolygons(
     data = census_poverty_county,
     fillColor = ~pal_numeric(estimate),
     fillOpacity = 0.7,
-    stroke = 0)
+    stroke = 0) %>%
+  addLegend(title = "Income below Poverty Level <br/>in Last 12 Months, 2020", 
+              data = census_poverty_county,
+              pal = pal_numeric, 
+              values = ~estimate)
 ```
 
-
+```{r out.width= 500}
+knitr::include_graphics("img/norm1.png")
+```
 :::
 
 ::: {.column width="50%"}
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| include: false
 census_poverty_county <- 
   census_poverty_county %>%
   mutate(percent_pov = estimate/summary_est)
 pal_numeric <- colorNumeric(palette = "YlOrRd",
                           domain = census_poverty_county$percent_pov)
 leaflet() %>%
-  setView(lat = 42.4, lng = -71.4, zoom = 6) %>%
+  setView(lat = 42.4, lng = -70, zoom = 6) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(
     data = census_poverty_county,
     fillColor = ~pal_numeric(percent_pov),
     fillOpacity = 0.7,
     stroke = 0) %>%
-    addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_county,
-              pal = pal_numeric, 
-              values = ~percent_pov)
+  addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
+    data = census_poverty_county,
+    pal = pal_numeric, 
+    values = ~percent_pov)
 ```
 
+```{r out.width= 500}
+knitr::include_graphics("img/norm2.png")
+```
 :::
 :::
 
@@ -151,9 +162,8 @@ leaflet() %>%
 
 ## Classification
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-library(tidycensus)
-library(sf)
+```{r}
+#| include: false
 census_poverty_tracts <- get_acs(geography = "tract",
               variables = 'B17001_002',
               state = 25, # Replace with State FIPS code
@@ -168,9 +178,8 @@ census_poverty_tracts <- get_acs(geography = "tract",
 
 Binning creates equal interval breaks, and classifies the data into the intervals.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(leaflet)
+```{r}
+#| include: false
 census_poverty_tracts <- 
   census_poverty_tracts %>%
   mutate(percent_pov = estimate/summary_est)
@@ -178,20 +187,23 @@ pal_bin <- colorBin(palette = "YlOrRd",
                           domain = census_poverty_tracts$percent_pov,
                     bins = 4)
 leaflet("width=90%, height=70%") %>%
-  setView(lat = 42.4, lng = -71.4, zoom = 6) %>%
+  setView(lat = 42.4, lng = -70, zoom = 6) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(
     data = census_poverty_tracts,
     fillColor = ~pal_bin(percent_pov),
     fillOpacity = 0.7,
     stroke = 0) %>%
-    addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_tracts,
-              pal = pal_bin, 
-              values = ~percent_pov, 
-              position = "topright")
+  addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
+    data = census_poverty_tracts,
+    pal = pal_bin, 
+    values = ~percent_pov, 
+    position = "topright")
 ```
 
+```{r out.width= 500}
+knitr::include_graphics("img/class1.png")
+```
 
 
 :::
@@ -200,7 +212,8 @@ leaflet("width=90%, height=70%") %>%
 
 Quantiles creates breaks so that there are the same number of observations classified into each bin. 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| include: false
 census_poverty_tracts <- 
   census_poverty_tracts %>%
   mutate(percent_pov = estimate/summary_est)
@@ -208,20 +221,23 @@ pal_quantile <- colorQuantile(palette = "YlOrRd",
                           domain = census_poverty_tracts$percent_pov,
                           n = 4)
 leaflet("width=90%, height=70%") %>%
-  setView(lat = 42.4, lng = -71.4, zoom = 6) %>%
+  setView(lat = 42.4, lng = -70, zoom = 6) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(
     data = census_poverty_tracts,
     fillColor = ~pal_quantile(percent_pov),
     fillOpacity = 0.7,
     stroke = 0) %>%
-    addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_tracts,
-              pal = pal_quantile, 
-              values = ~percent_pov, 
-              position = "topright")
+  addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
+    data = census_poverty_tracts,
+    pal = pal_quantile, 
+    values = ~percent_pov, 
+    position = "topright")
 ```
 
+```{r out.width= 500}
+knitr::include_graphics("img/class2.png")
+```
 :::
 :::
 
@@ -235,52 +251,59 @@ leaflet("width=90%, height=70%") %>%
 ::: columns
 ::: {.column width="50%"}
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(leaflet)
+```{r}
+#| include: false
 census_poverty_tracts_middlesex <- 
   census_poverty_tracts %>%
   filter(str_detect(NAME, "Middlesex"))
 pal_numeric <- colorNumeric(palette = "YlOrRd",
                           domain = census_poverty_tracts_middlesex$percent_pov)
 leaflet("width=90%, height=70%") %>%
-  setView(lat = 42.4, lng = -71, zoom = 9) %>%
+  setView(lat = 42.4, lng = -70, zoom = 9) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(
     data = census_poverty_tracts_middlesex,
     fillColor = ~pal_numeric(percent_pov),
     fillOpacity = 0.7,
     stroke = 0) %>%
-    addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_tracts_middlesex,
-              pal = pal_numeric, 
-              values = ~percent_pov, 
-              position = "topright")
+  addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
+    data = census_poverty_tracts_middlesex,
+    pal = pal_numeric, 
+    values = ~percent_pov, 
+    position = "topright")
 ```
 
+```{r out.width= 500}
+knitr::include_graphics("img/agg1.png")
+```
 
 :::
 
 ::: {.column width="50%"}
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| include: false
 pal_numeric <- colorNumeric(palette = "YlOrRd",
                           domain = census_poverty_county$percent_pov)
 leaflet("width=90%, height=70%") %>%
-  setView(lat = 42.4, lng = -71, zoom = 9) %>%
+  setView(lat = 42.4, lng = -70, zoom = 9) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(
     data = census_poverty_county,
     fillColor = ~pal_numeric(percent_pov),
     fillOpacity = 0.7,
     stroke = 0) %>%
-    addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
-              data = census_poverty_county,
-              pal = pal_numeric, 
-              values = ~percent_pov, 
-              position = "topright")
+  addLegend(title = "% Pop Income below Poverty Level <br/>in Last 12 Months, 2020", 
+    data = census_poverty_county,
+    pal = pal_numeric, 
+    values = ~percent_pov, 
+    position = "topright")
 ```
 
+
+```{r out.width= 500}
+knitr::include_graphics("img/agg2.png")
+```
 :::
 :::
 

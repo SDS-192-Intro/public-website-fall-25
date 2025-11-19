@@ -6836,14 +6836,14 @@
     "href": "slides/how_to_lie.html#normalization",
     "title": "How to Lie with Maps",
     "section": "Normalization",
-    "text": "Normalization"
+    "text": "Normalization\nAdjusting raw counts of data in order to make them comparable relative to one another; often involves turning counts into a percentage or ratio"
   },
   {
     "objectID": "slides/how_to_lie.html#classification",
     "href": "slides/how_to_lie.html#classification",
     "title": "How to Lie with Maps",
     "section": "Classification",
-    "text": "Classification\n\n\nBinning creates equal interval breaks, and classifies the data into the intervals.\n\n\n\n\n\n\n\nQuantiles creates breaks so that there are the same number of observations classified into each bin."
+    "text": "Classification\n\n\nBinning creates equal interval breaks, and classifies the data into the intervals.\n\n\n\n\n\n\n\n\n\n\nQuantiles creates breaks so that there are the same number of observations classified into each bin."
   },
   {
     "objectID": "slides/how_to_lie.html#aggregation",
