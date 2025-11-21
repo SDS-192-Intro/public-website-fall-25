@@ -4169,7 +4169,7 @@
     "href": "labs/lab10.html#setting-up-your-environment",
     "title": "Lab 10: Polygon Mapping in Leaflet",
     "section": "Setting Up Your Environment",
-    "text": "Setting Up Your Environment\n\nInstall the following packages in your Environment:\n\n\ninstall.packages(\"devtools\")\ninstall.packages(\"remotes\")\nremotes::install_github(\"walkerke/tidycensus\")\n\n\nCreate an API Key for accessing census data here. The key will be emailed to you, and you must activate it with the link you receive in your email. NOTE: It may take several minutes to activate. If you click on the link in your email, and it doesn’t work, try again in a bit.\nRun the following code in your terminal to store the census API key in your environment.\n\nlibrary(tidycensus)\ncensus_api_key(\"[ADD KEY HERE]\", overwrite = FALSE, install = TRUE)\n\nRestart R. Don’t skip this step!!\nRun the code below to load the packages for today’s lab.\n\n\nlibrary(tidyverse)\nlibrary(leaflet)\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidycensus)\nlibrary(RColorBrewer)"
+    "text": "Setting Up Your Environment\n\nInstall the following packages in your Environment:\n\n\ninstall.packages(\"devtools\")\ninstall.packages(\"remotes\")\nremotes::install_github(\"walkerke/tidycensus\")\n\n\nCreate an API Key for accessing census data here. The key will be emailed to you, and you must activate it with the link you receive in your email. NOTE: It may take several minutes to activate. If you click on the link in your email, and it doesn’t work, try again in a bit.\nRun the following code in your console to store the census API key in your environment.\n\nlibrary(tidycensus)\ncensus_api_key(\"[ADD KEY HERE]\", overwrite = FALSE, install = TRUE)\n\nRestart R. Don’t skip this step!!\nRun the code below to load the packages for today’s lab.\n\n\nlibrary(tidyverse)\nlibrary(leaflet)\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidycensus)\nlibrary(RColorBrewer)"
   },
   {
     "objectID": "labs/lab10.html#projections",
@@ -6541,8 +6541,8 @@
     "objectID": "slides/point_mapping.html#for-today",
     "href": "slides/point_mapping.html#for-today",
     "title": "Point Mapping in R",
-    "section": "For Today",
-    "text": "For Today\n\nProjections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points\nExercise"
+    "section": "",
+    "text": "Projections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points\nExercise"
   },
   {
     "objectID": "slides/point_mapping.html#why-analyze-spatial-data",
@@ -6577,7 +6577,7 @@
     "href": "slides/point_mapping.html#projections",
     "title": "Point Mapping in R",
     "section": "Projections",
-    "text": "Projections\n\nMeans by which we convert curved surface of the globe to 2D rectangle\nNecessarily distorts the surface (e.g. area, distance)\nMany projections exist, serving different purposes"
+    "text": "Projections\n\nMeans by which we convert curved surface of the globe to 2D rectangle\nNecessarily distorts the surface (e.g. area, distance)\nMany projections exist, serving different purposes\n\n\n\n\n\n\nStrebe, Cylindrical Equal Area Projection\n\n\n\n\nStrebe, Sinusoidal projection\n\n\n\n\n\n\n\n\nStrebe, Goode’s homolosine projection\n\n\n\n\nStrebe, Mercator projection"
   },
   {
     "objectID": "slides/point_mapping.html#orange-peel-example",
@@ -6661,7 +6661,7 @@
     "href": "slides/point_mapping.html",
     "title": "Point Mapping in R",
     "section": "",
-    "text": "Projections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points"
+    "text": "Projections\nCoordinate Reference Systems\nPoint Mapping in Leaflet\nPalettes for Points\nExercise"
   },
   {
     "objectID": "slides/polygon_mapping.html#for-today",
