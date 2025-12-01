@@ -36,7 +36,7 @@ topic_id,topic_abbr,topic,date,standard_id,required_reading,req_chapter,optional
 35,review2,Review,11/24/25,,,,,,,,,Final Review [here](final-review.html),,
 36,no_class2,No Class,11/26/25,,,,,,,,,,,
 37,no_class3,No Class,11/28/25,,,,,,,,,,,
-38,apis,Working with APIs,12/1/25,,,,,,[Lab 10](labs/lab10.html) Due,,,,,
+38,apis,Working with APIs,12/1/25,,,,,,[Lab 10](labs/lab10.html) Due,,Course slides are [here](slides/apis.html),,,
 39,apis_adv,Advanced APIs,12/3/25,,,,,,,,,,,
 40,api_lab,Lab: Working with APIs,12/5/25,,,,,,,,,,,
 41,TBD,Work on Group Projects in Class,12/8/25,,,,,,,,,,,
